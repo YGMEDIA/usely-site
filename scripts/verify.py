@@ -12,7 +12,8 @@ import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://usely.yg-media.de"
-PAGES = ["index.html"]
+PAGES = ["index.html", "en/index.html"]
+PAIR = {"index.html": SITE + "/", "en/index.html": SITE + "/en/"}
 
 errors = []
 warnings = []
@@ -53,11 +54,23 @@ def check_invariants():
 
 def check_page(path):
     html = read(path)
+    is_en = path.startswith("en/")
 
     # Sprache
     m = re.search(r"<html[^>]*\blang=\"([a-zA-Z-]+)\"", html)
-    if not m or m.group(1).lower().split("-")[0] != "de":
-        err(f"{path}: lang-Attribut fehlt oder nicht de")
+    want = "en" if is_en else "de"
+    if not m or m.group(1).lower().split("-")[0] != want:
+        err(f"{path}: lang-Attribut fehlt oder nicht {want}")
+
+    # hreflang-Trio (beide Seiten)
+    trio = set(x.lower() for x in re.findall(r'<link[^>]*rel="alternate"[^>]*hreflang="([^"]+)"', html))
+    if not {"de", "en", "x-default"}.issubset(trio):
+        err(f"{path}: hreflang-Trio unvollstaendig (gefunden: {sorted(trio)})")
+
+    # Sprachwechsler zeigt aufs Pendant
+    ziel = '/' if is_en else '/en/'
+    if f'class="nav-lang" hreflang=' not in html or f'href="{ziel}" class="nav-lang"' not in html:
+        err(f"{path}: Sprachwechsler fehlt oder zeigt nicht auf {ziel}")
 
     # DNA-Marker (gleiche Handschrift wie yg-media.de)
     for marker, name in [("<nav", "Navbar"), ("<footer", "Footer"), ("<canvas", "Canvas-Hintergrund"),
@@ -72,6 +85,13 @@ def check_page(path):
         err(f"{path}: GA-Snippet ohne Consent-Funktion")
     if not re.search(r"const GA_ID = '(G-[A-Z0-9]+)?'", html):
         err(f"{path}: GA_ID-Konstante fehlt oder hat unerwartetes Format")
+
+    # Deutsche Reste auf der EN-Seite (§B4-Analogie)
+    if is_en:
+        vis = visible_text(html)
+        for wort in ("Rechnung schreiben", "Funktionen", "Kostenlos laden", "Steuerberater", "Datenschutzerkl"):
+            if wort in vis:
+                err(f"{path}: deutscher Rest im sichtbaren Text: {wort}")
 
     # Em-Dash (§A2 der YG-Constitution, hier uebernommen)
     for i, line in enumerate(visible_text(html).splitlines(), 1):
@@ -94,8 +114,8 @@ def check_page(path):
     canon = re.findall(r'<link[^>]*rel="canonical"[^>]*href="([^"]+)"', html)
     if len(canon) != 1:
         err(f"{path}: {len(canon)} Canonicals, erwartet genau 1")
-    elif canon[0] != SITE + "/":
-        err(f"{path}: Canonical zeigt auf {canon[0]}, erwartet {SITE}/")
+    elif canon[0] != PAIR[path]:
+        err(f"{path}: Canonical zeigt auf {canon[0]}, erwartet {PAIR[path]}")
 
     # noindex darf NICHT drin sein
     if re.search(r"<meta[^>]*noindex", html):
@@ -116,14 +136,16 @@ def check_page(path):
         if data.get("@type") == "SoftwareApplication":
             for offer in data.get("offers", []):
                 preis = offer.get("price", "")
-                if preis not in ("0",) and preis.replace(".", ",") not in visible_text(html):
+                # Deutsch schreibt 9,99 - Englisch 9.99: beide Schreibweisen zaehlen
+                schreibweisen = {preis, preis.replace(".", ",")}
+                if preis not in ("0",) and not any(x in visible_text(html) for x in schreibweisen):
                     err(f"{path}: Schema-Preis {preis} steht nicht sichtbar auf der Seite (Schema = sichtbare Wahrheit)")
         if data.get("@type") == "FAQPage":
             for q in data.get("mainEntity", []):
                 frage = q.get("name", "")
                 if frage and frage not in html:
                     err(f"{path}: FAQ-Schema-Frage nicht sichtbar auf der Seite: {frage[:60]}")
-    for want in ("SoftwareApplication", "FAQPage"):
+    for want in ("SoftwareApplication", "FAQPage"):  # beide Sprachen tragen beide Schemas
         if want not in kinds:
             err(f"{path}: JSON-LD {want} fehlt")
 
@@ -155,8 +177,9 @@ def check_sitemap():
         return
     ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     urls = [u.text.strip() for u in tree.findall(".//sm:loc", ns)]
-    if urls != [SITE + "/"]:
-        err(f"sitemap.xml: erwartet genau [{SITE}/], gefunden {urls}")
+    soll = [SITE + "/", SITE + "/en/"]
+    if sorted(urls) != sorted(soll):
+        err(f"sitemap.xml: erwartet {soll}, gefunden {urls}")
 
 
 def main():
