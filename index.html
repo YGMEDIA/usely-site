@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USELY | Rechnungs App für Selbstständige und Kleinunternehmer</title>
+<meta name="description" content="Die Rechnungs App fürs iPhone und den Desktop: Angebote und Rechnungen in Sekunden, Belege scannen, E-Rechnung mit XRechnung und ZUGFeRD. Kostenlos starten.">
+<meta name="keywords" content="Rechnungs App, Rechnung schreiben App, Buchhaltungs App, Rechnungsprogramm Kleinunternehmer, E-Rechnung erstellen, XRechnung, ZUGFeRD, EÜR, Belege scannen App">
+<meta property="og:title" content="USELY | Rechnungs App für Selbstständige">
+<meta property="og:description" content="Kalkulieren. Abrechnen. Fertig. Angebote, Rechnungen und Belege in Sekunden, E-Rechnung inklusive. Kostenlos starten.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://usely.yg-media.de/">
+<meta property="og:image" content="https://usely.yg-media.de/assets/usely-keyvisual.webp">
+<meta property="og:site_name" content="USELY">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="USELY | Rechnungs App für Selbstständige">
+<meta name="twitter:description" content="Angebote, Rechnungen und Belege in Sekunden. E-Rechnung mit XRechnung und ZUGFeRD inklusive.">
+<meta name="twitter:image" content="https://usely.yg-media.de/assets/usely-keyvisual.webp">
+<link rel="canonical" href="https://usely.yg-media.de/">
+<link rel="icon" type="image/webp" href="/assets/usely-icon.webp">
+<link rel="apple-touch-icon" href="/assets/usely-icon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,900&family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+/* USELY Design-Tokens (Quelle: USELY-Repo design-tokens/tokens.json, Theme dark) */
+:root {
+  --teal: #1DDEB4;
+  --teal-dark: #0F6E56;
+  --teal-glow: rgba(29, 222, 180, 0.45);
+  --bg: #18181E;
+  --surface: #1D1D24;
+  --card: #22222A;
+  --card-hover: #2A2A33;
+  --text: #FFFFFF;
+  --muted: #C7C7C7;
+  --faint: #949494;
+  --warning: #FFCC33;
+  --border: rgba(255,255,255,0.08);
+  --glass: rgba(255,255,255,0.04);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.65; }
+
+/* HINTERGRUND-DNA */
+#bg-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.orb-wrap { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.orb { position: absolute; border-radius: 50%; filter: blur(120px); }
+.orb-1 { width: 900px; height: 900px; background: radial-gradient(circle, rgba(29,222,180,0.16) 0%, transparent 70%); top: -320px; left: -220px; animation: orb1 25s ease-in-out infinite alternate; }
+.orb-2 { width: 620px; height: 620px; background: radial-gradient(circle, rgba(15,110,86,0.38) 0%, transparent 70%); bottom: 4%; right: -160px; animation: orb2 32s ease-in-out infinite alternate; }
+.orb-3 { width: 520px; height: 520px; background: radial-gradient(circle, rgba(29,222,180,0.10) 0%, transparent 70%); top: 42%; left: 44%; animation: orb3 40s ease-in-out infinite alternate; }
+.orb-4 { width: 360px; height: 360px; background: radial-gradient(circle, rgba(15,110,86,0.34) 0%, transparent 70%); top: 18%; right: 18%; animation: orb1 18s ease-in-out infinite alternate-reverse; }
+@keyframes orb1 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px,-40px) scale(1.1); } 100% { transform: translate(-30px,60px) scale(0.95); } }
+@keyframes orb2 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-80px,-60px) scale(1.15); } }
+@keyframes orb3 { 0% { transform: translate(0,0); } 100% { transform: translate(-60px,80px) scale(1.2); } }
+.grid-overlay { position: fixed; inset: 0; z-index: 2; pointer-events: none; background-image: linear-gradient(rgba(29,222,180,0.028) 1px, transparent 1px), linear-gradient(90deg, rgba(29,222,180,0.028) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%); }
+body::after { content: ''; position: fixed; inset: 0; z-index: 3; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; opacity: 0.5; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.1rem 0; transition: background 0.3s, border-color 0.3s; }
+nav.scrolled { background: rgba(24,24,30,0.72); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.nav-inner { max-width: 1240px; margin: 0 auto; padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.nav-logo img { height: 36px; width: 36px; border-radius: 10px; display: block; }
+.nav-logo-text { font-size: 1.05rem; font-weight: 900; color: var(--text); letter-spacing: 0.02em; }
+.nav-links { display: flex; align-items: center; gap: 2.2rem; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta { background: var(--teal) !important; color: #0B2B22 !important; padding: 0.55rem 1.4rem; border-radius: 99px; font-weight: 700 !important; transition: transform 0.2s, box-shadow 0.2s !important; }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(29,222,180,0.45), 0 8px 24px rgba(29,222,180,0.2); }
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+
+/* LAYOUT */
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 2.5rem; position: relative; z-index: 10; }
+section { padding: 7rem 0; position: relative; z-index: 10; }
+section[id] { scroll-margin-top: 70px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-bottom: 1.2rem; text-shadow: 0 0 14px rgba(29,222,180,0.35); }
+.sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2.5rem; margin-bottom: 3.5rem; }
+.sec-title { font-size: clamp(2.1rem, 3.8vw, 3.3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.08; }
+.sec-title em { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; color: var(--teal); text-shadow: 0 0 30px rgba(29,222,180,0.35); }
+.sec-sub { max-width: 420px; color: var(--muted); font-size: 0.95rem; line-height: 1.8; text-align: right; padding-bottom: 0.4rem; }
+
+/* BUTTONS */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2.1rem; border-radius: 99px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer; font-family: 'Inter', sans-serif; letter-spacing: -0.01em; }
+.btn-primary { background: var(--teal); color: #0B2B22; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 28px rgba(29,222,180,0.45), 0 12px 30px rgba(29,222,180,0.2); }
+.btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); font-weight: 600; }
+.btn-ghost:hover { border-color: rgba(29,222,180,0.45); background: rgba(29,222,180,0.06); }
+.badge-link { display: inline-flex; align-items: center; }
+.badge-link img { height: 46px; display: block; transition: transform 0.2s; }
+.badge-link:hover img { transform: translateY(-2px); }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 130px 0 70px; }
+.hero-inner { display: grid; grid-template-columns: 1fr 380px; gap: 4.5rem; align-items: center; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); font-weight: 700; border: 1px solid rgba(29,222,180,0.3); padding: 0.35rem 1rem 0.35rem 0.7rem; border-radius: 99px; margin-bottom: 1.8rem; background: rgba(29,222,180,0.07); width: fit-content; }
+.hero-badge-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; animation: pulse 2s ease infinite; box-shadow: 0 0 6px rgba(29,222,180,0.8); }
+@keyframes pulse { 0%,100% { opacity:1; transform: scale(1); } 50% { opacity:0.4; transform: scale(0.8); } }
+.hero-h1 { font-size: clamp(2.2rem, 3.8vw, 4rem); font-weight: 900; line-height: 1.06; letter-spacing: -0.035em; margin-bottom: 1.6rem; }
+.hero-h1 em { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; color: var(--teal); text-shadow: 0 0 30px rgba(29,222,180,0.4), 0 0 60px rgba(29,222,180,0.15); }
+.hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 540px; margin-bottom: 2.4rem; line-height: 1.8; }
+.hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
+.hero-note { display: block; margin-top: 1.6rem; font-size: 0.8rem; color: var(--faint); }
+.hero-visual { position: relative; }
+.hero-phone { width: 100%; height: 560px; object-fit: cover; object-position: center top; border-radius: 30px; display: block; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 50px 100px -30px rgba(0,0,0,0.7), 0 0 80px -30px rgba(29,222,180,0.3); }
+.hero-glow { position: absolute; inset: -12% -18%; background: radial-gradient(circle, rgba(29,222,180,0.18) 0%, transparent 65%); pointer-events: none; z-index: -1; }
+
+/* VERTRAUENSLEISTE */
+.trust { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2.2rem 0; }
+.trust-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem 2rem; }
+.trust-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+.trust-check { color: var(--teal); font-weight: 900; }
+
+/* KREISLAUF */
+.flow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.flow-card { background: var(--glass); border: 1px solid var(--border); border-radius: 20px; padding: 2rem 1.8rem; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: border-color 0.3s, transform 0.3s; }
+.flow-card:hover { border-color: rgba(29,222,180,0.32); transform: translateY(-4px); }
+.flow-num { font-size: 0.72rem; font-weight: 800; color: var(--teal); letter-spacing: 0.12em; margin-bottom: 1rem; }
+.flow-card h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: -0.02em; }
+.flow-card p { font-size: 0.89rem; color: var(--muted); line-height: 1.75; }
+
+/* FEATURES */
+.feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+.feat-card { background: var(--bg); padding: 2.2rem 1.8rem; transition: background 0.35s; display: flex; flex-direction: column; }
+.feat-card:hover { background: rgba(29,222,180,0.045); }
+.feat-icon { width: 42px; height: 42px; border-radius: 12px; background: rgba(29,222,180,0.12); border: 1px solid rgba(29,222,180,0.25); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1.3rem; }
+.feat-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.7rem; letter-spacing: -0.02em; }
+.feat-card p { color: var(--muted); font-size: 0.87rem; line-height: 1.7; }
+
+/* SPLIT (Bild + Text) */
+.split { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; border: 1px solid var(--border); border-radius: 28px; background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); overflow: hidden; margin: 1.4rem 0; transition: border-color 0.3s; }
+.split:hover { border-color: rgba(29,222,180,0.28); }
+.split-img { position: relative; overflow: hidden; min-height: 460px; background: linear-gradient(150deg, rgba(29,222,180,0.12), rgba(15,110,86,0.22)); display: flex; align-items: center; justify-content: center; padding: 2.5rem; }
+.split-img img { max-height: 420px; width: auto; border-radius: 22px; display: block; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6); }
+.split-content { padding: 3.2rem; display: flex; flex-direction: column; justify-content: center; }
+.split-content h3 { font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.18; margin: 0.8rem 0 1.1rem; }
+.split-content p { color: var(--muted); font-size: 0.95rem; line-height: 1.85; }
+.split-list { list-style: none; margin-top: 1.4rem; display: flex; flex-direction: column; gap: 0.7rem; }
+.split-list li { font-size: 0.9rem; color: var(--muted); display: flex; gap: 0.7rem; align-items: flex-start; }
+.split-list li::before { content: '✓'; color: var(--teal); font-weight: 900; flex-shrink: 0; }
+
+/* ZIELGRUPPEN */
+.who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+.who-card { border: 1px solid var(--border); border-radius: 20px; padding: 2rem 1.7rem; background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: border-color 0.3s, transform 0.3s; }
+.who-card:hover { border-color: rgba(29,222,180,0.32); transform: translateY(-4px); }
+.who-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: -0.02em; }
+.who-card p { color: var(--muted); font-size: 0.87rem; line-height: 1.7; }
+
+/* PREISE */
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+.price-card { border: 1px solid var(--border); border-radius: 24px; padding: 2.8rem 2.4rem; background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); position: relative; display: flex; flex-direction: column; }
+.price-card.featured { border-color: rgba(29,222,180,0.4); background: rgba(29,222,180,0.05); }
+.price-tag { position: absolute; top: 1.4rem; right: 1.6rem; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #0B2B22; background: var(--teal); padding: 0.25rem 0.7rem; border-radius: 99px; }
+.price-name { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+.price-value { font-size: 2.6rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 0.4rem; }
+.price-value small { font-size: 0.95rem; font-weight: 600; color: var(--faint); letter-spacing: 0; }
+.price-hint { font-size: 0.84rem; color: var(--faint); margin-bottom: 1.8rem; }
+.price-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; flex: 1; }
+.price-list li { font-size: 0.89rem; color: var(--muted); display: flex; gap: 0.7rem; align-items: flex-start; }
+.price-list li::before { content: '✓'; color: var(--teal); font-weight: 900; flex-shrink: 0; }
+.price-foot { font-size: 0.78rem; color: var(--faint); text-align: center; margin-top: 2rem; line-height: 1.7; }
+
+/* WARUM */
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.why-card { border: 1px solid var(--border); border-radius: 20px; padding: 2.2rem 2rem; background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: border-color 0.3s, transform 0.3s; }
+.why-card:hover { border-color: rgba(29,222,180,0.32); transform: translateY(-4px); }
+.why-num { font-size: 3.4rem; font-weight: 900; line-height: 1; margin-bottom: 1.2rem; -webkit-text-stroke: 1px rgba(29,222,180,0.5); color: transparent; letter-spacing: -0.05em; }
+.why-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.7rem; letter-spacing: -0.02em; }
+.why-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.75; }
+
+/* FAQ */
+.faq-wrap { max-width: 820px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q { width: 100%; text-align: left; background: none; border: none; color: var(--text); font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; padding: 1.5rem 2.5rem 1.5rem 0; cursor: pointer; position: relative; }
+.faq-q::after { content: '+'; position: absolute; right: 0.4rem; top: 50%; transform: translateY(-50%); color: var(--teal); font-size: 1.3rem; font-weight: 400; transition: transform 0.25s; }
+.faq-item.open .faq-q::after { transform: translateY(-50%) rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-item.open .faq-a { max-height: 420px; }
+.faq-a p { color: var(--muted); font-size: 0.92rem; line-height: 1.85; padding-bottom: 1.5rem; }
+
+/* CTA */
+.cta-section { text-align: center; }
+.cta-inner { border: 1px solid var(--border); border-radius: 28px; padding: 6rem 4rem; background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); position: relative; overflow: hidden; }
+.cta-inner::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 620px; height: 620px; background: radial-gradient(circle, rgba(29,222,180,0.1) 0%, transparent 70%); pointer-events: none; }
+.cta-title { font-size: clamp(2.2rem, 4.4vw, 3.4rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.08; margin-bottom: 1.4rem; position: relative; }
+.cta-title em { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; color: var(--teal); text-shadow: 0 0 30px rgba(29,222,180,0.35); }
+.cta-sub { font-size: 1.02rem; color: var(--muted); max-width: 520px; margin: 0 auto 2.6rem; line-height: 1.8; position: relative; }
+.cta-btns { display: flex; gap: 1.2rem; justify-content: center; align-items: center; flex-wrap: wrap; position: relative; }
+.cta-note { display: block; font-size: 0.78rem; color: var(--faint); margin-top: 1.6rem; position: relative; }
+
+/* FOOTER */
+footer { background: rgba(29,29,36,0.7); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); border-top: 1px solid var(--border); padding: 4rem 0 2.5rem; position: relative; z-index: 10; }
+.footer-top { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; margin-bottom: 3rem; }
+.footer-logo { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+.footer-logo img { height: 34px; width: 34px; border-radius: 9px; display: block; }
+.footer-logo-text { font-size: 1rem; font-weight: 900; letter-spacing: 0.02em; }
+.footer-tagline { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+.footer-links-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.footer-col-title { font-size: 0.72rem; font-weight: 800; color: var(--text); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.2rem; }
+.footer-col a { display: block; color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; transition: color 0.2s; }
+.footer-col a:hover { color: var(--text); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.78rem; color: var(--faint); }
+.footer-copy a { color: var(--muted); text-decoration: none; }
+.footer-copy a:hover { color: var(--teal); }
+
+/* COOKIE-BANNER */
+.cookie-banner { position: fixed; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; max-width: 480px; margin: 0 auto; z-index: 2000; padding: 1.6rem 1.8rem; background: rgba(29,29,36,0.92); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.7); transform: translateY(160%); transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+.cookie-banner.show { transform: translateY(0); }
+.cookie-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; }
+.cookie-text { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.2rem; }
+.cookie-text a { color: var(--teal); text-decoration: none; }
+.cookie-text a:hover { text-decoration: underline; }
+.cookie-btns { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.cookie-btn { flex: 1; min-width: 120px; padding: 0.7rem 1.2rem; border-radius: 99px; font-size: 0.82rem; font-weight: 700; cursor: pointer; border: none; font-family: 'Inter', sans-serif; transition: all 0.2s; }
+.cookie-accept { background: var(--teal); color: #0B2B22; }
+.cookie-accept:hover { box-shadow: 0 0 20px rgba(29,222,180,0.4); transform: translateY(-1px); }
+.cookie-decline { background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid rgba(255,255,255,0.12); }
+.cookie-decline:hover { background: rgba(255,255,255,0.1); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: none; }
+[data-delay="1"] { transition-delay: 0.08s; }
+[data-delay="2"] { transition-delay: 0.16s; }
+[data-delay="3"] { transition-delay: 0.24s; }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-visual { max-width: 300px; margin: 0 auto; }
+  .hero-phone { height: 440px; }
+  .feat-grid { grid-template-columns: repeat(2, 1fr); }
+  .who-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: 1fr; }
+  .flow-grid { grid-template-columns: 1fr; }
+  .split, .split.flip { grid-template-columns: 1fr; }
+  .split.flip .split-img { order: -1; }
+  .split-img { min-height: 0; padding: 2rem; }
+  .split-img img { max-height: 380px; position: static; height: auto; }
+  .split-content { padding: 2.4rem 2rem; }
+  .sec-head { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+  .sec-sub { text-align: left; max-width: 100%; }
+  .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 768px) {
+  nav { padding: 0.9rem 0; }
+  .nav-inner { padding: 0 1.5rem; }
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: rgba(24,24,30,0.98); padding: 1.5rem; gap: 1.4rem; border-bottom: 1px solid var(--border); backdrop-filter: blur(24px); }
+  .nav-links.open { display: flex; }
+  .nav-burger { display: flex; }
+  .wrap { padding: 0 1.5rem; }
+  section { padding: 4.5rem 0; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .who-grid { grid-template-columns: 1fr; }
+  .price-grid { grid-template-columns: 1fr; }
+  .cta-inner { padding: 3.5rem 1.8rem; }
+  .footer-links-grid { grid-template-columns: 1fr 1fr; }
+  .trust-inner { flex-direction: column; gap: 0.9rem; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "USELY",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "iOS, Web",
+  "url": "https://usely.yg-media.de/",
+  "downloadUrl": "https://apps.apple.com/de/app/usely/id6783429050",
+  "image": "https://usely.yg-media.de/assets/usely-keyvisual.webp",
+  "inLanguage": "de-DE",
+  "description": "USELY ist die Rechnungs App für Selbstständige und Kleinunternehmer: Angebote, Auftragsbestätigungen und Rechnungen in einer lückenlosen Belegkette, Belege scannen, E-Rechnung mit XRechnung und ZUGFeRD, EÜR-Export für den Steuerberater. Als iOS App und Web-App, kostenlos startbar.",
+  "featureList": [
+    "Kalkulation in Sekunden",
+    "Belegkette vom Angebot zur Rechnung",
+    "E-Rechnung mit XRechnung und ZUGFeRD",
+    "Belege scannen mit Texterkennung",
+    "Projekte und Zeiterfassung",
+    "Bezahllink für Kunden",
+    "EÜR- und DATEV-Export",
+    "Mahnwesen und wiederkehrende Belege"
+  ],
+  "offers": [
+    { "@type": "Offer", "name": "USELY Free", "price": "0", "priceCurrency": "EUR" },
+    { "@type": "Offer", "name": "USELY Pro monatlich", "price": "9.99", "priceCurrency": "EUR" },
+    { "@type": "Offer", "name": "USELY Pro jährlich", "price": "89.99", "priceCurrency": "EUR" }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "YG MEDIA",
+    "url": "https://yg-media.de/",
+    "email": "info@yg-media.de"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Was kostet USELY?", "acceptedAnswer": { "@type": "Answer", "text": "USELY ist kostenlos nutzbar. USELY Pro kostet 9,99 Euro im Monat oder 89,99 Euro im Jahr und bringt unbegrenzte Rechnungen, das eigene Logo, E-Rechnung, Belegerkennung, Mahnwesen und wiederkehrende Ausgaben. Pro lässt sich 30 Tage kostenlos testen und ist jederzeit kündbar." } },
+    { "@type": "Question", "name": "Ist USELY für Kleinunternehmer geeignet?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Die Kleinunternehmerregelung nach Paragraf 19 UStG ist eingebaut. Rechnungen werden ohne Umsatzsteuer mit dem passenden Hinweis erstellt, und alle Pflichtangaben nach Paragraf 14 UStG stehen automatisch auf dem Beleg." } },
+    { "@type": "Question", "name": "Kann USELY E-Rechnungen erstellen?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. XRechnung und ZUGFeRD sind bereits eingebaut, Jahre vor der stufenweisen Versandpflicht ab 2027. Die E-Rechnung entsteht aus derselben Rechnung, die du ohnehin schreibst, und lässt sich direkt per Mail versenden." } },
+    { "@type": "Question", "name": "Wo liegen meine Daten?", "acceptedAnswer": { "@type": "Answer", "text": "Deine Daten liegen DSGVO-konform in deinem Konto und sind mit Face ID geschützt. Du kannst sie jederzeit exportieren, und die Belegablage ist GoBD-konform nachvollziehbar." } },
+    { "@type": "Question", "name": "Bekommt mein Steuerberater Zugang?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Die Kanzlei bekommt einen eigenen Zugang mit Leserechten, dazu DATEV-Export und ein Belegpaket. Die EÜR steht das ganze Jahr über bereit statt erst im Frühjahr." } },
+    { "@type": "Question", "name": "Funktioniert USELY auch ohne iPhone?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Neben der iOS App gibt es die Web-App für Desktop und Android. Beide nutzen dasselbe Konto und dieselben Daten in Echtzeit, und die Web-App lässt sich als App installieren." } },
+    { "@type": "Question", "name": "Kann ich USELY mit meinem Team nutzen?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Es gibt Rollen für Team-Mitglieder, Admins und die Kanzlei. Projekte, Boards und Zeiterfassung laufen im selben Konto, erfasste Zeiten werden per Klick zu Rechnungspositionen." } },
+    { "@type": "Question", "name": "Wie komme ich wieder aus USELY heraus?", "acceptedAnswer": { "@type": "Answer", "text": "Jederzeit. Belege, Kunden und Auswertungen lassen sich als PDF und CSV exportieren, dazu DATEV für die Kanzlei. Das Abo endet zum Laufzeitende, deine Daten bleiben exportierbar." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="grid-overlay"></div>
+<div class="orb-wrap">
+  <div class="orb orb-1"></div><div class="orb orb-2"></div>
+  <div class="orb orb-3"></div><div class="orb orb-4"></div>
+</div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/assets/usely-icon.webp" alt="USELY">
+      <span class="nav-logo-text">USELY</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#funktionen">Funktionen</a>
+      <a href="#apps">Apps</a>
+      <a href="#preise">Preise</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="nav-cta" data-track="appstore-nav">Kostenlos laden</a>
+    </div>
+    <div class="nav-burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-badge"><span class="hero-badge-dot"></span>Kostenlos starten · iOS und Web</span>
+        <h1 class="hero-h1">Die Rechnungs App für Selbstständige.<br><em>Kalkulieren. Abrechnen. Fertig.</em></h1>
+        <p class="hero-sub">Posten eintippen, Preis sofort sehen, mit einem Tipp ein Angebot, eine Auftragsbestätigung oder eine fertige Rechnung daraus machen. Belege fotografieren, E-Rechnung inklusive, EÜR für den Steuerberater. Auf der Baustelle, beim Kunden oder abends am Küchentisch.</p>
+        <div class="hero-btns">
+          <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="badge-link" data-track="appstore-hero"><img src="/assets/app-store-badge.png" alt="USELY im App Store laden"></a>
+          <a href="https://usely-4lt.pages.dev" target="_blank" rel="noopener" class="btn btn-ghost" data-track="webapp-hero">Web-App öffnen</a>
+        </div>
+        <span class="hero-note">Kostenlos nutzbar. USELY Pro ab 9,99 € im Monat, 30 Tage kostenlos testen.</span>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-glow"></div>
+        <img src="/assets/usely-welcome.webp" alt="USELY App auf dem iPhone: Willkommensbildschirm" class="hero-phone" width="1080" height="2348">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-inner">
+      <span class="trust-item"><span class="trust-check">✓</span>Kostenlos startbar</span>
+      <span class="trust-item"><span class="trust-check">✓</span>E-Rechnung mit XRechnung und ZUGFeRD</span>
+      <span class="trust-item"><span class="trust-check">✓</span>GoBD, §14 und §19 UStG</span>
+      <span class="trust-item"><span class="trust-check">✓</span>DSGVO-konform, Face ID</span>
+      <span class="trust-item"><span class="trust-check">✓</span>Entwickelt in Würzburg</span>
+    </div>
+  </div>
+</div>
+
+<section id="kreislauf">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow">Der Kreislauf</span>
+        <h2 class="sec-title">Vom Angebot bis zum Geld<br><em>ohne Medienbruch.</em></h2>
+      </div>
+      <p class="sec-sub reveal">Jeder Beleg entsteht aus dem vorherigen. Nichts wird abgetippt, nichts geht verloren, und am Ende ordnet sich die Zahlung von selbst der offenen Rechnung zu.</p>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <div class="flow-num">01</div>
+        <h3>Kalkulieren und anbieten</h3>
+        <p>Posten eintippen, Summe sofort sehen, als Angebot verschicken. Der Kunde nimmt online per Link an, die Auftragsbestätigung entsteht automatisch.</p>
+      </div>
+      <div class="flow-card reveal" data-delay="1">
+        <div class="flow-num">02</div>
+        <h3>Abrechnen</h3>
+        <p>Aus der Auftragsbestätigung wird per Klick die Rechnung, bei Bedarf mit Abschlägen und Schlussrechnung. Storno-sicher und lückenlos verknüpft.</p>
+      </div>
+      <div class="flow-card reveal" data-delay="2">
+        <div class="flow-num">03</div>
+        <h3>Kassieren</h3>
+        <p>Kunden zahlen über den Bezahllink mit Karte, PayPal oder Apple Pay. Die Zahlung wird automatisch zugeordnet, offene Posten bleiben im Blick.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="funktionen">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow">Funktionen</span>
+        <h2 class="sec-title">Alles drin.<br><em>Nichts im Weg.</em></h2>
+      </div>
+      <p class="sec-sub reveal">Eine Buchhaltungs App, die aus der Praxis kommt: gebaut für Handwerk, Dienstleistung und Handel, nicht für Steuerberater-Deutsch.</p>
+    </div>
+    <div class="feat-grid reveal">
+      <div class="feat-card">
+        <div class="feat-icon">🧮</div>
+        <h3>Kalkulation in Sekunden</h3>
+        <p>Posten eintippen, Preis sofort sehen, als Projekt speichern. Direkt beim Kunden vor Ort statt abends im Büro.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔗</div>
+        <h3>Lückenlose Belegkette</h3>
+        <p>Angebot, Auftragsbestätigung, Abschlags- und Schlussrechnung, Lieferschein und Storno hängen sauber zusammen.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📄</div>
+        <h3>E-Rechnung serienmäßig</h3>
+        <p>XRechnung und ZUGFeRD sind eingebaut, lange vor der stufenweisen Versandpflicht ab 2027. Versand direkt per Mail.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📸</div>
+        <h3>Belege scannen</h3>
+        <p>Ausgabenbelege abfotografieren, Texterkennung liest sie aus. Fixkosten buchen sich wiederkehrend von selbst.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📋</div>
+        <h3>Projekte und Zeiten</h3>
+        <p>Kunden, Projekte, Boards und Aufgaben mit laufendem Timer. Erfasste Zeiten werden per Klick zu Rechnungspositionen.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🏦</div>
+        <h3>Banking-Abgleich</h3>
+        <p>Geschäftskonto anbinden, Zahlungseingänge werden den offenen Rechnungen automatisch zugeordnet.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📊</div>
+        <h3>EÜR und DATEV</h3>
+        <p>Einnahmen-Überschuss-Rechnung immer aktuell, Export als PDF und CSV, DATEV-Paket für die Kanzlei.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⏰</div>
+        <h3>Mahnungen und Serien</h3>
+        <p>Zahlungserinnerung und Mahnstufen mit eigenem PDF, dazu wiederkehrende Rechnungen und Ausgaben.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apps">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="split-img"><img src="/assets/usely-screen-kalkulation.webp" alt="Kalkulation in der USELY App: Posten mit Summe" loading="lazy"></div>
+      <div class="split-content">
+        <span class="eyebrow">Rechnung schreiben in Sekunden</span>
+        <h3>In 60 Sekunden vom Posten zur fertigen Rechnung.</h3>
+        <p>Anfahrt, Montage, Material: eintippen, Summe steht. Aus derselben Kalkulation wird per Tipp ein Angebot oder direkt eine Rechnung, mit Nummernkreis, Steuersatz und allen Pflichtangaben.</p>
+        <ul class="split-list">
+          <li>Positionen mit Menge, Einheit und Steuersatz</li>
+          <li>Kleinunternehmerregelung nach §19 UStG eingebaut</li>
+          <li>Saubere PDFs im DIN-Format, auf Wunsch mit Logo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split flip reveal">
+      <div class="split-content">
+        <span class="eyebrow">Belegkette</span>
+        <h3>Jeder Beleg entsteht aus dem vorherigen.</h3>
+        <p>Angebot, Auftragsbestätigung und Rechnung hängen in einer lückenlosen Kette zusammen. Beträge werden beim Erstellen eingefroren, Stornos laufen sauber rückwärts, und jede Änderung bleibt nachvollziehbar.</p>
+        <ul class="split-list">
+          <li>Abschlagsrechnungen mit automatischer Schlussrechnung</li>
+          <li>Lieferscheine und Stornobelege inklusive</li>
+          <li>GoBD-konform nachvollziehbar</li>
+        </ul>
+      </div>
+      <div class="split-img"><img src="/assets/usely-screen-belegkette.webp" alt="Belegkette in USELY: Angebot, Auftragsbestätigung, Rechnung" loading="lazy"></div>
+    </div>
+
+    <div class="split reveal">
+      <div class="split-img"><img src="/assets/usely-screen-erechnung.webp" alt="E-Rechnung in USELY mit XRechnung, ZUGFeRD und EÜR-Export" loading="lazy"></div>
+      <div class="split-content">
+        <span class="eyebrow">E-Rechnung und Export</span>
+        <h3>XRechnung und ZUGFeRD, bevor es Pflicht wird.</h3>
+        <p>Ab 2027 wird der Versand von E-Rechnungen stufenweise Pflicht. In USELY ist beides längst eingebaut: Die E-Rechnung entsteht aus der Rechnung, die du ohnehin schreibst, und geht direkt per Mail raus.</p>
+        <ul class="split-list">
+          <li>XRechnung als XML, ZUGFeRD als Hybrid-PDF</li>
+          <li>EÜR-Export als PDF und CSV</li>
+          <li>Eigener Kanzlei-Zugang mit DATEV-Export</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split flip reveal">
+      <div class="split-content">
+        <span class="eyebrow">iPhone und Desktop</span>
+        <h3>Ein Konto, überall dieselben Daten.</h3>
+        <p>Die native iOS App für unterwegs, die Web-App für den Schreibtisch. Beide sind in Echtzeit synchron: Was im Büro angelegt wird, ist auf dem Handy sofort da, und umgekehrt. Die Web-App lässt sich installieren wie eine echte App, auch auf Windows und Android.</p>
+        <ul class="split-list">
+          <li>iOS App im App Store, kostenlos startbar</li>
+          <li>Web-App für Desktop, Tablet und Android</li>
+          <li>Teilbare Links für Angebote, Rechnungen und Zahlung</li>
+        </ul>
+        <div class="hero-btns" style="margin-top:1.8rem">
+          <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="badge-link" data-track="appstore-apps"><img src="/assets/app-store-badge.png" alt="USELY im App Store laden"></a>
+          <a href="https://usely-4lt.pages.dev" target="_blank" rel="noopener" class="btn btn-ghost" data-track="webapp-apps">Web-App öffnen</a>
+        </div>
+      </div>
+      <div class="split-img"><img src="/assets/usely-screen-projekte.webp" alt="Projekte und Kunden in der USELY App" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="fuer-wen">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow">Für wen</span>
+        <h2 class="sec-title">Gebaut für Leute,<br><em>die anderes zu tun haben.</em></h2>
+      </div>
+      <p class="sec-sub reveal">USELY entsteht am echten Betrieb, nicht am Reißbrett. Jede Funktion beweist sich zuerst im Tagesgeschäft.</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-card reveal">
+        <h3>Handwerk</h3>
+        <p>Vor Ort kalkulieren, Angebot noch beim Kunden verschicken, Material und Anfahrt sauber abrechnen.</p>
+      </div>
+      <div class="who-card reveal" data-delay="1">
+        <h3>Freelancer</h3>
+        <p>Zeiten erfassen, Projekte abrechnen, Ausgaben sammeln. Die EÜR steht das ganze Jahr über bereit.</p>
+      </div>
+      <div class="who-card reveal" data-delay="2">
+        <h3>Kleinunternehmer</h3>
+        <p>Rechnungen ohne Umsatzsteuer mit dem richtigen Hinweis nach §19 UStG. Ohne Steuerdeutsch, ohne Nachdenken.</p>
+      </div>
+      <div class="who-card reveal" data-delay="3">
+        <h3>Kleine Teams</h3>
+        <p>Rollen für Mitarbeiter, Admins und die Kanzlei. Boards, Aufgaben und Zeiterfassung im selben Konto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="preise">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow">Preise</span>
+        <h2 class="sec-title">Kostenlos anfangen.<br><em>Erst zahlen, wenn es sich lohnt.</em></h2>
+      </div>
+      <p class="sec-sub reveal">Kein Verkaufsgespräch, keine Einrichtungsgebühr. Der gleiche Preis auf dem iPhone und im Web.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <div class="price-name">USELY Free</div>
+        <div class="price-value">0 €<small> / dauerhaft</small></div>
+        <div class="price-hint">Zum Ausprobieren und für den Start</div>
+        <ul class="price-list">
+          <li>Kalkulation, Angebote und Rechnungen</li>
+          <li>Kunden, Projekte und Ausgaben</li>
+          <li>EÜR im Blick</li>
+          <li>iOS App und Web-App</li>
+        </ul>
+        <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="btn btn-ghost" data-track="appstore-free">Kostenlos laden</a>
+      </div>
+      <div class="price-card featured reveal" data-delay="1">
+        <span class="price-tag">30 Tage testen</span>
+        <div class="price-name">USELY Pro</div>
+        <div class="price-value">9,99 €<small> / Monat</small></div>
+        <div class="price-hint">oder 89,99 € im Jahr, jederzeit kündbar</div>
+        <ul class="price-list">
+          <li>Unbegrenzte Rechnungen und eigenes Logo</li>
+          <li>E-Rechnung mit XRechnung und ZUGFeRD</li>
+          <li>Belegerkennung und wiederkehrende Ausgaben</li>
+          <li>Mahnwesen und Bezahllinks</li>
+          <li>Team-Rollen und Kanzlei-Zugang mit DATEV</li>
+        </ul>
+        <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="btn btn-primary" data-track="appstore-pro">Pro kostenlos testen</a>
+      </div>
+    </div>
+    <p class="price-foot">Das Abo verlängert sich automatisch, wenn es nicht spätestens 24 Stunden vor Ablauf gekündigt wird. Die Abrechnung läuft über deinen Apple-Account oder im Web über Stripe. Kündigen geht jederzeit in den Einstellungen.</p>
+  </div>
+</section>
+
+<section id="warum">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow">Warum USELY</span>
+        <h2 class="sec-title">Nicht die größte Software.<br><em>Die, die du wirklich benutzt.</em></h2>
+      </div>
+      <p class="sec-sub reveal">Die Platzhirsche sind Web-Programme mit nachgereichter App. USELY ist genau andersherum gebaut.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-num">01</div>
+        <h3>Zuerst fürs Handy</h3>
+        <p>Native iOS App statt Browser im Miniformat. Angebot schreiben, während der Kunde noch danebensteht, in einer Oberfläche, die dafür gemacht ist.</p>
+      </div>
+      <div class="why-card reveal" data-delay="1">
+        <div class="why-num">02</div>
+        <h3>E-Rechnung vor der Pflicht</h3>
+        <p>XRechnung und ZUGFeRD sind fertig, während andere in dieser Preisklasse noch ankündigen. Ab 2027 wird der Versand stufenweise Pflicht.</p>
+      </div>
+      <div class="why-card reveal" data-delay="2">
+        <div class="why-num">03</div>
+        <h3>Am echten Betrieb gebaut</h3>
+        <p>Jedes Modul läuft zuerst im Tagesgeschäft eines realen Unternehmens, mit echten Aufträgen und Belegen, bevor es alle bekommen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="sec-title">Häufige Fragen.</h2>
+      </div>
+      <p class="sec-sub reveal">Was sonst noch offen ist: info@yg-media.de</p>
+    </div>
+    <div class="faq-wrap reveal">
+      <div class="faq-item">
+        <button class="faq-q">Was kostet USELY?</button>
+        <div class="faq-a"><p>USELY ist kostenlos nutzbar. USELY Pro kostet 9,99 Euro im Monat oder 89,99 Euro im Jahr und bringt unbegrenzte Rechnungen, das eigene Logo, E-Rechnung, Belegerkennung, Mahnwesen und wiederkehrende Ausgaben. Pro lässt sich 30 Tage kostenlos testen und ist jederzeit kündbar.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Ist USELY für Kleinunternehmer geeignet?</button>
+        <div class="faq-a"><p>Ja. Die Kleinunternehmerregelung nach Paragraf 19 UStG ist eingebaut. Rechnungen werden ohne Umsatzsteuer mit dem passenden Hinweis erstellt, und alle Pflichtangaben nach Paragraf 14 UStG stehen automatisch auf dem Beleg.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Kann USELY E-Rechnungen erstellen?</button>
+        <div class="faq-a"><p>Ja. XRechnung und ZUGFeRD sind bereits eingebaut, Jahre vor der stufenweisen Versandpflicht ab 2027. Die E-Rechnung entsteht aus derselben Rechnung, die du ohnehin schreibst, und lässt sich direkt per Mail versenden.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Wo liegen meine Daten?</button>
+        <div class="faq-a"><p>Deine Daten liegen DSGVO-konform in deinem Konto und sind mit Face ID geschützt. Du kannst sie jederzeit exportieren, und die Belegablage ist GoBD-konform nachvollziehbar.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Bekommt mein Steuerberater Zugang?</button>
+        <div class="faq-a"><p>Ja. Die Kanzlei bekommt einen eigenen Zugang mit Leserechten, dazu DATEV-Export und ein Belegpaket. Die EÜR steht das ganze Jahr über bereit statt erst im Frühjahr.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Funktioniert USELY auch ohne iPhone?</button>
+        <div class="faq-a"><p>Ja. Neben der iOS App gibt es die Web-App für Desktop und Android. Beide nutzen dasselbe Konto und dieselben Daten in Echtzeit, und die Web-App lässt sich als App installieren.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Kann ich USELY mit meinem Team nutzen?</button>
+        <div class="faq-a"><p>Ja. Es gibt Rollen für Team-Mitglieder, Admins und die Kanzlei. Projekte, Boards und Zeiterfassung laufen im selben Konto, erfasste Zeiten werden per Klick zu Rechnungspositionen.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Wie komme ich wieder aus USELY heraus?</button>
+        <div class="faq-a"><p>Jederzeit. Belege, Kunden und Auswertungen lassen sich als PDF und CSV exportieren, dazu DATEV für die Kanzlei. Das Abo endet zum Laufzeitende, deine Daten bleiben exportierbar.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-inner reveal">
+      <h2 class="cta-title">Dein Unternehmen.<br><em>In der Hosentasche.</em></h2>
+      <p class="cta-sub">Lade USELY kostenlos und schreib deine nächste Rechnung in unter 60 Sekunden. Ohne Buchhaltungswissen, ohne Schreibtisch-Abende.</p>
+      <div class="cta-btns">
+        <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="badge-link" data-track="appstore-cta"><img src="/assets/app-store-badge.png" alt="USELY im App Store laden"></a>
+        <a href="https://usely-4lt.pages.dev" target="_blank" rel="noopener" class="btn btn-ghost" data-track="webapp-cta">Web-App öffnen</a>
+      </div>
+      <span class="cta-note">Kostenlos · Für iPhone und Web · Entwickelt in Würzburg</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <img src="/assets/usely-icon.webp" alt="USELY">
+          <span class="footer-logo-text">USELY</span>
+        </div>
+        <p class="footer-tagline">Die Rechnungs App für Selbstständige.<br>Kalkulieren. Abrechnen. Fertig.</p>
+      </div>
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <div class="footer-col-title">Produkt</div>
+          <a href="#funktionen">Funktionen</a>
+          <a href="#apps">iPhone und Web</a>
+          <a href="#preise">Preise</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Loslegen</div>
+          <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" data-track="appstore-footer">Im App Store laden</a>
+          <a href="https://usely-4lt.pages.dev" target="_blank" rel="noopener" data-track="webapp-footer">Web-App öffnen</a>
+          <a href="mailto:info@yg-media.de">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Rechtliches</div>
+          <a href="https://yg-media.de/impressum" target="_blank" rel="noopener">Impressum</a>
+          <a href="https://yg-media.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+          <a href="https://yg-media.de/nutzungsbedingungen" target="_blank" rel="noopener">Nutzungsbedingungen</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 USELY · Ein Produkt von <a href="https://yg-media.de/" target="_blank" rel="noopener">YG MEDIA</a></p>
+      <p class="footer-copy">info@yg-media.de</p>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-title">Diese Website verwendet Cookies</div>
+  <div class="cookie-text">Diese Website nutzt Cookies, um die Nutzung zu analysieren und das Angebot zu verbessern. Du entscheidest selbst, was du zulässt. Mehr dazu in der <a href="https://yg-media.de/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</div>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-decline" id="cookieDecline">Nur notwendige</button>
+    <button class="cookie-btn cookie-accept" id="cookieAccept">Alle akzeptieren</button>
+  </div>
+</div>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); } });
+});
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    item.classList.toggle('open');
+    if (item.classList.contains('open') && window.gtag) window.gtag('event', 'faq_open', { frage: q.textContent.trim() });
+  });
+});
+
+document.querySelectorAll('[data-track]').forEach(el => {
+  el.addEventListener('click', () => {
+    if (!window.gtag) return;
+    const ziel = el.getAttribute('data-track');
+    window.gtag('event', ziel.startsWith('appstore') ? 'app_store_klick' : 'web_app_klick', { position: ziel });
+  });
+});
+
+// Hintergrund-Partikel
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles, mouse = { x: -9999, y: -9999 };
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+function Particle() {
+  this.reset = () => { this.x = Math.random()*W; this.y = Math.random()*H; this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3; this.r = Math.random()*1.4+0.3; this.alpha = Math.random()*0.35+0.06; this.life = 0; this.maxLife = Math.random()*300+200; }; this.reset();
+}
+function initParticles() { particles = Array.from({length:90}, () => new Particle()); }
+function animate() {
+  ctx.clearRect(0,0,W,H);
+  for (let i=0;i<particles.length;i++) {
+    for (let j=i+1;j<particles.length;j++) { const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy); if(d<130){ctx.beginPath();ctx.strokeStyle=`rgba(29,222,180,${(1-d/130)*0.07})`;ctx.lineWidth=0.5;ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();} }
+    const dx=particles[i].x-mouse.x,dy=particles[i].y-mouse.y,d=Math.sqrt(dx*dx+dy*dy); if(d<180){ctx.beginPath();ctx.strokeStyle=`rgba(29,222,180,${(1-d/180)*0.18})`;ctx.lineWidth=0.7;ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}
+  }
+  particles.forEach(p => {
+    p.life++; if(p.life>p.maxLife) p.reset();
+    const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy); if(d<100){const f=(100-d)/100*0.7;p.vx+=(dx/d)*f;p.vy+=(dy/d)*f;}
+    p.vx*=0.99;p.vy*=0.99;p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+    const fa=p.life<60?p.life/60:p.life>p.maxLife-60?(p.maxLife-p.life)/60:1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(29,222,180,${p.alpha*fa})`;ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+window.addEventListener('mousemove', e => { mouse.x=e.clientX; mouse.y=e.clientY; }, {passive:true});
+window.addEventListener('mouseleave', () => { mouse.x=-9999; mouse.y=-9999; });
+window.addEventListener('resize', () => { resize(); initParticles(); }, {passive:true});
+resize(); initParticles(); animate();
+</script>
+
+<script>
+// COOKIE-CONSENT + ANALYTICS (GA4 laedt erst nach Zustimmung)
+(function() {
+  const GA_ID = '';  // TODO: GA4-Mess-ID des Datenstreams "USELY Website" eintragen, dann laeuft das Tracking
+  const banner = document.getElementById('cookieBanner');
+  const KEY = 'usely_cookie_consent';
+  function loadAnalytics() {
+    if (!GA_ID) return;
+    const s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  }
+  const consent = localStorage.getItem(KEY);
+  if (consent === 'accepted') { loadAnalytics(); }
+  else if (consent !== 'declined') { setTimeout(() => banner.classList.add('show'), 1200); }
+  document.getElementById('cookieAccept').addEventListener('click', () => { localStorage.setItem(KEY, 'accepted'); banner.classList.remove('show'); loadAnalytics(); });
+  document.getElementById('cookieDecline').addEventListener('click', () => { localStorage.setItem(KEY, 'declined'); banner.classList.remove('show'); });
+})();
+</script>
+
+</body>
+</html>
