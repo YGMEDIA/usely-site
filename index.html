@@ -111,7 +111,7 @@ section[id] { scroll-margin-top: 70px; }
 .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
 .hero-note { display: block; margin-top: 1.6rem; font-size: 0.8rem; color: var(--faint); }
 .hero-visual { position: relative; }
-.hero-phone { width: 100%; height: 560px; object-fit: cover; object-position: center top; border-radius: 30px; display: block; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 50px 100px -30px rgba(0,0,0,0.7), 0 0 80px -30px rgba(29,222,180,0.3); }
+.hero-logo { width: 100%; max-width: 380px; height: auto; aspect-ratio: 1 / 1; object-fit: contain; border-radius: 32px; display: block; margin: 0 auto; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 50px 100px -30px rgba(0,0,0,0.8), 0 0 90px -35px rgba(29,222,180,0.35); }
 .hero-glow { position: absolute; inset: -12% -18%; background: radial-gradient(circle, rgba(29,222,180,0.11) 0%, transparent 65%); pointer-events: none; z-index: -1; }
 
 /* VERTRAUENSLEISTE */
@@ -238,7 +238,6 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 @media (max-width: 1100px) {
   .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
   .hero-visual { max-width: 300px; margin: 0 auto; }
-  .hero-phone { height: 440px; }
   .feat-grid { grid-template-columns: repeat(2, 1fr); }
   .who-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: 1fr; }
@@ -282,13 +281,28 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
   "description": "USELY ist die Rechnungs App für Selbstständige und Kleinunternehmer: Angebote, Auftragsbestätigungen und Rechnungen in einer lückenlosen Belegkette, Belege scannen, E-Rechnung mit XRechnung und ZUGFeRD, EÜR-Export für den Steuerberater. Als iOS App und Web-App, kostenlos startbar.",
   "featureList": [
     "Kalkulation in Sekunden",
-    "Belegkette vom Angebot zur Rechnung",
+    "Lückenlose Belegkette",
     "E-Rechnung mit XRechnung und ZUGFeRD",
-    "Belege scannen mit Texterkennung",
-    "Projekte und Zeiterfassung",
-    "Bezahllink für Kunden",
-    "EÜR- und DATEV-Export",
-    "Mahnwesen und wiederkehrende Belege"
+    "Versand mit Protokoll",
+    "Bezahllink",
+    "Banking-Abgleich",
+    "Belege scannen",
+    "Wiederkehrende Belege",
+    "Mahnwesen",
+    "Kundenakte",
+    "Leads und Pipeline",
+    "Boards und Aufgaben",
+    "Zeiten erfassen",
+    "Zeiten abrechnen",
+    "Automationen",
+    "Benachrichtigungen",
+    "Team und Rollen",
+    "Steuerberater-Zugang",
+    "EÜR und DATEV-Export",
+    "Aktivitätsprotokoll",
+    "CSV-Import",
+    "GoBD und DSGVO",
+    "Echtzeit auf iPhone und Web"
   ],
   "offers": [
     { "@type": "Offer", "name": "USELY Free", "price": "0", "priceCurrency": "EUR" },
@@ -362,7 +376,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
       </div>
       <div class="hero-visual">
         <div class="hero-glow"></div>
-        <img src="/assets/usely-welcome.webp" alt="USELY App auf dem iPhone: Willkommensbildschirm" class="hero-phone" width="1080" height="2348">
+        <img src="/assets/usely-keyvisual.webp" alt="USELY Logo, das Glas-U der Rechnungs App" class="hero-logo" width="1024" height="1024">
       </div>
     </div>
   </div>
@@ -416,7 +430,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
         <span class="eyebrow">Funktionen</span>
         <h2 class="sec-title">Alles drin.<br><em>Nichts im Weg.</em></h2>
       </div>
-      <p class="sec-sub reveal">Eine Buchhaltungs App, die aus der Praxis kommt: gebaut für Handwerk, Dienstleistung und Handel, nicht für Steuerberater-Deutsch.</p>
+      <p class="sec-sub reveal">Eine Buchhaltungs App, die aus der Praxis kommt: gebaut für Handwerk, Dienstleistung und Handel, nicht für Steuerberater-Deutsch. Alles unten ist gebaut und nutzbar, nichts davon ist angekündigt.</p>
     </div>
     <div class="feat-grid reveal">
       <div class="feat-card">
@@ -427,37 +441,117 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
       <div class="feat-card">
         <div class="feat-icon">🔗</div>
         <h3>Lückenlose Belegkette</h3>
-        <p>Angebot, Auftragsbestätigung, Abschlags- und Schlussrechnung, Lieferschein und Storno hängen sauber zusammen.</p>
+        <p>Angebot, Auftragsbestätigung, Lieferschein, Abschlags- und Schlussrechnung, Storno. Jeder Beleg entsteht aus dem vorherigen.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">📄</div>
         <h3>E-Rechnung serienmäßig</h3>
-        <p>XRechnung und ZUGFeRD sind eingebaut, lange vor der stufenweisen Versandpflicht ab 2027. Versand direkt per Mail.</p>
+        <p>XRechnung und ZUGFeRD, auch für Abschlags- und Schlussrechnungen. Lange vor der stufenweisen Versandpflicht ab 2027.</p>
       </div>
       <div class="feat-card">
-        <div class="feat-icon">📸</div>
-        <h3>Belege scannen</h3>
-        <p>Ausgabenbelege abfotografieren, Texterkennung liest sie aus. Fixkosten buchen sich wiederkehrend von selbst.</p>
+        <div class="feat-icon">✉️</div>
+        <h3>Versand mit Protokoll</h3>
+        <p>Belege per Mail verschicken, Kunde nimmt das Angebot über einen Link an, jede Zustellung steht im Versandprotokoll.</p>
       </div>
       <div class="feat-card">
-        <div class="feat-icon">📋</div>
-        <h3>Projekte und Zeiten</h3>
-        <p>Kunden, Projekte, Boards und Aufgaben mit laufendem Timer. Erfasste Zeiten werden per Klick zu Rechnungspositionen.</p>
+        <div class="feat-icon">💳</div>
+        <h3>Bezahllink</h3>
+        <p>Kunden zahlen mit Karte, PayPal oder Apple Pay. Die Zahlung wird der offenen Rechnung automatisch zugeordnet.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">🏦</div>
         <h3>Banking-Abgleich</h3>
-        <p>Geschäftskonto anbinden, Zahlungseingänge werden den offenen Rechnungen automatisch zugeordnet.</p>
+        <p>Geschäftskonto anbinden, Zahlungseingänge werden erkannt und den offenen Posten zugeordnet.</p>
       </div>
       <div class="feat-card">
-        <div class="feat-icon">📊</div>
-        <h3>EÜR und DATEV</h3>
-        <p>Einnahmen-Überschuss-Rechnung immer aktuell, Export als PDF und CSV, DATEV-Paket für die Kanzlei.</p>
+        <div class="feat-icon">📸</div>
+        <h3>Belege scannen</h3>
+        <p>Ausgabenbelege abfotografieren, die Texterkennung liest sie aus. Fixkosten buchen sich wiederkehrend von selbst.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔁</div>
+        <h3>Wiederkehrende Belege</h3>
+        <p>Rechnungsvorlagen laufen nach Zeitplan als Entwurf auf, du gibst frei. Ohne verbrannte Rechnungsnummern.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">⏰</div>
-        <h3>Mahnungen und Serien</h3>
-        <p>Zahlungserinnerung und Mahnstufen mit eigenem PDF, dazu wiederkehrende Rechnungen und Ausgaben.</p>
+        <h3>Mahnwesen</h3>
+        <p>Überfällige Rechnungen fallen von selbst auf, Zahlungserinnerung und Mahnstufen mit eigenem PDF.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">👥</div>
+        <h3>Kundenakte</h3>
+        <p>Alles zu einem Kunden an einem Ort: Stammdaten, Kennzahlen, Belege, Projekte, Aufgaben, Dateien und Notizen.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🎯</div>
+        <h3>Leads und Pipeline</h3>
+        <p>Interessenten als Leads führen, im Pipeline-Board bewegen und mit einem Klick zum Kunden mit Kundennummer machen.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📋</div>
+        <h3>Boards und Aufgaben</h3>
+        <p>Kanban, Tabelle und Zeitleiste, eigene Spalten, Zuweisung, Fälligkeit und Kommentare mit Erwähnungen.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⏱️</div>
+        <h3>Zeiten erfassen</h3>
+        <p>Timer starten oder Zeiten nachtragen, Report nach Person, Board und Monat, Export als CSV.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🧾</div>
+        <h3>Zeiten abrechnen</h3>
+        <p>Erfasste Zeiten mit einem Klick zu Rechnungspositionen machen. Kein Abtippen, keine vergessenen Stunden.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⚡</div>
+        <h3>Automationen</h3>
+        <p>Regeln wie "wenn Status wechselt" oder "drei Tage vor Fälligkeit" lösen Zuweisungen und Hinweise aus. Ohne KI, immer nachvollziehbar.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔔</div>
+        <h3>Benachrichtigungen</h3>
+        <p>Glocke in der App und Push aufs iPhone bei Zuweisung, Kommentar, Erwähnung und ausgelöster Regel.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🧑‍🤝‍🧑</div>
+        <h3>Team und Rollen</h3>
+        <p>Mitglieder per Link einladen, Rollen vergeben und Zugriff je Bereich freischalten: Belege, Ausgaben, Kunden, Projekte, Export.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🏛️</div>
+        <h3>Steuerberater-Zugang</h3>
+        <p>Eigener Lesezugang für die Kanzlei, dazu DATEV-Export als Buchungsstapel und Belegpaket mit allen PDFs.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📊</div>
+        <h3>EÜR und Auswertung</h3>
+        <p>Einnahmen-Überschuss-Rechnung immer aktuell, Umsatz und offene Posten im Blick, Export als PDF und CSV.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🕘</div>
+        <h3>Aktivitätsprotokoll</h3>
+        <p>Wer hat wann was geändert: Belege, Kunden, Projekte, Ausgaben und Mitglieder als lückenlose Zeitleiste.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📥</div>
+        <h3>Daten übernehmen</h3>
+        <p>Kunden und Ausgaben per CSV aus sevdesk, Lexware Office, Bank oder Excel importieren, mit Vorschau und Duplikat-Prüfung.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔒</div>
+        <h3>Rechtssicher und geschützt</h3>
+        <p>GoBD-konforme Belegablage, §14 und §19 UStG, DSGVO, Face ID, Konto-Löschung mit Aufbewahrungsfrist.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔄</div>
+        <h3>Echtzeit auf allen Geräten</h3>
+        <p>iPhone und Web teilen ein Konto. Was hier entsteht, ist dort sofort da, inklusive Firmen-Umschalter für mehrere Firmen.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🇩🇪</div>
+        <h3>Deutsch und Englisch</h3>
+        <p>App und Belege in beiden Sprachen, die Belegsprache stellst du je Firma ein.</p>
       </div>
     </div>
   </div>
@@ -634,7 +728,6 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
         <span class="eyebrow">FAQ</span>
         <h2 class="sec-title">Häufige Fragen.</h2>
       </div>
-      <p class="sec-sub reveal">Was sonst noch offen ist: info@yg-media.de</p>
     </div>
     <div class="faq-wrap reveal">
       <div class="faq-item">

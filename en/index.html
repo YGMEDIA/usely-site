@@ -111,7 +111,7 @@ section[id] { scroll-margin-top: 70px; }
 .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
 .hero-note { display: block; margin-top: 1.6rem; font-size: 0.8rem; color: var(--faint); }
 .hero-visual { position: relative; }
-.hero-phone { width: 100%; height: 560px; object-fit: cover; object-position: center top; border-radius: 30px; display: block; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 50px 100px -30px rgba(0,0,0,0.7), 0 0 80px -30px rgba(29,222,180,0.3); }
+.hero-logo { width: 100%; max-width: 380px; height: auto; aspect-ratio: 1 / 1; object-fit: contain; border-radius: 32px; display: block; margin: 0 auto; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 50px 100px -30px rgba(0,0,0,0.8), 0 0 90px -35px rgba(29,222,180,0.35); }
 .hero-glow { position: absolute; inset: -12% -18%; background: radial-gradient(circle, rgba(29,222,180,0.11) 0%, transparent 65%); pointer-events: none; z-index: -1; }
 
 /* VERTRAUENSLEISTE */
@@ -238,7 +238,6 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 @media (max-width: 1100px) {
   .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
   .hero-visual { max-width: 300px; margin: 0 auto; }
-  .hero-phone { height: 440px; }
   .feat-grid { grid-template-columns: repeat(2, 1fr); }
   .who-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: 1fr; }
@@ -281,14 +280,29 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
   "inLanguage": "en",
   "description": "USELY is the invoicing app for freelancers and small businesses in Germany: quotes, order confirmations and invoices in one unbroken document chain, receipt scanning, e-invoicing with XRechnung and ZUGFeRD, and a cash-basis accounting export for your tax advisor. Available as an iOS app and a web app, free to start.",
   "featureList": [
-    "Quotes calculated in seconds",
-    "Document chain from quote to invoice",
+    "Quotes in seconds",
+    "Unbroken document chain",
     "E-invoicing with XRechnung and ZUGFeRD",
-    "Receipt scanning with text recognition",
-    "Projects and time tracking",
-    "Payment links for customers",
-    "Cash-basis accounting and DATEV export",
-    "Reminders and recurring documents"
+    "Sending with a record",
+    "Payment links",
+    "Bank reconciliation",
+    "Receipt scanning",
+    "Recurring documents",
+    "Payment reminders",
+    "Customer record",
+    "Leads and pipeline",
+    "Boards and tasks",
+    "Time tracking",
+    "Billing tracked time",
+    "Automations",
+    "Notifications",
+    "Team and roles",
+    "Tax advisor access",
+    "Accounting and DATEV export",
+    "Activity log",
+    "CSV import",
+    "GoBD and GDPR",
+    "Real time on iPhone and web"
   ],
   "offers": [
     { "@type": "Offer", "name": "USELY Free", "price": "0", "priceCurrency": "EUR" },
@@ -362,7 +376,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
       </div>
       <div class="hero-visual">
         <div class="hero-glow"></div>
-        <img src="/assets/usely-welcome.webp" alt="USELY app on iPhone: welcome screen" class="hero-phone" width="1080" height="2348">
+        <img src="/assets/usely-keyvisual.webp" alt="USELY logo, the glass U of the invoicing app" class="hero-logo" width="1024" height="1024">
       </div>
     </div>
   </div>
@@ -416,7 +430,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
         <span class="eyebrow">Features</span>
         <h2 class="sec-title">Everything in.<br><em>Nothing in the way.</em></h2>
       </div>
-      <p class="sec-sub reveal">An accounting app that comes from practice: built for trades, services and retail, not for accountants’ jargon.</p>
+      <p class="sec-sub reveal">An accounting app that comes from practice: built for trades, services and retail, not for accountants’ jargon. Everything below is built and usable, none of it is announced.</p>
     </div>
     <div class="feat-grid reveal">
       <div class="feat-card">
@@ -427,12 +441,27 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
       <div class="feat-card">
         <div class="feat-icon">🔗</div>
         <h3>Unbroken document chain</h3>
-        <p>Quote, order confirmation, partial and final invoice, delivery note and cancellation all hang together cleanly.</p>
+        <p>Quote, order confirmation, delivery note, partial and final invoice, cancellation. Every document grows out of the one before it.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">📄</div>
         <h3>E-invoicing as standard</h3>
-        <p>XRechnung and ZUGFeRD are built in, long before the German obligation phases in from 2027. Sent straight by email.</p>
+        <p>XRechnung and ZUGFeRD, including partial and final invoices. Long before the German obligation phases in from 2027.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">✉️</div>
+        <h3>Sending with a record</h3>
+        <p>Send documents by email, let customers accept a quote through a link, and see every delivery in the sending log.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">💳</div>
+        <h3>Payment links</h3>
+        <p>Customers pay by card, PayPal or Apple Pay. The payment is matched to the open invoice automatically.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🏦</div>
+        <h3>Bank reconciliation</h3>
+        <p>Connect your business account and incoming payments are recognised and matched to open items.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">📸</div>
@@ -440,24 +469,89 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
         <p>Photograph expense receipts and text recognition reads them out. Fixed costs post themselves on a recurring schedule.</p>
       </div>
       <div class="feat-card">
-        <div class="feat-icon">📋</div>
-        <h3>Projects and time</h3>
-        <p>Customers, projects, boards and tasks with a running timer. Tracked time becomes invoice line items with one click.</p>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon">🏦</div>
-        <h3>Bank reconciliation</h3>
-        <p>Connect your business account and incoming payments are matched to open invoices automatically.</p>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon">📊</div>
-        <h3>Accounting and DATEV</h3>
-        <p>Your cash-basis accounting stays current, exports as PDF and CSV, plus a DATEV package for your tax practice.</p>
+        <div class="feat-icon">🔁</div>
+        <h3>Recurring documents</h3>
+        <p>Invoice templates appear as drafts on schedule and you release them. No invoice numbers burned along the way.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">⏰</div>
-        <h3>Reminders and recurring</h3>
-        <p>Payment reminders and escalation levels with their own PDF, plus recurring invoices and expenses.</p>
+        <h3>Payment reminders</h3>
+        <p>Overdue invoices surface by themselves, with reminders and escalation levels in their own PDF.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">👥</div>
+        <h3>Customer record</h3>
+        <p>Everything about a customer in one place: master data, key figures, documents, projects, tasks, files and notes.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🎯</div>
+        <h3>Leads and pipeline</h3>
+        <p>Keep prospects as leads, move them across the pipeline board and turn them into customers with a number in one click.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📋</div>
+        <h3>Boards and tasks</h3>
+        <p>Kanban, table and timeline views, your own columns, assignment, due dates and comments with mentions.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⏱️</div>
+        <h3>Track time</h3>
+        <p>Start a timer or add time later, report by person, board and month, export as CSV.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🧾</div>
+        <h3>Bill your time</h3>
+        <p>Turn tracked time into invoice line items with one click. No retyping, no forgotten hours.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⚡</div>
+        <h3>Automations</h3>
+        <p>Rules like "when the status changes" or "three days before the due date" trigger assignments and alerts. No AI, always traceable.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔔</div>
+        <h3>Notifications</h3>
+        <p>A bell in the app and push on your iPhone for assignments, comments, mentions and triggered rules.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🧑‍🤝‍🧑</div>
+        <h3>Team and roles</h3>
+        <p>Invite members by link, assign roles and grant access per area: documents, expenses, customers, projects, export.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🏛️</div>
+        <h3>Tax advisor access</h3>
+        <p>A separate read-only login for your practice, plus a DATEV posting batch and a receipt package with all PDFs.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📊</div>
+        <h3>Accounting and reports</h3>
+        <p>Your cash-basis accounting stays current, revenue and open items in view, exports as PDF and CSV.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🕘</div>
+        <h3>Activity log</h3>
+        <p>Who changed what and when: documents, customers, projects, expenses and members as one unbroken timeline.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📥</div>
+        <h3>Bring your data</h3>
+        <p>Import customers and expenses by CSV from sevdesk, Lexware Office, your bank or Excel, with preview and duplicate check.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔒</div>
+        <h3>Compliant and protected</h3>
+        <p>GoBD-compliant receipt archive, German VAT rules, GDPR, Face ID, account deletion with the legal retention period.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔄</div>
+        <h3>Real time on every device</h3>
+        <p>iPhone and web share one account. What you create here is there instantly, including a switcher for several companies.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🌍</div>
+        <h3>German and English</h3>
+        <p>App and documents in both languages, and you set the document language per company.</p>
       </div>
     </div>
   </div>
@@ -634,7 +728,6 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
         <span class="eyebrow">FAQ</span>
         <h2 class="sec-title">Frequently asked questions.</h2>
       </div>
-      <p class="sec-sub reveal">Anything else: info@yg-media.de</p>
     </div>
     <div class="faq-wrap reveal">
       <div class="faq-item">
