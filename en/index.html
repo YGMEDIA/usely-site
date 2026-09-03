@@ -23,9 +23,11 @@
 <link rel="alternate" hreflang="x-default" href="https://usely.yg-media.de/">
 <link rel="icon" type="image/webp" href="/assets/usely-icon.webp">
 <link rel="apple-touch-icon" href="/assets/usely-icon.webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,900&family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/playfair-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 900; font-display: swap; src: url(/assets/fonts/inter-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 500 700; font-display: swap; src: url(/assets/fonts/playfair-italic-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 /* USELY Design-Tokens (Quelle: USELY-Repo design-tokens/tokens.json, Theme dark) */
 :root {
   --teal: #1DDEB4;
@@ -76,7 +78,7 @@ nav.scrolled { background: rgba(5,5,7,0.82); backdrop-filter: blur(28px); -webki
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(29,222,180,0.45), 0 8px 24px rgba(29,222,180,0.2); }
 .nav-lang { border: 1px solid var(--border); border-radius: 99px; padding: 0.35rem 0.8rem; font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 0.06em; transition: border-color 0.2s, color 0.2s; }
 .nav-lang:hover { border-color: rgba(29,222,180,0.45); color: var(--teal) !important; }
-.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: 0; }
 .nav-burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
 
 /* LAYOUT */
@@ -96,7 +98,7 @@ section[id] { scroll-margin-top: 70px; }
 .btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); font-weight: 600; }
 .btn-ghost:hover { border-color: rgba(29,222,180,0.45); background: rgba(29,222,180,0.06); }
 .badge-link { display: inline-flex; align-items: center; }
-.badge-link img { height: 46px; display: block; transition: transform 0.2s; }
+.badge-link img { height: 46px; width: auto; display: block; transition: transform 0.2s; }
 .badge-link:hover img { transform: translateY(-2px); }
 
 /* HERO */
@@ -210,7 +212,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 .footer-col a:hover { color: var(--text); }
 .footer-bottom { border-top: 1px solid var(--border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
 .footer-copy { font-size: 0.78rem; color: var(--faint); }
-.footer-copy a { color: var(--muted); text-decoration: none; }
+.footer-copy a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
 .footer-copy a:hover { color: var(--teal); }
 
 /* COOKIE-BANNER */
@@ -346,7 +348,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 <nav id="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="/assets/usely-icon.webp" alt="USELY">
+      <img src="/assets/usely-icon-96.webp" alt="" width="96" height="96">
       <span class="nav-logo-text">USELY</span>
     </a>
     <div class="nav-links" id="navLinks">
@@ -357,7 +359,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
       <a href="/" class="nav-lang" hreflang="de" aria-label="Deutsche Version">DE</a>
       <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="nav-cta" data-track="appstore-nav">Get it free</a>
     </div>
-    <div class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></div>
+    <button type="button" class="nav-burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -369,14 +371,14 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
         <h1 class="hero-h1">The invoicing app for freelancers.<br><em>Calculate. Invoice. Done.</em></h1>
         <p class="hero-sub">Type in your line items, see the total instantly, and turn it into a quote, an order confirmation or a finished invoice with one tap. Photograph receipts, send e-invoices, hand your tax advisor a clean export. On site, at the customer or at the kitchen table.</p>
         <div class="hero-btns">
-          <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="badge-link" data-track="appstore-hero"><img src="/assets/app-store-badge.png" alt="Download USELY on the App Store"></a>
+          <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="badge-link" data-track="appstore-hero"><img src="/assets/app-store-badge.webp" alt="Download USELY on the App Store" width="494" height="170"></a>
           <a href="https://usely-4lt.pages.dev" target="_blank" rel="noopener" class="btn btn-ghost" data-track="webapp-hero">Open the web app</a>
         </div>
         <span class="hero-note">Free to use. USELY Pro from 9.99 € per month, 30 days free to try.</span>
       </div>
       <div class="hero-visual">
         <div class="hero-glow"></div>
-        <img src="/assets/usely-keyvisual.webp" alt="USELY logo, the glass U of the invoicing app" class="hero-logo" width="1024" height="1024">
+        <img src="/assets/usely-keyvisual-760.webp" alt="USELY logo, the glass U of the invoicing app" class="hero-logo" width="760" height="760" fetchpriority="high">
       </div>
     </div>
   </div>
@@ -560,7 +562,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 <section id="apps">
   <div class="wrap">
     <div class="split reveal">
-      <div class="split-img"><img src="/assets/usely-app-rechnung.webp" alt="Invoice RE-2026-0012 in the USELY app with line items, net total and VAT" loading="lazy" width="1080" height="2349"></div>
+      <div class="split-img"><img src="/assets/usely-app-rechnung.webp" alt="Invoice RE-2026-0012 in the USELY app with line items, net total and VAT" loading="lazy" width="720" height="1566"></div>
       <div class="split-content">
         <span class="eyebrow">Invoicing in seconds</span>
         <h3>From line item to finished invoice in 60 seconds.</h3>
@@ -584,11 +586,11 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
           <li>Auditable under the German GoBD rules</li>
         </ul>
       </div>
-      <div class="split-img"><img src="/assets/usely-app-belegkette.webp" alt="Quote AN-2026-0009 in USELY, already converted into order confirmation AB-2026-0005" loading="lazy" width="1080" height="2349"></div>
+      <div class="split-img"><img src="/assets/usely-app-belegkette.webp" alt="Quote AN-2026-0009 in USELY, already converted into order confirmation AB-2026-0005" loading="lazy" width="720" height="1566"></div>
     </div>
 
     <div class="split reveal">
-      <div class="split-img"><img src="/assets/usely-app-erechnung.webp" alt="E-invoice menu in USELY: generate XRechnung XML or a ZUGFeRD PDF" loading="lazy" width="1080" height="2349"></div>
+      <div class="split-img"><img src="/assets/usely-app-erechnung.webp" alt="E-invoice menu in USELY: generate XRechnung XML or a ZUGFeRD PDF" loading="lazy" width="720" height="1566"></div>
       <div class="split-content">
         <span class="eyebrow">E-invoicing and export</span>
         <h3>XRechnung and ZUGFeRD, before they become mandatory.</h3>
@@ -612,15 +614,15 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
           <li>Shareable links for quotes, invoices and payment</li>
         </ul>
         <div class="hero-btns" style="margin-top:1.8rem">
-          <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="badge-link" data-track="appstore-apps"><img src="/assets/app-store-badge.png" alt="Download USELY on the App Store"></a>
+          <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="badge-link" data-track="appstore-apps"><img src="/assets/app-store-badge.webp" alt="Download USELY on the App Store" width="494" height="170"></a>
           <a href="https://usely-4lt.pages.dev" target="_blank" rel="noopener" class="btn btn-ghost" data-track="webapp-apps">Open the web app</a>
         </div>
       </div>
-      <div class="split-img"><img src="/assets/usely-app-uebersicht.webp" alt="Overview in the USELY app with revenue, costs, open invoices and the yearly curve" loading="lazy" width="1080" height="2349"></div>
+      <div class="split-img"><img src="/assets/usely-app-uebersicht.webp" alt="Overview in the USELY app with revenue, costs, open invoices and the yearly curve" loading="lazy" width="720" height="1566"></div>
     </div>
 
     <div class="split reveal">
-      <div class="split-img"><img src="/assets/usely-app-board.webp" alt="Board in the USELY app with tasks, status, person, due date and open hours" loading="lazy" width="1080" height="2349"></div>
+      <div class="split-img"><img src="/assets/usely-app-board.webp" alt="Board in the USELY app with tasks, status, person, due date and open hours" loading="lazy" width="720" height="1566"></div>
       <div class="split-content">
         <span class="eyebrow">Boards and time tracking</span>
         <h3>Plan tasks, log hours, bill them with one tap.</h3>
@@ -644,7 +646,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
           <li>Expenses with category, receipt scan and yearly overview</li>
         </ul>
       </div>
-      <div class="split-img"><img src="/assets/usely-app-kundenakte.webp" alt="Customer file in the USELY app with open amounts, revenue, master data and documents" loading="lazy" width="1080" height="2349"></div>
+      <div class="split-img"><img src="/assets/usely-app-kundenakte.webp" alt="Customer file in the USELY app with open amounts, revenue, master data and documents" loading="lazy" width="720" height="1566"></div>
     </div>
   </div>
 </section>
@@ -800,7 +802,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
       <h2 class="cta-title">Your business.<br><em>In your pocket.</em></h2>
       <p class="cta-sub">Download USELY for free and write your next invoice in under 60 seconds. No accounting knowledge, no evenings at the desk.</p>
       <div class="cta-btns">
-        <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="badge-link" data-track="appstore-cta"><img src="/assets/app-store-badge.png" alt="Download USELY on the App Store"></a>
+        <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="badge-link" data-track="appstore-cta"><img src="/assets/app-store-badge.webp" alt="Download USELY on the App Store" width="494" height="170"></a>
         <a href="https://usely-4lt.pages.dev" target="_blank" rel="noopener" class="btn btn-ghost" data-track="webapp-cta">Open the web app</a>
       </div>
       <span class="cta-note">Free · For iPhone and web · Built in Würzburg, Germany</span>
@@ -813,7 +815,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
     <div class="footer-top">
       <div>
         <div class="footer-logo">
-          <img src="/assets/usely-icon.webp" alt="USELY">
+          <img src="/assets/usely-icon-96.webp" alt="" width="96" height="96">
           <span class="footer-logo-text">USELY</span>
         </div>
         <p class="footer-tagline">The invoicing app for freelancers.<br>Calculate. Invoice. Done.</p>
@@ -861,8 +863,8 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
-burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+burger.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); burger.setAttribute('aria-expanded', String(open)); });
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }));
 
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); } });
