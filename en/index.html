@@ -236,6 +236,69 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 [data-delay="2"] { transition-delay: 0.16s; }
 [data-delay="3"] { transition-delay: 0.24s; }
 
+
+/* SCHWEBENDE GLAS-KARTEN (Hero) */
+.float-cards { display: contents; }
+.float-card { position: absolute; z-index: 2; background: rgba(10,10,14,0.74); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 0.85rem 1rem; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 24px 50px -20px rgba(0,0,0,0.75), 0 0 40px -18px rgba(29,222,180,0.4); min-width: 158px; animation: floaty 7s ease-in-out infinite; }
+.float-card small { display: block; font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); font-weight: 700; margin-bottom: 0.3rem; }
+.float-card strong { display: block; font-size: 1.15rem; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+.float-card span { display: block; font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; }
+.float-badge { display: inline-block; margin-top: 0.45rem; font-size: 0.64rem; font-weight: 800; padding: 0.16rem 0.55rem; border-radius: 99px; background: rgba(29,222,180,0.15); color: var(--teal); border: 1px solid rgba(29,222,180,0.3); letter-spacing: 0.04em; }
+.float-badge.warn { background: rgba(255,204,51,0.12); color: var(--warning); border-color: rgba(255,204,51,0.3); }
+.fc-1 { top: -4%; left: -20%; }
+.fc-2 { top: 16%; right: -10%; animation-delay: 1.6s; }
+.fc-3 { bottom: 18%; left: -24%; animation-delay: 3.2s; }
+.fc-4 { bottom: -5%; right: -4%; animation-delay: 4.8s; }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* BENTO (Kennzahlen) */
+.band::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent, rgba(29,222,180,0.035) 30%, rgba(29,222,180,0.035) 70%, transparent); pointer-events: none; }
+.bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(150px, auto); gap: 1.1rem; }
+.bento-card { border: 1px solid var(--border); border-radius: 22px; background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 1.7rem 1.6rem; position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.3s; display: flex; flex-direction: column; justify-content: flex-end; }
+.bento-card:hover { border-color: rgba(29,222,180,0.32); transform: translateY(-4px); }
+.bento-big { grid-column: span 2; grid-row: span 2; justify-content: flex-start; background: linear-gradient(160deg, rgba(29,222,180,0.09), rgba(15,110,86,0.06) 45%, rgba(255,255,255,0.02)); }
+.bento-big::before { content: ''; position: absolute; top: -40%; right: -20%; width: 420px; height: 420px; background: radial-gradient(circle, rgba(29,222,180,0.16), transparent 65%); pointer-events: none; }
+.bento-wide { grid-column: span 2; justify-content: center; }
+.stat-num { font-size: clamp(2rem, 3vw, 2.7rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1; text-shadow: 0 0 30px rgba(29,222,180,0.25); }
+.stat-num em { font-style: normal; color: var(--teal); }
+.stat-label { font-size: 0.92rem; font-weight: 700; margin-top: 0.6rem; letter-spacing: -0.01em; }
+.stat-sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.6; }
+.bento-big h3 { font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.15; margin: 0.6rem 0 0.8rem; position: relative; }
+.bento-big p { color: var(--muted); font-size: 0.93rem; line-height: 1.8; max-width: 460px; position: relative; }
+.spark { margin-top: auto; padding-top: 1.6rem; position: relative; }
+.spark svg { width: 100%; height: auto; display: block; }
+.spark-legend { display: flex; gap: 1.2rem; font-size: 0.72rem; color: var(--faint); margin-top: 0.6rem; }
+.spark-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 0.4rem; vertical-align: middle; }
+.pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.pill { font-size: 0.74rem; font-weight: 700; padding: 0.4rem 0.85rem; border-radius: 99px; border: 1px solid rgba(29,222,180,0.28); background: rgba(29,222,180,0.07); color: var(--text); letter-spacing: 0.02em; }
+
+/* BELEGKETTE (Kreislauf) */
+.chain { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; align-items: center; gap: 0.6rem; margin-bottom: 2.6rem; }
+.chain-doc { border: 1px solid var(--border); border-radius: 18px; background: rgba(10,10,14,0.6); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding: 1.1rem 1.2rem; transition: border-color 0.3s, transform 0.3s; }
+.chain-doc:hover { border-color: rgba(29,222,180,0.35); transform: translateY(-3px); }
+.chain-type { font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); font-weight: 800; }
+.chain-no { font-size: 0.95rem; font-weight: 800; margin-top: 0.3rem; letter-spacing: -0.01em; }
+.chain-amt { font-size: 1.05rem; font-weight: 900; margin-top: 0.2rem; }
+.chain-badge { display: inline-block; margin-top: 0.55rem; font-size: 0.64rem; font-weight: 800; padding: 0.18rem 0.6rem; border-radius: 99px; background: rgba(29,222,180,0.14); color: var(--teal); border: 1px solid rgba(29,222,180,0.3); letter-spacing: 0.04em; }
+.chain-badge.muted { background: rgba(255,255,255,0.05); color: var(--muted); border-color: var(--border); }
+.chain-arrow { color: var(--teal); font-size: 1.3rem; text-align: center; opacity: 0.8; text-shadow: 0 0 12px rgba(29,222,180,0.6); }
+
+/* EIN TAG MIT USELY (Zeitleiste) */
+.timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; position: relative; }
+.timeline::before { content: ''; position: absolute; left: 4%; right: 4%; top: 22px; height: 1px; background: linear-gradient(90deg, transparent, rgba(29,222,180,0.55), rgba(29,222,180,0.55), transparent); }
+.tl-item { position: relative; padding-top: 3rem; display: flex; flex-direction: column; }
+.tl-item::before { content: ''; position: absolute; top: 16px; left: 0; width: 13px; height: 13px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 5px rgba(29,222,180,0.15), 0 0 18px rgba(29,222,180,0.6); }
+.tl-time { font-size: 0.72rem; font-weight: 800; color: var(--teal); letter-spacing: 0.1em; }
+.tl-card { margin-top: 0.6rem; border: 1px solid var(--border); border-radius: 18px; background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 1.3rem 1.2rem; flex: 1; transition: border-color 0.3s, transform 0.3s; }
+.tl-card:hover { border-color: rgba(29,222,180,0.32); transform: translateY(-4px); }
+.tl-card h3 { font-size: 0.98rem; font-weight: 800; margin-bottom: 0.45rem; letter-spacing: -0.02em; }
+.tl-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+
+/* ZIELGRUPPEN-ERGAENZUNG + CTA-CHIPS */
+.who-icon { width: 44px; height: 44px; border-radius: 13px; background: rgba(29,222,180,0.12); border: 1px solid rgba(29,222,180,0.25); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.1rem; }
+.who-chip { display: inline-block; margin-top: 1rem; font-size: 0.72rem; font-weight: 700; color: var(--teal); border: 1px solid rgba(29,222,180,0.28); background: rgba(29,222,180,0.07); padding: 0.32rem 0.7rem; border-radius: 99px; }
+.cta-chips { display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.8rem; position: relative; }
+
 /* RESPONSIVE */
 @media (max-width: 1100px) {
   .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -267,6 +330,24 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
   .cta-inner { padding: 3.5rem 1.8rem; }
   .footer-links-grid { grid-template-columns: 1fr 1fr; }
   .trust-inner { flex-direction: column; gap: 0.9rem; }
+}
+
+@media (max-width: 1100px) {
+  .float-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.4rem; }
+  .float-card { position: static; animation: none; min-width: 0; }
+  .bento { grid-template-columns: repeat(2, 1fr); }
+  .bento-big { grid-column: span 2; grid-row: auto; }
+  .chain { grid-template-columns: 1fr; }
+  .chain-arrow { transform: rotate(90deg); }
+  .timeline { grid-template-columns: 1fr 1fr; }
+  .timeline::before { display: none; }
+}
+@media (max-width: 768px) {
+  .bento { grid-template-columns: 1fr; }
+  .bento-wide, .bento-big { grid-column: span 1; }
+  .timeline { grid-template-columns: 1fr; }
+  .hero-visual { max-width: 100%; }
+  .hero-logo { max-width: 300px; }
 }
 </style>
 <script type="application/ld+json">
@@ -379,6 +460,12 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
       <div class="hero-visual">
         <div class="hero-glow"></div>
         <img src="/assets/usely-keyvisual-760.webp" alt="USELY logo, the glass U of the invoicing app" class="hero-logo" width="760" height="760" fetchpriority="high">
+        <div class="float-cards">
+          <div class="float-card fc-1"><small>Invoice RE-2026-0003</small><strong>2,839.34 €</strong><span class="float-badge">Paid</span></div>
+          <div class="float-card fc-2"><small>Open invoices</small><strong>5,878.60 €</strong><span>2 pending · 1 overdue</span><span class="float-badge warn">Reminder ready</span></div>
+          <div class="float-card fc-3"><small>E-invoice</small><strong>XRechnung created</strong><span>ZUGFeRD PDF included</span></div>
+          <div class="float-card fc-4"><small>Hours today</small><strong>8:15 h</strong><span>643.50 € billable</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -396,6 +483,40 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
   </div>
 </div>
 
+<section id="numbers" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow">What you get back</span>
+        <h2 class="sec-title">Time, clarity<br><em>and your evenings.</em></h2>
+      </div>
+      <p class="sec-sub reveal">Every number stands for something you no longer do by hand. All of it is built into USELY, none of it is announced.</p>
+    </div>
+    <div class="bento">
+      <div class="bento-card bento-big reveal">
+        <span class="eyebrow">Overview</span>
+        <h3>You always see where you stand.</h3>
+        <p>Revenue, costs, open and overdue invoices and the yearly curve, live from your documents. No spreadsheets, no recalculating, no waiting for your accountant.</p>
+        <div class="spark" aria-hidden="true">
+          <svg viewBox="0 0 600 190" preserveAspectRatio="none"><defs><linearGradient id="gU" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1DDEB4" stop-opacity="0.35"/><stop offset="1" stop-color="#1DDEB4" stop-opacity="0"/></linearGradient></defs><g stroke="rgba(255,255,255,0.06)" stroke-width="1"><line x1="0" y1="40" x2="600" y2="40"/><line x1="0" y1="90" x2="600" y2="90"/><line x1="0" y1="140" x2="600" y2="140"/></g><path d="M0,168 C50,150 80,70 130,78 S210,160 270,120 S350,20 410,48 S510,160 600,140 L600,190 L0,190 Z" fill="url(#gU)"/><path d="M0,168 C50,150 80,70 130,78 S210,160 270,120 S350,20 410,48 S510,160 600,140" fill="none" stroke="#1DDEB4" stroke-width="2.5" stroke-linecap="round"/><path d="M0,178 C70,172 110,150 170,156 S290,176 350,150 S460,128 520,158 S575,178 600,176" fill="none" stroke="rgba(255,107,107,0.85)" stroke-width="2" stroke-linecap="round"/></svg>
+          <div class="spark-legend"><span><i style="background:#1DDEB4"></i>Revenue</span><span><i style="background:rgba(255,107,107,0.85)"></i>Costs</span><span style="margin-left:auto">Sample view</span></div>
+        </div>
+      </div>
+      <div class="bento-card reveal"><div class="stat-num">60 <em>s</em></div><div class="stat-label">to a finished invoice</div><div class="stat-sub">Type the line items, the total is there, PDF out.</div></div>
+      <div class="bento-card reveal"><div class="stat-num">1 <em>chain</em></div><div class="stat-label">quote, order confirmation, invoice</div><div class="stat-sub">Nothing retyped, nothing forgotten.</div></div>
+      <div class="bento-card reveal"><div class="stat-num">2 <em>formats</em></div><div class="stat-label">XRechnung and ZUGFeRD</div><div class="stat-sub">E-invoicing ahead of the 2027 rule.</div></div>
+      <div class="bento-card reveal"><div class="stat-num">24</div><div class="stat-label">features, all built</div><div class="stat-sub">Boards, time, team, tax advisor and more.</div></div>
+      <div class="bento-card bento-wide reveal">
+        <div class="stat-label" style="margin-top:0">Follows the rules so you don't have to know them.</div>
+        <div class="stat-sub">Mandatory details, formats and deadlines live inside the document. You look after the job.</div>
+        <div class="pills"><span class="pill">XRechnung</span><span class="pill">ZUGFeRD</span><span class="pill">DATEV</span><span class="pill">GoBD</span><span class="pill">Section 14 VAT Act</span><span class="pill">Section 19 VAT Act</span><span class="pill">GDPR</span><span class="pill">Face ID</span></div>
+      </div>
+      <div class="bento-card reveal"><div class="stat-num">1 <em>tap</em></div><div class="stat-label">from hours to invoice</div><div class="stat-sub">Logged time becomes line items.</div></div>
+      <div class="bento-card reveal"><div class="stat-num">0 <em>€</em></div><div class="stat-label">to start, 30 days of Pro free</div><div class="stat-sub">Pay only once it pays off.</div></div>
+    </div>
+  </div>
+</section>
+
 <section id="workflow">
   <div class="wrap">
     <div class="sec-head">
@@ -404,6 +525,15 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
         <h2 class="sec-title">From quote to payment<br><em>without a single break.</em></h2>
       </div>
       <p class="sec-sub reveal">Every document grows out of the one before it. Nothing gets retyped, nothing gets lost, and in the end the payment matches itself to the open invoice.</p>
+    </div>
+    <div class="chain">
+      <div class="chain-doc reveal"><div class="chain-type">Quote</div><div class="chain-no">AN-2026-0009</div><div class="chain-amt">1,535.10 €</div><span class="chain-badge">Accepted</span></div>
+      <div class="chain-arrow" aria-hidden="true">→</div>
+      <div class="chain-doc reveal"><div class="chain-type">Order confirmation</div><div class="chain-no">AB-2026-0005</div><div class="chain-amt">1,535.10 €</div><span class="chain-badge muted">Open</span></div>
+      <div class="chain-arrow" aria-hidden="true">→</div>
+      <div class="chain-doc reveal"><div class="chain-type">Invoice</div><div class="chain-no">RE-2026-0013</div><div class="chain-amt">1,535.10 €</div><span class="chain-badge">Paid</span></div>
+      <div class="chain-arrow" aria-hidden="true">→</div>
+      <div class="chain-doc reveal"><div class="chain-type">Payment</div><div class="chain-no">Payment link</div><div class="chain-amt">1,535.10 €</div><span class="chain-badge">Matched</span></div>
     </div>
     <div class="flow-grid">
       <div class="flow-card reveal">
@@ -421,6 +551,25 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
         <h3>Get paid</h3>
         <p>Customers pay through the payment link by card, PayPal or Apple Pay. The payment is matched automatically and open items stay in view.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="day">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow">A day with USELY</span>
+        <h2 class="sec-title">From the first coffee<br><em>to closing time.</em></h2>
+      </div>
+      <p class="sec-sub reveal">This is what bookkeeping feels like when it happens on the side: on your phone, between two appointments, without an evening at the desk.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal"><div class="tl-time">07:40</div><div class="tl-card"><h3>On site</h3><p>Type the line items, send the quote by link. From the van, before the first tool comes out.</p></div></div>
+      <div class="tl-item reveal" data-delay="1"><div class="tl-time">09:15</div><div class="tl-card"><h3>Job confirmed</h3><p>The customer accepts online, the order confirmation writes itself. Push to your iPhone.</p></div></div>
+      <div class="tl-item reveal" data-delay="2"><div class="tl-time">12:30</div><div class="tl-card"><h3>Lunch break</h3><p>The timer runs on the task, the material receipt is photographed and already read.</p></div></div>
+      <div class="tl-item reveal" data-delay="3"><div class="tl-time">16:50</div><div class="tl-card"><h3>Invoice out</h3><p>The confirmation becomes the invoice, e-invoice and payment link included.</p></div></div>
+      <div class="tl-item reveal" data-delay="3"><div class="tl-time">18:05</div><div class="tl-card"><h3>Closing time</h3><p>The payment arrives and matches itself. Your accounts are up to date before you get home.</p></div></div>
     </div>
   </div>
 </section>
@@ -528,20 +677,28 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
     </div>
     <div class="who-grid">
       <div class="who-card reveal">
+        <div class="who-icon">🔧</div>
         <h3>Trades</h3>
         <p>Calculate on site, send the quote while you are still with the customer, bill materials and travel cleanly.</p>
+        <span class="who-chip">Quote on site, nothing to catch up on later</span>
       </div>
       <div class="who-card reveal" data-delay="1">
+        <div class="who-icon">💻</div>
         <h3>Freelancers</h3>
         <p>Track time, bill projects, collect expenses. Your accounting overview is ready all year round.</p>
+        <span class="who-chip">Hours become invoices</span>
       </div>
       <div class="who-card reveal" data-delay="2">
+        <div class="who-icon">🧾</div>
         <h3>Small businesses</h3>
         <p>Invoices without VAT and with the correct note under section 19 of the German VAT Act. No jargon, no second-guessing.</p>
+        <span class="who-chip">Section 19 handled automatically</span>
       </div>
       <div class="who-card reveal" data-delay="3">
+        <div class="who-icon">👥</div>
         <h3>Small teams</h3>
         <p>Roles for staff, admins and your tax practice. Boards, tasks and time tracking in the same account.</p>
+        <span class="who-chip">Roles, boards, tax advisor access</span>
       </div>
     </div>
   </div>
@@ -799,6 +956,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 <section class="cta-section">
   <div class="wrap">
     <div class="cta-inner reveal">
+      <div class="cta-chips"><span class="pill">Free to start</span><span class="pill">30 days of Pro free</span><span class="pill">iPhone and web</span><span class="pill">E-invoicing included</span></div>
       <h2 class="cta-title">Your business.<br><em>In your pocket.</em></h2>
       <p class="cta-sub">Download USELY for free and write your next invoice in under 60 seconds. No accounting knowledge, no evenings at the desk.</p>
       <div class="cta-btns">
