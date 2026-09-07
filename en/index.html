@@ -285,17 +285,6 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 .chain-badge.muted { background: rgba(255,255,255,0.05); color: var(--muted); border-color: var(--border); }
 .chain-arrow { color: var(--teal); font-size: 1.3rem; text-align: center; opacity: 0.8; text-shadow: 0 0 12px rgba(29,222,180,0.6); }
 
-/* EIN TAG MIT USELY (Zeitleiste) */
-.timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; position: relative; }
-.timeline::before { content: ''; position: absolute; left: 4%; right: 4%; top: 22px; height: 1px; background: linear-gradient(90deg, transparent, rgba(29,222,180,0.55), rgba(29,222,180,0.55), transparent); }
-.tl-item { position: relative; padding-top: 3rem; display: flex; flex-direction: column; }
-.tl-item::before { content: ''; position: absolute; top: 16px; left: 0; width: 13px; height: 13px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 5px rgba(29,222,180,0.15), 0 0 18px rgba(29,222,180,0.6); }
-.tl-time { font-size: 0.72rem; font-weight: 800; color: var(--teal); letter-spacing: 0.1em; }
-.tl-card { margin-top: 0.6rem; border: 1px solid var(--border); border-radius: 18px; background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 1.3rem 1.2rem; flex: 1; transition: border-color 0.3s, transform 0.3s; }
-.tl-card:hover { border-color: rgba(29,222,180,0.32); transform: translateY(-4px); }
-.tl-card h3 { font-size: 0.98rem; font-weight: 800; margin-bottom: 0.45rem; letter-spacing: -0.02em; }
-.tl-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
-
 /* ZIELGRUPPEN-ERGAENZUNG + CTA-CHIPS */
 .who-icon { width: 44px; height: 44px; border-radius: 13px; background: rgba(29,222,180,0.12); border: 1px solid rgba(29,222,180,0.25); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.1rem; }
 .who-chip { display: inline-block; margin-top: 1rem; font-size: 0.72rem; font-weight: 700; color: var(--teal); border: 1px solid rgba(29,222,180,0.28); background: rgba(29,222,180,0.07); padding: 0.32rem 0.7rem; border-radius: 99px; }
@@ -344,13 +333,10 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
   .bento-big { grid-column: span 2; grid-row: auto; }
   .chain { grid-template-columns: 1fr; }
   .chain-arrow { transform: rotate(90deg); }
-  .timeline { grid-template-columns: 1fr 1fr; }
-  .timeline::before { display: none; }
 }
 @media (max-width: 768px) {
   .bento { grid-template-columns: 1fr; }
   .bento-wide, .bento-big { grid-column: span 1; }
-  .timeline { grid-template-columns: 1fr; }
   .hero-visual { max-width: 100%; }
 }
 </style>
@@ -555,25 +541,6 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
         <h3>Get paid</h3>
         <p>Customers pay through the payment link by card, PayPal or Apple Pay. The payment is matched automatically and open items stay in view.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="day">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="reveal">
-        <span class="eyebrow">A job with USELY</span>
-        <h2 class="sec-title">From the enquiry<br><em>to the money.</em></h2>
-      </div>
-      <p class="sec-sub reveal">This is how a job runs, whether you are in the trades, consulting, creative work or services: the bookkeeping happens on the side, not at the weekend.</p>
-    </div>
-    <div class="timeline">
-      <div class="tl-item reveal"><div class="tl-time">Day 1 · Enquiry</div><div class="tl-card"><h3>A quote in minutes</h3><p>The enquiry comes in, type the line items, send the quote by link. Right after the call, not at the desk that evening.</p></div></div>
-      <div class="tl-item reveal" data-delay="1"><div class="tl-time">Day 3 · Go-ahead</div><div class="tl-card"><h3>Job confirmed</h3><p>The customer accepts online, the order confirmation writes itself. Push to your iPhone.</p></div></div>
-      <div class="tl-item reveal" data-delay="2"><div class="tl-time">Days 4 to 12 · The work</div><div class="tl-card"><h3>Hours and receipts on the side</h3><p>Timer on the task, material and travel receipts photographed and read. Nothing piles up for later.</p></div></div>
-      <div class="tl-item reveal" data-delay="3"><div class="tl-time">Day 13 · Wrap-up</div><div class="tl-card"><h3>Invoice in one tap</h3><p>The confirmation becomes the invoice, logged hours become line items. E-invoice and payment link included.</p></div></div>
-      <div class="tl-item reveal" data-delay="3"><div class="tl-time">Day 27 · Payment</div><div class="tl-card"><h3>Money is in</h3><p>The payment arrives and matches the invoice. If it runs late, USELY reminds the customer. Your accounts were up to date long ago.</p></div></div>
     </div>
   </div>
 </section>

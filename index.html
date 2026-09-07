@@ -285,17 +285,6 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 .chain-badge.muted { background: rgba(255,255,255,0.05); color: var(--muted); border-color: var(--border); }
 .chain-arrow { color: var(--teal); font-size: 1.3rem; text-align: center; opacity: 0.8; text-shadow: 0 0 12px rgba(29,222,180,0.6); }
 
-/* EIN TAG MIT USELY (Zeitleiste) */
-.timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; position: relative; }
-.timeline::before { content: ''; position: absolute; left: 4%; right: 4%; top: 22px; height: 1px; background: linear-gradient(90deg, transparent, rgba(29,222,180,0.55), rgba(29,222,180,0.55), transparent); }
-.tl-item { position: relative; padding-top: 3rem; display: flex; flex-direction: column; }
-.tl-item::before { content: ''; position: absolute; top: 16px; left: 0; width: 13px; height: 13px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 5px rgba(29,222,180,0.15), 0 0 18px rgba(29,222,180,0.6); }
-.tl-time { font-size: 0.72rem; font-weight: 800; color: var(--teal); letter-spacing: 0.1em; }
-.tl-card { margin-top: 0.6rem; border: 1px solid var(--border); border-radius: 18px; background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 1.3rem 1.2rem; flex: 1; transition: border-color 0.3s, transform 0.3s; }
-.tl-card:hover { border-color: rgba(29,222,180,0.32); transform: translateY(-4px); }
-.tl-card h3 { font-size: 0.98rem; font-weight: 800; margin-bottom: 0.45rem; letter-spacing: -0.02em; }
-.tl-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
-
 /* ZIELGRUPPEN-ERGAENZUNG + CTA-CHIPS */
 .who-icon { width: 44px; height: 44px; border-radius: 13px; background: rgba(29,222,180,0.12); border: 1px solid rgba(29,222,180,0.25); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.1rem; }
 .who-chip { display: inline-block; margin-top: 1rem; font-size: 0.72rem; font-weight: 700; color: var(--teal); border: 1px solid rgba(29,222,180,0.28); background: rgba(29,222,180,0.07); padding: 0.32rem 0.7rem; border-radius: 99px; }
@@ -344,13 +333,10 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
   .bento-big { grid-column: span 2; grid-row: auto; }
   .chain { grid-template-columns: 1fr; }
   .chain-arrow { transform: rotate(90deg); }
-  .timeline { grid-template-columns: 1fr 1fr; }
-  .timeline::before { display: none; }
 }
 @media (max-width: 768px) {
   .bento { grid-template-columns: 1fr; }
   .bento-wide, .bento-big { grid-column: span 1; }
-  .timeline { grid-template-columns: 1fr; }
   .hero-visual { max-width: 100%; }
 }
 </style>
@@ -559,25 +545,6 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
   </div>
 </section>
 
-<section id="tag">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="reveal">
-        <span class="eyebrow">Ein Auftrag mit USELY</span>
-        <h2 class="sec-title">Von der Anfrage<br><em>bis zum Geld.</em></h2>
-      </div>
-      <p class="sec-sub reveal">So läuft ein Auftrag, egal ob Handwerk, Beratung, Kreativarbeit oder Dienstleistung: Die Buchhaltung passiert nebenbei, nicht am Wochenende.</p>
-    </div>
-    <div class="timeline">
-      <div class="tl-item reveal"><div class="tl-time">Tag 1 · Anfrage</div><div class="tl-card"><h3>Angebot in Minuten</h3><p>Die Anfrage kommt rein, Posten eintippen, Angebot per Link raus. Direkt nach dem Gespräch, nicht abends am Schreibtisch.</p></div></div>
-      <div class="tl-item reveal" data-delay="1"><div class="tl-time">Tag 3 · Zusage</div><div class="tl-card"><h3>Auftrag ist da</h3><p>Der Kunde nimmt online an, die Auftragsbestätigung entsteht von selbst. Push aufs iPhone.</p></div></div>
-      <div class="tl-item reveal" data-delay="2"><div class="tl-time">Tag 4 bis 12 · Arbeit</div><div class="tl-card"><h3>Zeiten und Belege nebenbei</h3><p>Timer auf der Aufgabe, Material- und Reisebelege fotografiert und erkannt. Nichts stapelt sich für später.</p></div></div>
-      <div class="tl-item reveal" data-delay="3"><div class="tl-time">Tag 13 · Abschluss</div><div class="tl-card"><h3>Rechnung in einem Tipp</h3><p>Aus der Auftragsbestätigung wird die Rechnung, erfasste Zeiten werden Positionen. E-Rechnung und Bezahllink inklusive.</p></div></div>
-      <div class="tl-item reveal" data-delay="3"><div class="tl-time">Tag 27 · Zahlung</div><div class="tl-card"><h3>Geld ist da</h3><p>Die Zahlung kommt an und ordnet sich der Rechnung zu. Wird es später, erinnert USELY den Kunden. Die EÜR ist längst aktuell.</p></div></div>
-    </div>
-  </div>
-</section>
-
 <section id="apps">
   <div class="wrap">
     <div class="split reveal">
@@ -609,7 +576,7 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
     </div>
 
     <div class="split reveal">
-      <div class="split-img"><img src="/assets/usely-app-erechnung.webp" alt="E-Rechnung-Menü in USELY: XRechnung als XML oder ZUGFeRD-PDF erzeugen" loading="lazy" width="720" height="1566"></div>
+      <div class="split-img split-photo"><img src="/assets/usely-foto-erechnung.webp" alt="iPhone mit der USELY-Rechnung RE-2026-0012 und dem Bereich E-Rechnung und Export: XRechnung, ZUGFeRD, EÜR-Export, DATEV-Export, per E-Mail senden" loading="lazy" width="1040" height="1040"></div>
       <div class="split-content">
         <span class="eyebrow">E-Rechnung und Export</span>
         <h3>XRechnung und ZUGFeRD, bevor es Pflicht wird.</h3>
