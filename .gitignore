@@ -3,3 +3,6 @@
 
 # Quelle fuer assets/usely-hero-arbeitsplatz.webp, Original bleibt lokal (2 MB)
 assets/USELY-App-Keyvisual.png
+
+# Quellbilder von Yasin in assets/, werden bei Bedarf als WebP eingebaut
+assets/ChatGPT Image*.png

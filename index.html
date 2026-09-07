@@ -237,6 +237,20 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 [data-delay="3"] { transition-delay: 0.24s; }
 
 
+/* SCHWEBENDE GLAS-KARTEN (Hero) */
+.float-cards { display: contents; }
+.float-card { position: absolute; z-index: 2; background: rgba(10,10,14,0.78); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 0.85rem 1rem; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 24px 50px -20px rgba(0,0,0,0.8), 0 0 40px -18px rgba(29,222,180,0.45); min-width: 158px; animation: floaty 7s ease-in-out infinite; }
+.float-card small { display: block; font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); font-weight: 700; margin-bottom: 0.3rem; }
+.float-card strong { display: block; font-size: 1.15rem; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+.float-card span { display: block; font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; }
+.float-badge { display: inline-block; margin-top: 0.45rem; font-size: 0.64rem; font-weight: 800; padding: 0.16rem 0.55rem; border-radius: 99px; background: rgba(29,222,180,0.15); color: var(--teal); border: 1px solid rgba(29,222,180,0.3); letter-spacing: 0.04em; }
+.float-badge.warn { background: rgba(255,204,51,0.12); color: var(--warning); border-color: rgba(255,204,51,0.3); }
+.fc-1 { top: -4%; left: -12%; }
+.fc-2 { top: 16%; right: -8%; animation-delay: 1.6s; }
+.fc-3 { bottom: 20%; left: -14%; animation-delay: 3.2s; }
+.fc-4 { bottom: -5%; right: -3%; animation-delay: 4.8s; }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
 /* BENTO (Kennzahlen) */
 .band::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent, rgba(29,222,180,0.035) 30%, rgba(29,222,180,0.035) 70%, transparent); pointer-events: none; }
 .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(150px, auto); gap: 1.1rem; }
@@ -288,6 +302,8 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 /* RESPONSIVE */
 @media (max-width: 1100px) {
   .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
+  .float-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.4rem; }
+  .float-card { position: static; animation: none; min-width: 0; }
   .hero-visual { max-width: 440px; width: 100%; margin: 0 auto; }
   .hero-logo { max-width: 100%; }
   .feat-grid { grid-template-columns: repeat(2, 1fr); }
@@ -444,6 +460,12 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
       <div class="hero-visual">
         <div class="hero-glow"></div>
         <img src="/assets/usely-hero-arbeitsplatz.webp" alt="Selbstständiger am Laptop, um ihn herum die USELY-Bereiche Rechnungen, Projekte, Kunden, Aufgaben, Export und Belege" class="hero-logo" width="1040" height="1040" fetchpriority="high">
+        <div class="float-cards">
+          <div class="float-card fc-1"><small>Rechnung RE-2026-0003</small><strong>2.839,34 €</strong><span class="float-badge">Bezahlt</span></div>
+          <div class="float-card fc-2"><small>Offene Rechnungen</small><strong>5.878,60 €</strong><span>2 ausstehend · 1 überfällig</span><span class="float-badge warn">Mahnung bereit</span></div>
+          <div class="float-card fc-3"><small>E-Rechnung</small><strong>XRechnung erzeugt</strong><span>ZUGFeRD-PDF gleich mit</span></div>
+          <div class="float-card fc-4"><small>Zeiten heute</small><strong>8:15 h</strong><span>643,50 € abrechenbar</span></div>
+        </div>
       </div>
     </div>
   </div>
