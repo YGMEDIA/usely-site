@@ -275,7 +275,8 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
 .pill { font-size: 0.74rem; font-weight: 700; padding: 0.4rem 0.85rem; border-radius: 99px; border: 1px solid rgba(29,222,180,0.28); background: rgba(29,222,180,0.07); color: var(--text); letter-spacing: 0.02em; }
 
 /* POSTER (Bild mit Chips) */
-.poster { position: relative; margin-top: 1.4rem; border-radius: 26px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 40px 80px -30px rgba(0,0,0,0.8); }
+.poster-section { padding: 0; }
+.poster { position: relative; border-radius: 26px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 40px 80px -30px rgba(0,0,0,0.8); }
 .poster img { display: block; width: 100%; height: auto; }
 .poster::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(5,5,7,0.08), rgba(5,5,7,0.5)); pointer-events: none; }
 .poster-chip { position: absolute; z-index: 2; background: rgba(10,10,14,0.72); border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; padding: 1rem 1.2rem; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 24px 50px -20px rgba(0,0,0,0.8), 0 0 40px -18px rgba(29,222,180,0.45); max-width: 360px; animation: floaty 7s ease-in-out infinite; }
@@ -520,6 +521,11 @@ footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-bac
       <div class="bento-card reveal"><div class="stat-num">1 <em>Tipp</em></div><div class="stat-label">von den Stunden zur Rechnung</div><div class="stat-sub">Erfasste Zeiten werden Positionen.</div></div>
       <div class="bento-card reveal"><div class="stat-num">0 <em>€</em></div><div class="stat-label">zum Start, 30 Tage Pro gratis</div><div class="stat-sub">Erst zahlen, wenn es sich lohnt.</div></div>
     </div>
+  </div>
+</section>
+
+<section class="poster-section">
+  <div class="wrap">
     <div class="poster reveal">
       <img src="/assets/usely-foto-start.webp" alt="Zwei Selbstständige besprechen am Laptop ihr nächstes Angebot" loading="lazy" width="1600" height="668">
       <div class="poster-chip pc-1"><small>Worauf wartest du?</small><strong>Dein Geschäft. Deine Regeln.</strong></div>
