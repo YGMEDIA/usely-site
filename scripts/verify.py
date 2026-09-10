@@ -12,8 +12,14 @@ import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://usely.yg-media.de"
-PAGES = ["index.html", "en/index.html"]
-PAIR = {"index.html": SITE + "/", "en/index.html": SITE + "/en/"}
+PAGES = ["index.html", "en/index.html", "hilfe/index.html"]
+PAIR = {"index.html": SITE + "/", "en/index.html": SITE + "/en/", "hilfe/index.html": SITE + "/hilfe/"}
+# Seiten mit Sprach-Pendant tragen das hreflang-Trio und beide Schemas; das
+# Hilfe-Center (nur DE) traegt de + x-default und FAQPage + BreadcrumbList.
+MIT_PENDANT = {"index.html", "en/index.html"}
+SCHEMA_SOLL = {"index.html": ("SoftwareApplication", "FAQPage"),
+               "en/index.html": ("SoftwareApplication", "FAQPage"),
+               "hilfe/index.html": ("FAQPage", "BreadcrumbList")}
 
 errors = []
 warnings = []
@@ -62,10 +68,11 @@ def check_page(path):
     if not m or m.group(1).lower().split("-")[0] != want:
         err(f"{path}: lang-Attribut fehlt oder nicht {want}")
 
-    # hreflang-Trio (beide Seiten)
+    # hreflang-Trio (Seiten mit Pendant); Hilfe-Center: de + x-default
     trio = set(x.lower() for x in re.findall(r'<link[^>]*rel="alternate"[^>]*hreflang="([^"]+)"', html))
-    if not {"de", "en", "x-default"}.issubset(trio):
-        err(f"{path}: hreflang-Trio unvollstaendig (gefunden: {sorted(trio)})")
+    soll_hreflang = {"de", "en", "x-default"} if path in MIT_PENDANT else {"de", "x-default"}
+    if not soll_hreflang.issubset(trio):
+        err(f"{path}: hreflang unvollstaendig (gefunden: {sorted(trio)}, erwartet {sorted(soll_hreflang)})")
 
     # Sprachwechsler zeigt aufs Pendant
     ziel = '/' if is_en else '/en/'
@@ -145,9 +152,20 @@ def check_page(path):
                 frage = q.get("name", "")
                 if frage and frage not in html:
                     err(f"{path}: FAQ-Schema-Frage nicht sichtbar auf der Seite: {frage[:60]}")
-    for want in ("SoftwareApplication", "FAQPage"):  # beide Sprachen tragen beide Schemas
+    for want in SCHEMA_SOLL[path]:
         if want not in kinds:
             err(f"{path}: JSON-LD {want} fehlt")
+
+    # Hilfe-Center: jeder Themen-Link der Seitenleiste und jeder Schnellzugriff hat ein Ziel,
+    # jeder Artikel eine eindeutige id (Deep-Links aus der App und aus Mails)
+    if path == "hilfe/index.html":
+        ids = re.findall(r'<article class="hc-article" id="([^"]+)"', html)
+        if len(ids) != len(set(ids)):
+            err(f"{path}: doppelte Artikel-ids: {sorted(set(i for i in ids if ids.count(i) > 1))}")
+        if len(ids) < 40:
+            warn(f"{path}: nur {len(ids)} Artikel (erwartet >= 40)")
+        if "Hilfe-Center" not in html or 'id="hcQuery"' not in html:
+            err(f"{path}: Suche oder Hilfe-Center-Marker fehlt")
 
     # Interne Links und Assets
     for href in re.findall(r'href="(/[^"]*)"', html):
@@ -177,7 +195,7 @@ def check_sitemap():
         return
     ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     urls = [u.text.strip() for u in tree.findall(".//sm:loc", ns)]
-    soll = [SITE + "/", SITE + "/en/"]
+    soll = [SITE + "/", SITE + "/en/", SITE + "/hilfe/"]
     if sorted(urls) != sorted(soll):
         err(f"sitemap.xml: erwartet {soll}, gefunden {urls}")
 

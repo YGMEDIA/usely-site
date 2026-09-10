@@ -7,3 +7,6 @@ assets/USELY-App-Keyvisual.png
 # Quellbilder von Yasin in assets/, werden bei Bedarf als WebP eingebaut
 assets/ChatGPT Image*.png
 assets/USELY-App-*.png
+
+# Lokale Vorschau (Claude-Code-Browser), nie live
+.claude/launch.json

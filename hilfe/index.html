@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USELY Hilfe | Anleitungen, Fehler und Antworten</title>
+<meta name="description" content="Anleitungen für USELY: Konto einrichten, Rechnung und E-Rechnung schreiben, Belege scannen, Team und Steuerberater, DATEV, Abo. Dazu Lösungen bei Fehlern und häufige Fragen.">
+<meta name="keywords" content="USELY Hilfe, USELY Anleitung, Rechnung schreiben App Anleitung, E-Rechnung erstellen Hilfe, Belege scannen, DATEV Export, USELY Support, USELY FAQ">
+<meta property="og:title" content="USELY Hilfe | Anleitungen, Fehler und Antworten">
+<meta property="og:description" content="Schritt für Schritt durch USELY: vom ersten Konto zur Rechnung, E-Rechnung, Belege, Team, Steuerberater und Abo. Mit Lösungen bei Fehlern.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://usely.yg-media.de/hilfe/">
+<meta property="og:image" content="https://usely.yg-media.de/assets/usely-keyvisual.webp">
+<meta property="og:site_name" content="USELY">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="USELY Hilfe | Anleitungen, Fehler und Antworten">
+<meta name="twitter:description" content="Schritt für Schritt durch USELY: Konto, Rechnung, E-Rechnung, Belege, Team, Steuerberater, Abo. Mit Lösungen bei Fehlern.">
+<meta name="twitter:image" content="https://usely.yg-media.de/assets/usely-keyvisual.webp">
+<link rel="canonical" href="https://usely.yg-media.de/hilfe/">
+<link rel="alternate" hreflang="de" href="https://usely.yg-media.de/hilfe/">
+<link rel="alternate" hreflang="x-default" href="https://usely.yg-media.de/hilfe/">
+<link rel="icon" type="image/webp" href="/assets/usely-icon.webp">
+<link rel="apple-touch-icon" href="/assets/usely-icon.webp">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/playfair-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 900; font-display: swap; src: url(/assets/fonts/inter-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 500 700; font-display: swap; src: url(/assets/fonts/playfair-italic-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+/* USELY Design-Tokens (Quelle: USELY-Repo design-tokens/tokens.json, Theme dark), identisch zur Startseite */
+:root {
+  --teal: #1DDEB4;
+  --teal-dark: #0F6E56;
+  --teal-glow: rgba(29, 222, 180, 0.45);
+  --bg: #050507;
+  --surface: #0A0A0D;
+  --card: #0E0E12;
+  --card-hover: #14141A;
+  --text: #FFFFFF;
+  --muted: #C7C7C7;
+  --faint: #8A8A8A;
+  --warning: #FFCC33;
+  --danger: #FF6B6B;
+  --border: rgba(255,255,255,0.07);
+  --glass: rgba(255,255,255,0.025);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.65; }
+
+/* HINTERGRUND-DNA (wie Startseite) */
+#bg-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.orb-wrap { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.orb { position: absolute; border-radius: 50%; filter: blur(140px); }
+.orb-1 { width: 900px; height: 900px; background: radial-gradient(circle, rgba(29,222,180,0.085) 0%, transparent 70%); top: -320px; left: -220px; animation: orb1 25s ease-in-out infinite alternate; }
+.orb-2 { width: 620px; height: 620px; background: radial-gradient(circle, rgba(15,110,86,0.17) 0%, transparent 70%); bottom: 4%; right: -160px; animation: orb2 32s ease-in-out infinite alternate; }
+.orb-3 { width: 520px; height: 520px; background: radial-gradient(circle, rgba(29,222,180,0.055) 0%, transparent 70%); top: 42%; left: 44%; animation: orb3 40s ease-in-out infinite alternate; }
+@keyframes orb1 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px,-40px) scale(1.1); } 100% { transform: translate(-30px,60px) scale(0.95); } }
+@keyframes orb2 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-80px,-60px) scale(1.15); } }
+@keyframes orb3 { 0% { transform: translate(0,0); } 100% { transform: translate(-60px,80px) scale(1.2); } }
+.grid-overlay { position: fixed; inset: 0; z-index: 2; pointer-events: none; background-image: linear-gradient(rgba(29,222,180,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(29,222,180,0.02) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%); }
+body::after { content: ''; position: fixed; inset: 0; z-index: 3; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; opacity: 0.4; }
+@media (prefers-reduced-motion: reduce) { .orb, .reveal { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
+
+/* NAV (wie Startseite; per id, weil die Themen-Seitenleiste ebenfalls ein nav-Element ist) */
+#nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.1rem 0; transition: background 0.3s, border-color 0.3s; }
+#nav.scrolled { background: rgba(5,5,7,0.82); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.nav-inner { max-width: 1240px; margin: 0 auto; padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.nav-logo img { height: 36px; width: 36px; border-radius: 10px; display: block; }
+.nav-logo-text { font-size: 1.05rem; font-weight: 900; color: var(--text); letter-spacing: 0.02em; }
+.nav-links { display: flex; align-items: center; gap: 2.2rem; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.aktiv { color: var(--text); }
+.nav-cta { background: var(--teal) !important; color: #0B2B22 !important; padding: 0.55rem 1.4rem; border-radius: 99px; font-weight: 700 !important; transition: transform 0.2s, box-shadow 0.2s !important; }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(29,222,180,0.45), 0 8px 24px rgba(29,222,180,0.2); }
+.nav-lang { border: 1px solid var(--border); border-radius: 99px; padding: 0.35rem 0.8rem; font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 0.06em; transition: border-color 0.2s, color 0.2s; }
+.nav-lang:hover { border-color: rgba(29,222,180,0.45); color: var(--teal) !important; }
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: 0; }
+.nav-burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+
+/* LAYOUT */
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 2.5rem; position: relative; z-index: 10; }
+.eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-bottom: 1rem; text-shadow: 0 0 14px rgba(29,222,180,0.35); }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2.1rem; border-radius: 99px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer; font-family: 'Inter', sans-serif; letter-spacing: -0.01em; }
+.btn-primary { background: var(--teal); color: #0B2B22; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 28px rgba(29,222,180,0.45), 0 12px 30px rgba(29,222,180,0.2); }
+.btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); font-weight: 600; }
+.btn-ghost:hover { border-color: rgba(29,222,180,0.45); background: rgba(29,222,180,0.06); }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* HILFE-HERO + SUCHE */
+.hc-hero { padding: 150px 0 3rem; position: relative; z-index: 10; text-align: center; }
+.hc-crumbs { font-size: 0.78rem; color: var(--faint); margin-bottom: 1.4rem; }
+.hc-crumbs a { color: var(--muted); text-decoration: none; }
+.hc-crumbs a:hover { color: var(--teal); }
+.hc-h1 { font-size: clamp(2.2rem, 4.2vw, 3.6rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1.06; margin-bottom: 1rem; }
+.hc-h1 em { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; color: var(--teal); text-shadow: 0 0 30px rgba(29,222,180,0.35); }
+.hc-lead { color: var(--muted); font-size: 1.02rem; max-width: 620px; margin: 0 auto 2rem; line-height: 1.8; }
+.hc-search { max-width: 680px; margin: 0 auto; position: relative; }
+.hc-search input { width: 100%; padding: 1.1rem 3.2rem 1.1rem 3.4rem; border-radius: 99px; border: 1px solid rgba(255,255,255,0.14); background: rgba(10,10,14,0.85); color: var(--text); font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.8), 0 0 40px -20px rgba(29,222,180,0.35); transition: border-color 0.2s, box-shadow 0.2s; }
+.hc-search input:focus { border-color: rgba(29,222,180,0.55); box-shadow: 0 0 0 4px rgba(29,222,180,0.12), 0 30px 60px -30px rgba(0,0,0,0.8); }
+.hc-search input::placeholder { color: var(--faint); }
+.hc-search-icon { position: absolute; left: 1.3rem; top: 50%; transform: translateY(-50%); color: var(--teal); font-size: 1.05rem; pointer-events: none; }
+.hc-search-kbd { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.68rem; color: var(--faint); border: 1px solid var(--border); border-radius: 6px; padding: 0.15rem 0.45rem; pointer-events: none; }
+.hc-search-clear { position: absolute; right: 0.9rem; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.08); border: 0; color: var(--text); width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: none; font-size: 0.95rem; }
+.hc-search.hat-text .hc-search-clear { display: block; }
+.hc-search.hat-text .hc-search-kbd { display: none; }
+.hc-quick { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.55rem; margin-top: 1.4rem; }
+.hc-quick a { font-size: 0.78rem; font-weight: 700; color: var(--text); text-decoration: none; padding: 0.42rem 0.9rem; border-radius: 99px; border: 1px solid rgba(29,222,180,0.28); background: rgba(29,222,180,0.07); transition: border-color 0.2s, background 0.2s; }
+.hc-quick a:hover { border-color: rgba(29,222,180,0.6); background: rgba(29,222,180,0.14); }
+.hc-status { font-size: 0.82rem; color: var(--faint); margin-top: 1rem; min-height: 1.4em; }
+.hc-status strong { color: var(--teal); font-weight: 700; }
+
+/* ZWEISPALTIG: SEITENLEISTE + INHALT */
+.hc-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 3rem; padding: 2rem 0 6rem; position: relative; z-index: 10; }
+.hc-side { position: sticky; top: 92px; align-self: start; max-height: calc(100vh - 110px); overflow: auto; padding-right: 0.4rem; scrollbar-width: thin; }
+.hc-side-title { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); font-weight: 800; margin: 0 0 0.8rem 0.9rem; }
+.hc-nav { display: flex; flex-direction: column; gap: 0.15rem; }
+.hc-nav a { display: flex; align-items: center; gap: 0.6rem; color: var(--muted); text-decoration: none; font-size: 0.86rem; font-weight: 500; padding: 0.55rem 0.9rem; border-radius: 12px; border: 1px solid transparent; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.hc-nav a .ico { width: 22px; text-align: center; font-size: 0.95rem; flex-shrink: 0; }
+.hc-nav a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.hc-nav a.aktiv { color: var(--text); background: rgba(29,222,180,0.09); border-color: rgba(29,222,180,0.28); }
+.hc-side-contact { margin: 1.6rem 0.2rem 0; padding: 1.1rem 1.1rem; border: 1px solid var(--border); border-radius: 16px; background: var(--glass); font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+.hc-side-contact strong { display: block; color: var(--text); margin-bottom: 0.3rem; font-size: 0.85rem; }
+.hc-side-contact a { color: var(--teal); text-decoration: none; }
+
+.hc-main { min-width: 0; }
+.hc-section { padding: 0 0 3.6rem; scroll-margin-top: 90px; }
+.hc-section-head { margin-bottom: 1.4rem; }
+.hc-section-head h2 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.12; }
+.hc-section-head h2 em { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; color: var(--teal); text-shadow: 0 0 30px rgba(29,222,180,0.35); }
+.hc-section-head p { color: var(--muted); font-size: 0.92rem; line-height: 1.75; max-width: 720px; margin-top: 0.6rem; }
+
+/* ARTIKEL */
+.hc-article { border: 1px solid var(--border); border-radius: 20px; background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 1.7rem 1.8rem; margin-bottom: 1rem; scroll-margin-top: 90px; transition: border-color 0.3s; }
+.hc-article:hover { border-color: rgba(29,222,180,0.22); }
+.hc-article:target { border-color: rgba(29,222,180,0.55); box-shadow: 0 0 0 4px rgba(29,222,180,0.08); }
+.hc-article h3 { font-size: 1.08rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.55rem; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.hc-article h3 a.anker { color: var(--faint); text-decoration: none; font-weight: 400; font-size: 0.9rem; opacity: 0; transition: opacity 0.2s; }
+.hc-article:hover h3 a.anker { opacity: 1; }
+.hc-article p { color: var(--muted); font-size: 0.9rem; line-height: 1.8; }
+.hc-article p + p { margin-top: 0.7rem; }
+.hc-article ul, .hc-article ol { margin: 0.8rem 0 0.4rem; padding-left: 0; list-style: none; }
+.hc-article li { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
+.hc-article ul li { padding-left: 1.3rem; position: relative; margin-bottom: 0.35rem; }
+.hc-article ul li::before { content: '✓'; color: var(--teal); font-weight: 900; position: absolute; left: 0; }
+.hc-steps { counter-reset: schritt; }
+.hc-steps li { counter-increment: schritt; position: relative; padding-left: 2.3rem; margin-bottom: 0.6rem; }
+.hc-steps li::before { content: counter(schritt); position: absolute; left: 0; top: 0.1rem; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: rgba(29,222,180,0.14); border: 1px solid rgba(29,222,180,0.35); color: var(--teal); font-size: 0.74rem; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.hc-article strong { color: var(--text); font-weight: 700; }
+.hc-article code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.82em; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 6px; padding: 0.05rem 0.4rem; color: var(--text); }
+.hc-article a:not(.anker):not(.tag) { color: var(--teal); text-decoration: none; }
+.hc-article a:not(.anker):not(.tag):hover { text-decoration: underline; text-underline-offset: 2px; }
+.hc-tags { display: inline-flex; gap: 0.35rem; flex-wrap: wrap; }
+.tag { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.18rem 0.55rem; border-radius: 99px; border: 1px solid var(--border); color: var(--muted); background: rgba(255,255,255,0.04); text-decoration: none; }
+.tag-pro { color: #0B2B22; background: var(--teal); border-color: var(--teal); }
+.tag-admin { color: var(--warning); border-color: rgba(255,204,51,0.35); background: rgba(255,204,51,0.08); }
+.tag-web { color: var(--teal); border-color: rgba(29,222,180,0.35); background: rgba(29,222,180,0.08); }
+.hc-tip { margin-top: 0.9rem; padding: 0.85rem 1rem 0.85rem 2.6rem; border-radius: 14px; border: 1px solid rgba(29,222,180,0.28); background: rgba(29,222,180,0.06); font-size: 0.86rem; color: var(--muted); line-height: 1.7; position: relative; }
+.hc-tip::before { content: '💡'; position: absolute; left: 0.9rem; top: 0.8rem; font-size: 0.95rem; }
+.hc-tip.warn { border-color: rgba(255,204,51,0.32); background: rgba(255,204,51,0.06); }
+.hc-tip.warn::before { content: '⚠️'; }
+.hc-tip.pro { border-color: rgba(29,222,180,0.45); background: rgba(29,222,180,0.1); }
+.hc-tip.pro::before { content: '★'; color: var(--teal); font-weight: 900; }
+.hc-related { margin-top: 0.9rem; font-size: 0.8rem; color: var(--faint); }
+.hc-related a { color: var(--muted) !important; margin-right: 0.8rem; }
+.hc-related a:hover { color: var(--teal) !important; }
+
+/* VERGLEICH / TABELLEN */
+.hc-table-wrap { overflow-x: auto; margin-top: 0.9rem; border: 1px solid var(--border); border-radius: 14px; }
+.hc-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 560px; }
+.hc-table th, .hc-table td { text-align: left; padding: 0.75rem 0.9rem; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); line-height: 1.6; }
+.hc-table th { color: var(--text); font-weight: 800; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(255,255,255,0.03); }
+.hc-table tr:last-child td { border-bottom: 0; }
+.hc-table td:first-child { color: var(--text); font-weight: 600; }
+.hc-table .ja { color: var(--teal); font-weight: 800; }
+.hc-table .nein { color: var(--faint); }
+
+/* FEHLER-LISTE */
+.hc-error { border: 1px solid var(--border); border-radius: 16px; background: var(--glass); padding: 1.1rem 1.3rem; margin-bottom: 0.7rem; }
+.hc-error-msg { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.82rem; color: var(--warning); margin-bottom: 0.4rem; word-break: break-word; }
+.hc-error p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+.hc-error p strong { color: var(--text); }
+
+/* FAQ (wie Startseite) */
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q { width: 100%; text-align: left; background: none; border: none; color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.98rem; font-weight: 600; letter-spacing: -0.01em; padding: 1.2rem 2.5rem 1.2rem 0; cursor: pointer; position: relative; }
+.faq-q::after { content: '+'; position: absolute; right: 0.4rem; top: 50%; transform: translateY(-50%); color: var(--teal); font-size: 1.3rem; font-weight: 400; transition: transform 0.25s; }
+.faq-item.open .faq-q::after { transform: translateY(-50%) rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-item.open .faq-a { max-height: 600px; }
+.faq-a p { color: var(--muted); font-size: 0.9rem; line-height: 1.85; padding-bottom: 1.2rem; }
+.faq-a a { color: var(--teal); text-decoration: none; }
+
+/* LEERZUSTAND SUCHE + KONTAKT */
+.hc-empty { display: none; border: 1px dashed rgba(29,222,180,0.35); border-radius: 20px; padding: 2.4rem; text-align: center; color: var(--muted); }
+.hc-empty.show { display: block; }
+.hc-empty strong { display: block; color: var(--text); font-size: 1.05rem; margin-bottom: 0.5rem; }
+.hc-contact { border: 1px solid rgba(29,222,180,0.3); border-radius: 24px; padding: 2.4rem; background: rgba(29,222,180,0.04); display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+.hc-contact h2 { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+.hc-contact p { color: var(--muted); font-size: 0.92rem; line-height: 1.75; }
+.hc-meta { font-size: 0.78rem; color: var(--faint); margin-top: 1.4rem; }
+
+/* FOOTER + COOKIE (wie Startseite) */
+footer { background: rgba(8,8,11,0.85); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); border-top: 1px solid var(--border); padding: 4rem 0 2.5rem; position: relative; z-index: 10; }
+.footer-top { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; margin-bottom: 3rem; }
+.footer-logo { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+.footer-logo img { height: 34px; width: 34px; border-radius: 9px; display: block; }
+.footer-logo-text { font-size: 1rem; font-weight: 900; letter-spacing: 0.02em; }
+.footer-tagline { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+.footer-links-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.footer-col-title { font-size: 0.72rem; font-weight: 800; color: var(--text); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.2rem; }
+.footer-col a { display: block; color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; transition: color 0.2s; }
+.footer-col a:hover { color: var(--text); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.78rem; color: var(--faint); }
+.footer-copy a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+.footer-copy a:hover { color: var(--teal); }
+.cookie-banner { position: fixed; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; max-width: 480px; margin: 0 auto; z-index: 2000; padding: 1.6rem 1.8rem; background: rgba(10,10,14,0.94); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.7); transform: translateY(160%); transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+.cookie-banner.show { transform: translateY(0); }
+.cookie-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; }
+.cookie-text { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.2rem; }
+.cookie-text a { color: var(--teal); text-decoration: none; }
+.cookie-btns { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.cookie-btn { flex: 1; min-width: 120px; padding: 0.7rem 1.2rem; border-radius: 99px; font-size: 0.82rem; font-weight: 700; cursor: pointer; border: none; font-family: 'Inter', sans-serif; transition: all 0.2s; }
+.cookie-accept { background: var(--teal); color: #0B2B22; }
+.cookie-decline { background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid rgba(255,255,255,0.12); }
+
+/* NACH-OBEN */
+.hc-top { position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 900; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(29,222,180,0.35); background: rgba(10,10,14,0.85); color: var(--teal); font-size: 1.1rem; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(16px); }
+.hc-top.show { opacity: 1; pointer-events: auto; }
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  /* minmax(0, 1fr) statt 1fr: die Themen-Chips in einer Reihe haben eine riesige
+     Mindestbreite und wuerden die Spalte sonst auf ~2900 px aufziehen (Playwright-Fund) */
+  .hc-layout { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+  .hc-side { position: sticky; top: 64px; z-index: 50; min-width: 0; max-height: none; overflow: hidden; padding: 0.6rem 0; background: rgba(5,5,7,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); margin: 0 -1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; border-bottom: 1px solid var(--border); }
+  .hc-side-title, .hc-side-contact { display: none; }
+  .hc-nav { flex-direction: row; min-width: 0; overflow-x: auto; gap: 0.4rem; scrollbar-width: none; padding-bottom: 0.2rem; -webkit-overflow-scrolling: touch; }
+  .hc-nav::-webkit-scrollbar { display: none; }
+  .hc-nav a { white-space: nowrap; border: 1px solid var(--border); padding: 0.45rem 0.8rem; font-size: 0.8rem; }
+  .hc-contact { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 768px) {
+  #nav { padding: 0.9rem 0; }
+  .nav-inner { padding: 0 1.5rem; }
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: rgba(5,5,7,0.98); padding: 1.5rem; gap: 1.4rem; border-bottom: 1px solid var(--border); backdrop-filter: blur(24px); }
+  .nav-links.open { display: flex; }
+  .nav-burger { display: flex; }
+  .wrap { padding: 0 1.5rem; }
+  .hc-hero { padding: 120px 0 2rem; }
+  .hc-search input { padding: 1rem 2.8rem 1rem 3rem; font-size: 0.95rem; }
+  .hc-search-kbd { display: none; }
+  .hc-article { padding: 1.3rem 1.2rem; border-radius: 16px; }
+  .hc-contact { padding: 1.6rem; }
+  .footer-links-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Was kostet USELY und was ist in Pro enthalten?", "acceptedAnswer": { "@type": "Answer", "text": "USELY Free ist dauerhaft kostenlos: Kalkulation, Angebote, Auftragsbestätigungen, Lieferscheine, bis zu 3 Rechnungen im Monat, Kunden, Projekte, Boards, Zeiten und Ausgaben. USELY Pro kostet 9,99 Euro im Monat oder 89,99 Euro im Jahr und bringt unbegrenzte Rechnungen, das eigene Logo ohne USELY-Hinweis, E-Rechnung als XRechnung und ZUGFeRD, Belegerkennung per Foto, wiederkehrende Rechnungen und Ausgaben, Mahnwesen und das Beleg-Postfach. Pro lässt sich 30 Tage kostenlos testen." } },
+    { "@type": "Question", "name": "Wie viele Rechnungen kann ich kostenlos schreiben?", "acceptedAnswer": { "@type": "Answer", "text": "Im Free-Tarif sind 3 Rechnungen pro Monat möglich, Angebote, Auftragsbestätigungen und Lieferscheine sind unbegrenzt. Jeden Monat gibt es 3 neue Rechnungen. Mit USELY Pro entfällt die Grenze." } },
+    { "@type": "Question", "name": "Kann ich USELY auf dem Desktop oder mit Android nutzen?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Die Web-App läuft in jedem aktuellen Browser auf Windows, Mac, Linux und Android und nutzt dasselbe Konto wie die iPhone App. Alle Daten sind in Echtzeit synchron. Die Web-App lässt sich über das Browser-Menü wie eine App installieren." } },
+    { "@type": "Question", "name": "Ist USELY für Kleinunternehmer nach §19 UStG geeignet?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Schalte in den Stammdaten unter Steuer die Kleinunternehmerregelung ein. Belege werden dann ohne Umsatzsteuer erstellt und tragen den Hinweis nach §19 UStG automatisch." } },
+    { "@type": "Question", "name": "Kann ich mit USELY E-Rechnungen erstellen und empfangen?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Aus jeder Rechnung und Abschlagsrechnung erzeugt USELY Pro eine XRechnung als XML oder ein ZUGFeRD-PDF und verschickt sie direkt per Mail. Eingehende E-Rechnungen liest USELY beim Erfassen einer Ausgabe oder im Beleg-Postfach automatisch aus." } },
+    { "@type": "Question", "name": "Wie bekommt mein Steuerberater Zugang?", "acceptedAnswer": { "@type": "Answer", "text": "Im Profil unter Team und Steuerberater lädst du die Kanzlei mit Nur-Lesen-Zugriff ein. Du wählst die Bereiche, die sie sehen darf, zum Beispiel Belege, Ausgaben und Export. Die Kanzlei erstellt ein kostenloses USELY-Konto, löst den Einladungscode ein und sieht deine Firma. DATEV-Export und EÜR stehen dort bereit." } },
+    { "@type": "Question", "name": "Wo liegen meine Daten und wie bekomme ich sie wieder heraus?", "acceptedAnswer": { "@type": "Answer", "text": "Deine Daten liegen in deinem USELY-Konto auf Servern in der EU, DSGVO-konform. Im Profil unter Datenschutz exportierst du alles als JSON und lesbares PDF. Belege gibt es als PDF, Auswertungen als CSV, für die Kanzlei als DATEV-Buchungsstapel und Belegpaket." } },
+    { "@type": "Question", "name": "Kann ich einen Beleg nachträglich ändern oder löschen?", "acceptedAnswer": { "@type": "Answer", "text": "Angebote und Entwürfe lassen sich bearbeiten. Eine erstellte Rechnung trägt eine fortlaufende Nummer und wird nach GoBD nicht verändert, sondern storniert: USELY erstellt eine Stornorechnung mit eigener Nummer, die Originalrechnung bleibt als storniert erhalten. Danach schreibst du die Rechnung neu." } },
+    { "@type": "Question", "name": "Wie kündige ich USELY Pro?", "acceptedAnswer": { "@type": "Answer", "text": "Hast du Pro auf dem iPhone abgeschlossen, kündigst du in den iOS-Einstellungen unter deinem Namen, Abonnements. Im Web über Profil, Abo verwalten. Das Abo läuft bis zum Ende des bezahlten Zeitraums weiter, deine Daten bleiben erhalten und exportierbar." } },
+    { "@type": "Question", "name": "Was passiert, wenn ich mein Konto lösche?", "acceptedAnswer": { "@type": "Answer", "text": "Dein Zugang und deine persönlichen Daten werden unwiderruflich gelöscht, ebenso Kunden, Projekte und Ausgaben. Hast du Rechnungen über USELY versendet oder Online-Zahlungen erhalten, werden diese Beleg- und Zahlungsdaten anonymisiert gesperrt, weil sie gesetzlichen Aufbewahrungsfristen unterliegen, und nach Fristablauf endgültig entfernt. Exportiere deine Daten vorher." } },
+    { "@type": "Question", "name": "Warum sehe ich bei mir keine Karte für Bezahllink oder Banking?", "acceptedAnswer": { "@type": "Answer", "text": "Bezahllink und Banking-Abgleich werden schrittweise für Konten freigeschaltet. Solange die Freischaltung für deine Firma noch nicht aktiv ist, erscheinen die Karten im Profil nicht. Schreib uns, wenn du sie brauchst." } },
+    { "@type": "Question", "name": "Wie erreiche ich den Support?", "acceptedAnswer": { "@type": "Answer", "text": "In der App über Profil, Hilfe und Feedback: Das öffnet eine Mail an info@yg-media.de mit Version, iOS-Version und Gerät. Oder direkt per Mail an info@yg-media.de. Wir lesen jede Nachricht." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "USELY", "item": "https://usely.yg-media.de/" },
+    { "@type": "ListItem", "position": 2, "name": "Hilfe", "item": "https://usely.yg-media.de/hilfe/" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="grid-overlay"></div>
+<div class="orb-wrap">
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+</div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/assets/usely-icon-96.webp" alt="" width="96" height="96">
+      <span class="nav-logo-text">USELY</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="/#apps">Apps</a>
+      <a href="/#preise">Preise</a>
+      <a href="/#funktionen">Funktionen</a>
+      <a href="/hilfe/" class="aktiv" aria-current="page">Hilfe</a>
+      <a href="/en/" class="nav-lang" hreflang="en" aria-label="English version">EN</a>
+      <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" class="nav-cta" data-track="appstore-nav">Kostenlos laden</a>
+    </div>
+    <button type="button" class="nav-burger" id="burger" aria-label="Menü" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hc-hero">
+  <div class="wrap">
+    <div class="hc-crumbs"><a href="/">USELY</a> · Hilfe-Center</div>
+    <span class="eyebrow">Hilfe-Center</span>
+    <h1 class="hc-h1">Wie können wir <em>helfen?</em></h1>
+    <p class="hc-lead">Anleitungen Schritt für Schritt, Antworten auf häufige Fragen und Lösungen für Fehlermeldungen. Für die iPhone App und die Web-App, Stand Version 1.4.</p>
+    <div class="hc-search" id="hcSearch">
+      <span class="hc-search-icon" aria-hidden="true">⌕</span>
+      <label for="hcQuery" class="sr-only" style="position:absolute;left:-9999px">Hilfe durchsuchen</label>
+      <input type="search" id="hcQuery" placeholder="Suchen, z. B. Rechnung stornieren, XRechnung, Steuerberater …" autocomplete="off" spellcheck="false">
+      <span class="hc-search-kbd" aria-hidden="true">/</span>
+      <button type="button" class="hc-search-clear" id="hcClear" aria-label="Suche leeren">×</button>
+    </div>
+    <div class="hc-quick">
+      <a href="#erste-schritte">Erste Schritte</a>
+      <a href="#rechnung-schreiben">Rechnung schreiben</a>
+      <a href="#beleg-stornieren">Beleg stornieren</a>
+      <a href="#e-rechnung">E-Rechnung</a>
+      <a href="#beleg-scannen">Beleg scannen</a>
+      <a href="#steuerberater-einladen">Steuerberater</a>
+      <a href="#datev-export">DATEV</a>
+      <a href="#abo">Abo und Preise</a>
+      <a href="#fehler">Fehlermeldungen</a>
+    </div>
+    <div class="hc-status" id="hcStatus" aria-live="polite"></div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="hc-layout">
+
+  <aside class="hc-side">
+    <div class="hc-side-title">Themen</div>
+    <nav class="hc-nav" id="hcNav" aria-label="Hilfe-Themen">
+      <a href="#erste-schritte"><span class="ico">🚀</span>Erste Schritte</a>
+      <a href="#belege"><span class="ico">🧾</span>Rechnungen und Belege</a>
+      <a href="#versand"><span class="ico">✉️</span>Versand und Zahlung</a>
+      <a href="#e-rechnung"><span class="ico">📄</span>E-Rechnung</a>
+      <a href="#ausgaben"><span class="ico">📸</span>Ausgaben und Belege scannen</a>
+      <a href="#kunden"><span class="ico">👥</span>Kunden und Leads</a>
+      <a href="#projekte"><span class="ico">📋</span>Projekte, Boards, Aufgaben</a>
+      <a href="#zeiten"><span class="ico">⏱️</span>Zeiterfassung</a>
+      <a href="#team"><span class="ico">🧑‍🤝‍🧑</span>Team und Steuerberater</a>
+      <a href="#export"><span class="ico">📊</span>Auswertung und Export</a>
+      <a href="#integrationen"><span class="ico">⚡</span>Mitteilungen, Automationen, Webhooks</a>
+      <a href="#abo"><span class="ico">💳</span>Abo, Konto, Sicherheit</a>
+      <a href="#fehler"><span class="ico">🛠️</span>Fehler und Lösungen</a>
+      <a href="#faq"><span class="ico">❓</span>Häufige Fragen</a>
+      <a href="#kontakt"><span class="ico">💬</span>Kontakt</a>
+    </nav>
+    <div class="hc-side-contact">
+      <strong>Nicht gefunden?</strong>
+      Schreib uns an <a href="mailto:info@yg-media.de">info@yg-media.de</a> oder in der App über Profil, Hilfe und Feedback.
+    </div>
+  </aside>
+
+  <main class="hc-main" id="hcMain">
+
+  <div class="hc-empty" id="hcEmpty">
+    <strong>Dazu haben wir noch keinen Artikel.</strong>
+    Versuch es mit einem anderen Begriff, oder schreib uns an <a href="mailto:info@yg-media.de" style="color:var(--teal);text-decoration:none">info@yg-media.de</a>. Jede Frage hilft, diese Seite besser zu machen.
+  </div>
+
+  <!-- ============================================================ ERSTE SCHRITTE -->
+  <section class="hc-section" id="erste-schritte" data-titel="Erste Schritte">
+    <div class="hc-section-head">
+      <span class="eyebrow">01 · Erste Schritte</span>
+      <h2>In zehn Minuten <em>startklar.</em></h2>
+      <p>Konto anlegen, Firma einrichten, erste Rechnung. Alles, was du hier einträgst, landet automatisch auf deinen Belegen.</p>
+    </div>
+
+    <article class="hc-article" id="konto-anlegen" data-tags="registrieren anmelden login passwort e-mail bestätigen code konto erstellen">
+      <h3>Konto anlegen und anmelden <span class="hc-tags"><span class="tag">iPhone</span><span class="tag tag-web">Web</span></span><a class="anker" href="#konto-anlegen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Ein Konto, beide Apps: Mit derselben E-Mail-Adresse und demselben Passwort meldest du dich auf dem iPhone und in der <a href="https://usely-4lt.pages.dev" target="_blank" rel="noopener">Web-App</a> an.</p>
+      <ol class="hc-steps">
+        <li>Lade USELY aus dem <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener">App Store</a> oder öffne die Web-App im Browser.</li>
+        <li>Tippe auf <strong>Registrieren</strong>, gib E-Mail und ein Passwort mit mindestens 8 Zeichen ein.</li>
+        <li>Du bekommst einen <strong>Bestätigungscode</strong> per Mail. Gib ihn ein, dann ist dein Zugang aktiv.</li>
+        <li>Lege deine Firma an: Firmenname, Rechtsform, Adresse. Diese Angaben stehen später auf jedem Beleg und lassen sich jederzeit im Profil ändern.</li>
+      </ol>
+      <div class="hc-tip">Du wurdest von einer Firma eingeladen, zum Beispiel als Mitarbeiter oder Steuerberater? Wähle beim Registrieren <strong>Ich habe einen Einladungscode</strong>. Dann entsteht kein eigenes Firmenprofil, du siehst direkt die Firma, die dich eingeladen hat. Mehr unter <a href="#einladung-einloesen">Einladung einlösen</a>.</div>
+      <div class="hc-tip warn">Kein Code angekommen? Prüfe den Spam-Ordner und die Schreibweise der Adresse. Über <strong>Code erneut senden</strong> bekommst du einen neuen. Der Code gilt nur kurze Zeit.</div>
+    </article>
+
+    <article class="hc-article" id="firma-einrichten" data-tags="stammdaten firma adresse steuernummer ust-idnr umsatzsteuer-id iban bankverbindung logo unternehmen profil einstellungen">
+      <h3>Firma und Stammdaten einrichten <span class="hc-tags"><span class="tag">iPhone</span><span class="tag tag-web">Web</span></span><a class="anker" href="#firma-einrichten" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Alles, was auf deinen Belegen stehen muss, trägst du einmal ein. Auf dem iPhone findest du das Profil oben rechts über dein Profilbild, im Web unter <strong>Einstellungen</strong> in der Seitenleiste.</p>
+      <ol class="hc-steps">
+        <li><strong>Unternehmen:</strong> Firmenname, Straße, PLZ, Ort, E-Mail und Telefon. Die E-Mail ist auch die Antwortadresse, wenn du Belege über USELY verschickst.</li>
+        <li><strong>Steuer:</strong> Steuernummer und, falls vorhanden, USt-IdNr. Mindestens eine der beiden Angaben gehört auf jede Rechnung (§14 UStG). Hier schaltest du auch die <strong>Kleinunternehmerregelung</strong> ein, siehe <a href="#kleinunternehmer">Kleinunternehmer nach §19 UStG</a>.</li>
+        <li><strong>Bankverbindung:</strong> Kontoinhaber, IBAN und BIC. Sie erscheinen auf Rechnungen, und mit hinterlegter IBAN bekommt jede Rechnung automatisch einen <a href="#qr-code">QR-Code zum Überweisen</a>.</li>
+        <li><strong>Standard-MwSt.:</strong> 19 %, 7 % oder ohne. Der Satz ist die Vorbelegung für neue Posten und bleibt je Posten änderbar.</li>
+        <li><strong>Zahlungsfrist:</strong> Die Anzahl der Tage bis zum Fälligkeitsdatum neuer Rechnungen. Danach richtet sich, wann eine Rechnung als überfällig gilt.</li>
+      </ol>
+      <div class="hc-tip"><strong>Belegsprache:</strong> Unter Unternehmen stellst du Deutsch oder Englisch ein. PDFs, E-Rechnungen und Versand-Mails folgen automatisch der Einstellung, je Firma.</div>
+    </article>
+
+    <article class="hc-article" id="logo" data-tags="firmenlogo logo hochladen entfernen branding pro">
+      <h3>Eigenes Logo auf den Belegen <span class="hc-tags"><span class="tag tag-pro">Pro</span></span><a class="anker" href="#logo" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Öffne im Profil die Karte <strong>Firmenlogo</strong> und wähle ein Bild aus der Galerie (PNG oder JPG, am besten quadratisch oder querformatig mit transparentem oder weißem Hintergrund).</li>
+        <li>Das Logo erscheint ab sofort oben auf allen neuen PDFs. Bereits erstellte Belege werden beim nächsten Öffnen mit dem aktuellen Logo gerendert.</li>
+        <li>Zum Entfernen tippst du auf das Papierkorb-Symbol an der Logo-Karte. Künftige Belege erscheinen dann ohne Logo.</li>
+      </ol>
+      <div class="hc-tip pro">Mit USELY Pro erscheinen deine Belege ohne den USELY-Hinweis in der Fußzeile. Im Free-Tarif bleibt der Hinweis stehen, das Logo ist Teil von Pro.</div>
+    </article>
+
+    <article class="hc-article" id="nummernkreise" data-tags="nummernkreis rechnungsnummer präfix belegnummer kundennummer fortlaufend re an ab ar ls k">
+      <h3>Nummernkreise und Präfixe <a class="anker" href="#nummernkreise" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>USELY vergibt Belegnummern fortlaufend und lückenlos je Jahr, zum Beispiel <code>RE-2026-0001</code>. Die Präfixe kannst du im Profil unter <strong>Nummernkreise</strong> anpassen: Rechnung, Angebot, Auftragsbestätigung, Abschlagsrechnung, Lieferschein und Kunde.</p>
+      <ul>
+        <li>Die Nummer wird erst vergeben, wenn der Beleg wirklich erstellt wird. Entwürfe aus wiederkehrenden Vorlagen tragen noch keine Nummer.</li>
+        <li>Ein Präfix wirkt nur nach vorn: Bestehende Belege behalten ihre Nummer, so bleibt die Kette nachvollziehbar (GoBD).</li>
+        <li>Kundennummern wie <code>K-0001</code> vergibt USELY beim Anlegen eines Kunden automatisch. Leads bekommen erst bei der Umwandlung eine Nummer.</li>
+      </ul>
+      <div class="hc-tip warn">Du kommst von einem anderen Programm und willst bei einer bestimmten Nummer weitermachen? Schreib uns die gewünschte Startnummer an <a href="mailto:info@yg-media.de">info@yg-media.de</a>, wir stellen den Zähler für dich ein.</div>
+    </article>
+
+    <article class="hc-article" id="iphone-und-web" data-tags="web-app desktop android windows browser installieren pwa synchron echtzeit firmen umschalten mehrere firmen aktive firma">
+      <h3>iPhone App und Web-App zusammen nutzen <a class="anker" href="#iphone-und-web" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Beide Apps zeigen dieselben Daten in Echtzeit. Was du im Büro anlegst, ist auf dem Handy sofort da, und umgekehrt.</p>
+      <ul>
+        <li><strong>Web-App:</strong> <a href="https://usely-4lt.pages.dev" target="_blank" rel="noopener">usely-4lt.pages.dev</a> im Browser öffnen und mit deinem Konto anmelden. Über das Browser-Menü (Chrome: „Installieren“, Safari: „Zum Dock“ bzw. „Zum Home-Bildschirm“) läuft sie wie eine eigene App, auch auf Windows und Android.</li>
+        <li><strong>Mehrere Firmen:</strong> Gehörst du zu mehreren Firmen, wechselst du im Web über den Firmen-Umschalter oben in der Seitenleiste, auf dem iPhone im Profil unter <strong>Team und Steuerberater</strong>, <strong>Aktive Firma</strong>. Alles in der App bezieht sich immer auf die aktive Firma.</li>
+        <li><strong>Nur auf dem iPhone:</strong> Kamera-Scan direkt aus der App, Push-Mitteilungen, Timer als Live-Aktivität auf dem Sperrbildschirm, App-Sperre mit Face ID.</li>
+        <li><strong>Nur im Web:</strong> CSV-Import von Kunden, Ausgaben und Artikeln, große Tabellen mit Sortierung, DATEV-Einrichtung mit Konten-Zuordnung, Pro-Abo per Kreditkarte.</li>
+      </ul>
+      <div class="hc-tip"><strong>Offline:</strong> Ohne Verbindung zeigt die iPhone App gespeicherte Daten weiter an. PDFs, E-Rechnungen und Versand brauchen eine Internetverbindung.</div>
+    </article>
+
+    <article class="hc-article" id="tour" data-tags="einführung tour geführte tour überspringen hilfe in der app">
+      <h3>Die geführte Tour noch einmal starten <span class="hc-tags"><span class="tag">iPhone</span></span><a class="anker" href="#tour" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Beim ersten Start führt dich USELY in zwölf Schritten durch alle Bereiche. Du kannst sie jederzeit überspringen und später erneut starten: Profil, Karte <strong>Einführung erneut starten</strong>.</p>
+    </article>
+  </section>
+
+  <!-- ============================================================ BELEGE -->
+  <section class="hc-section" id="belege" data-titel="Rechnungen und Belege">
+    <div class="hc-section-head">
+      <span class="eyebrow">02 · Rechnungen und Belege</span>
+      <h2>Vom Posten zum Beleg, <em>in Sekunden.</em></h2>
+      <p>Angebot, Auftragsbestätigung, Lieferschein, Rechnung, Abschlags- und Schlussrechnung: Jeder Beleg entsteht aus dem vorherigen, nichts wird abgetippt.</p>
+    </div>
+
+    <article class="hc-article" id="rechnung-schreiben" data-tags="rechnung schreiben erstellen angebot auftragsbestätigung lieferschein kalkulation kalkulator posten position menge einheit preis mwst rabatt kunde wählen plus-button">
+      <h3>Rechnung oder Angebot schreiben <span class="hc-tags"><span class="tag">iPhone</span><span class="tag tag-web">Web</span></span><a class="anker" href="#rechnung-schreiben" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Alles beginnt mit der Kalkulation. Aus derselben Liste von Posten machst du per Tipp ein Angebot, eine Auftragsbestätigung, einen Lieferschein oder direkt eine Rechnung.</p>
+      <ol class="hc-steps">
+        <li>Tippe auf dem iPhone auf den <strong>Plus-Button</strong> (Übersicht oder Belege), im Web auf <strong>Belege</strong>, <strong>Neuer Beleg</strong>.</li>
+        <li>Füge Posten hinzu: <strong>Bezeichnung</strong>, <strong>Menge</strong>, <strong>Einheit</strong> (Stück, Stunde, Pauschal oder eigene Einheit), <strong>Einzelpreis netto</strong> und <strong>MwSt.</strong> je Posten. Die Summe steht sofort unten.</li>
+        <li>Optional: <strong>Rabatt in Prozent</strong> auf die ganze Kalkulation. Posten, die nur deine Kosten abbilden (Material, Fremdleistung), markierst du mit <strong>Als Kosten kalkulieren</strong>: Sie zählen in deiner Marge, stehen aber nicht auf dem Beleg.</li>
+        <li>Wähle den <strong>Kunden</strong>. Ohne Kunde lässt sich die Kalkulation nur als Projekt speichern, ein Beleg braucht immer einen Empfänger.</li>
+        <li>Tippe auf <strong>Angebot</strong>, <strong>Auftragsbest.</strong>, <strong>Rechnung</strong> oder <strong>Lieferschein</strong>. USELY vergibt die Nummer, setzt Datum, Fälligkeit und alle Pflichtangaben und erstellt das PDF.</li>
+      </ol>
+      <div class="hc-tip">Wiederkehrende Posten legst du einmal als <a href="#artikel">Artikel</a> an und übernimmst sie im Beleg über <strong>Aus Artikeln wählen</strong>. Umgekehrt speichert <strong>Als Artikel speichern</strong> einen neuen Posten für das nächste Mal.</div>
+      <div class="hc-tip warn">Im Free-Tarif sind <strong>3 Rechnungen pro Monat</strong> möglich, Angebote, Auftragsbestätigungen und Lieferscheine sind unbegrenzt. Nächsten Monat gibt es neue, mit <a href="#abo">USELY Pro</a> entfällt die Grenze.</div>
+    </article>
+
+    <article class="hc-article" id="belegkette" data-tags="belegkette umwandeln konvertieren angebot annehmen auftragsbestätigung in rechnung umwandeln lieferschein abschlagsrechnung schlussrechnung anzahlung teilrechnung restbetrag">
+      <h3>Die Belegkette: Angebot, Auftrag, Lieferschein, Rechnung <a class="anker" href="#belegkette" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Jeder Beleg lässt sich genau einmal in den nächsten umwandeln. Beträge werden beim Erstellen eingefroren, die Kette bleibt lückenlos nachvollziehbar.</p>
+      <ol class="hc-steps">
+        <li><strong>Angebot</strong> an den Kunden. Sobald es angenommen ist, setzt du den Status auf <strong>Angenommen</strong> (der Kunde kann das auch über den Beleg-Link tun, sobald die Beleg-Freigabe für deine Firma freigeschaltet ist).</li>
+        <li>Öffne das angenommene Angebot und wähle <strong>Auftragsbestätigung erstellen</strong>. Nur angenommene Angebote lassen sich umwandeln.</li>
+        <li>Aus der Auftragsbestätigung wird per Tipp der <strong>Lieferschein</strong> (preislos, als Warenbegleitpapier) oder direkt die <strong>Rechnung</strong>. Ein Lieferschein lässt sich anschließend in die Rechnung umwandeln.</li>
+        <li><strong>Abschlagsrechnungen:</strong> Bei größeren Aufträgen erstellst du aus der Auftragsbestätigung eine oder mehrere Abschlagsrechnungen. Die <strong>Schlussrechnung</strong> zieht die bereits berechneten Anzahlungen automatisch ab und weist den Restbetrag aus, wie es §14 UStG verlangt.</li>
+      </ol>
+      <ul>
+        <li>Fälligkeit und Zahlungsfrist übernimmt die Rechnung aus deinen Stammdaten, Lieferscheine haben keine Fälligkeit.</li>
+        <li>Ein stornierter Beleg kann nicht mehr umgewandelt werden. Ein bereits umgewandelter Beleg zeigt <strong>Wurde zu … umgewandelt</strong> und verlinkt den Nachfolger.</li>
+      </ul>
+      <div class="hc-related">Verwandt: <a href="#beleg-stornieren">Beleg stornieren</a> <a href="#status">Status und Zahlungen</a> <a href="#lager">Lagerabgang am Lieferschein</a></div>
+    </article>
+
+    <article class="hc-article" id="status" data-tags="status offen gesendet bezahlt überfällig entwurf als bezahlt markieren zahlung erfassen als gesendet markieren farbiger balken fälligkeit teilzahlung">
+      <h3>Beleg-Status, Zahlung erfassen, überfällig <a class="anker" href="#status" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Der farbige Balken an jedem Beleg zeigt den Status. Du kannst ihn im Beleg-Detail über die Aktionen ändern.</p>
+      <div class="hc-table-wrap"><table class="hc-table">
+        <thead><tr><th>Status</th><th>Bedeutung</th><th>So kommt der Beleg dorthin</th></tr></thead>
+        <tbody>
+          <tr><td>Entwurf</td><td>Automatisch aus einer wiederkehrenden Vorlage entstanden, noch ohne Nummer</td><td>Über <strong>Rechnung freigeben</strong> wird daraus eine echte Rechnung</td></tr>
+          <tr><td>Offen</td><td>Erstellt, noch nicht versendet</td><td>Beim Erstellen</td></tr>
+          <tr><td>Gesendet</td><td>Versendet, Zahlung steht aus</td><td>Automatisch beim Versand über USELY, sonst <strong>Als gesendet markieren</strong></td></tr>
+          <tr><td>Überfällig</td><td>Fälligkeitsdatum überschritten, Zahlung fehlt</td><td>Automatisch am Tag nach der Fälligkeit</td></tr>
+          <tr><td>Bezahlt</td><td>Zahlung eingegangen</td><td><strong>Als bezahlt markieren</strong>, Zahlung erfassen, Bezahllink oder Banking-Abgleich</td></tr>
+          <tr><td>Angenommen / Abgelehnt</td><td>Antwort des Kunden auf ein Angebot</td><td>Manuell im Angebot oder durch den Kunden über den Link</td></tr>
+          <tr><td>Storniert</td><td>Durch eine Stornorechnung aufgehoben</td><td>Über <strong>Stornieren</strong>, siehe unten</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li><strong>Teilzahlung:</strong> Erfasst du eine Zahlung, die den Betrag nicht deckt, bleibt die Rechnung offen und zeigt den Restbetrag.</li>
+        <li><strong>Überfällige Rechnungen</strong> erscheinen im Filter <strong>Offen</strong> und auf der Übersicht mit Betrag. Von dort startest du das <a href="#mahnwesen">Mahnwesen</a>.</li>
+        <li>Zu einer bezahlten Rechnung liegt eine Zahlung vor. Sie ist aufbewahrungspflichtig und lässt sich nicht mehr löschen, nur stornieren.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="beleg-stornieren" data-tags="stornieren storno stornorechnung rechnung ändern korrigieren löschen gutschrift rechnungskorrektur fehler in rechnung">
+      <h3>Rechnung ändern oder stornieren <a class="anker" href="#beleg-stornieren" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Eine erstellte Rechnung hat eine fortlaufende Nummer und darf nach GoBD nicht mehr verändert werden. Der richtige Weg ist die Stornorechnung.</p>
+      <ol class="hc-steps">
+        <li>Öffne die Rechnung und wähle <strong>Stornieren</strong>.</li>
+        <li>USELY erstellt eine <strong>Stornorechnung mit eigener Nummer</strong> und negativen Beträgen. Die Originalrechnung bleibt erhalten und wird als storniert markiert.</li>
+        <li>Erstelle die Rechnung anschließend neu, zum Beispiel aus derselben Auftragsbestätigung oder als neue Kalkulation.</li>
+        <li>Schicke deinem Kunden beide Belege: Stornorechnung und neue Rechnung.</li>
+      </ol>
+      <ul>
+        <li>Hängt der Beleg in einer Kette, fragt USELY: <strong>Nur diesen Beleg stornieren</strong> oder <strong>Gesamten Vorgang stornieren</strong>. Wird eine Auftragsbestätigung storniert, gilt das zugehörige Angebot als abgelehnt.</li>
+        <li><strong>Angebote</strong> und <strong>Entwürfe</strong> darfst du frei bearbeiten oder löschen, sie sind noch keine steuerlich relevanten Belege.</li>
+        <li>Eine Rechnung mit erfasster Zahlung kann nicht gelöscht, nur storniert werden.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="wiederkehrend" data-tags="wiederkehrende rechnung abo rechnung vorlage intervall monatlich jährlich entwurf freigeben pausieren dauerauftrag">
+      <h3>Wiederkehrende Rechnungen <span class="hc-tags"><span class="tag tag-pro">Pro</span></span><a class="anker" href="#wiederkehrend" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Für Wartungsverträge, Hosting, Miete oder Abos: Eine Vorlage erzeugt fällige Rechnungen automatisch als Entwurf. Du prüfst, gibst frei und versendest wie gewohnt.</p>
+      <ol class="hc-steps">
+        <li>Wechsle unter <strong>Belege</strong> auf den Umschalter <strong>Wiederkehrend</strong> und tippe auf <strong>Neue Vorlage</strong>.</li>
+        <li>Wähle Kunde, Posten, <strong>Intervall</strong> (monatlich, jährlich), <strong>Startdatum</strong> und optional ein Enddatum.</li>
+        <li>Zum Stichtag legt USELY einen <strong>Entwurf</strong> unter Belege an, erkennbar am Label Entwurf. Er hat noch keine Nummer und fließt nicht in den DATEV-Export.</li>
+        <li>Öffne den Entwurf, prüfe ihn und tippe auf <strong>Rechnung freigeben</strong>. Erst jetzt wird die Rechnungsnummer gezogen.</li>
+      </ol>
+      <div class="hc-tip">Löschst du einen Entwurf, entsteht er beim nächsten Abgleich erneut, solange die Vorlage aktiv ist. Willst du die Rechnung dauerhaft nicht, <strong>pausiere</strong> die Vorlage. Pausierte Vorlagen erzeugen keine neuen Entwürfe.</div>
+    </article>
+
+    <article class="hc-article" id="kleinunternehmer" data-tags="kleinunternehmer §19 ustg keine umsatzsteuer mwst hinweis kleinunternehmerregelung">
+      <h3>Kleinunternehmer nach §19 UStG <a class="anker" href="#kleinunternehmer" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Öffne im Profil die Karte <strong>Steuer</strong> und schalte <strong>Kleinunternehmer</strong> ein.</li>
+        <li>Neue Belege werden ohne Umsatzsteuer erstellt und tragen automatisch den Satz <strong>Gemäß §19 UStG wird keine Umsatzsteuer berechnet</strong>.</li>
+        <li>Die MwSt.-Auswahl an den Posten entfällt, die EÜR rechnet ohne Umsatzsteuer.</li>
+      </ol>
+      <div class="hc-tip warn">Bereits erstellte Belege bleiben unverändert (eingefrorene Werte). Wechselst du zur Regelbesteuerung, schaltest du die Option wieder aus und setzt den Standard-MwSt.-Satz.</div>
+    </article>
+
+    <article class="hc-article" id="artikel" data-tags="artikel artikelstamm produkte dienstleistungen preisliste aus artikeln wählen als artikel speichern einheit">
+      <h3>Artikel und Preisliste <a class="anker" href="#artikel" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Posten, die immer wieder vorkommen, legst du als Artikel an: Name, Einheit, Preis, MwSt. und optional ein Kostenpreis für deine Marge.</p>
+      <ol class="hc-steps">
+        <li>Profil, Karte <strong>Artikel</strong>, <strong>Artikel verwalten</strong> (im Web: <strong>Artikel</strong> in der Seitenleiste).</li>
+        <li>Tippe auf <strong>+</strong>, trage Name, Einheit, Preis und MwSt. ein. Optional <strong>Als Kosten kalkulieren</strong> für reine Kostenartikel.</li>
+        <li>Im Kalkulator wählst du den Artikel über <strong>Aus Artikeln wählen</strong>. USELY kopiert Bezeichnung und Preis in den Posten. Änderst du später den Artikelpreis, bleiben alte Belege unverändert.</li>
+      </ol>
+      <div class="hc-related">Verwandt: <a href="#lager">Lager und Bestände</a> <a href="#import">Artikel per CSV importieren</a></div>
+    </article>
+
+    <article class="hc-article" id="lager" data-tags="lager bestand führen mindestbestand zugang abgang korrektur lagerabgang buchen lieferschein bewegungen warenwirtschaft">
+      <h3>Lager: Bestände führen und Abgänge buchen <a class="anker" href="#lager" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Für Artikel, die du auf Lager hast, kannst du den Bestand mitführen. Dienstleistungen bleiben davon unberührt.</p>
+      <ol class="hc-steps">
+        <li>Öffne einen Artikel und schalte <strong>Bestand führen</strong> ein. Optional setzt du einen <strong>Mindestbestand</strong>: Fällt der Bestand darunter, wird er gelb markiert, bei negativem Bestand rot.</li>
+        <li>Über das Lager-Symbol am Artikel buchst du <strong>Zugang</strong>, <strong>Abgang</strong> oder <strong>Korrektur</strong> mit Menge und Notiz. Jede Buchung steht in der Historie, nichts wird überschrieben.</li>
+        <li>Am Lieferschein oder an der Rechnung erscheint die Karte <strong>Lager</strong>, sobald Positionen zu geführten Artikeln passen. Mit <strong>Abgang aus diesem Beleg buchen</strong> bestätigst du die vorgeschlagenen Mengen, USELY bucht sie mit Belegbezug ab.</li>
+      </ol>
+      <div class="hc-tip">Ein negativer Bestand blockiert nie einen Beleg. Das Lager ist eine Hilfe für den Alltag, keine Inventur.</div>
+    </article>
+
+    <article class="hc-article" id="pdf-und-sprache" data-tags="pdf anzeigen teilen drucken belegsprache englisch deutsch din format logo">
+      <h3>PDF ansehen, teilen und drucken <a class="anker" href="#pdf-und-sprache" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ul>
+        <li>Im Beleg-Detail öffnest du über <strong>PDF</strong> die Vorschau. Von dort teilst du über das Teilen-Symbol per AirDrop, Messenger oder in Dateien, oder druckst direkt.</li>
+        <li>Das PDF entsteht auf dem Server, deshalb braucht es eine Internetverbindung. iPhone und Web erzeugen byte-gleich dasselbe Dokument.</li>
+        <li>Die Sprache des PDFs folgt der <strong>Belegsprache</strong> deiner Firma (Deutsch oder Englisch), siehe <a href="#firma-einrichten">Stammdaten</a>.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ============================================================ VERSAND UND ZAHLUNG -->
+  <section class="hc-section" id="versand" data-titel="Versand und Zahlung">
+    <div class="hc-section-head">
+      <span class="eyebrow">03 · Versand und Zahlung</span>
+      <h2>Raus damit, <em>und rein mit dem Geld.</em></h2>
+      <p>Belege per Mail verschicken, Kunden per Link ansehen lassen, mit QR-Code oder online zahlen, überfällige Rechnungen anmahnen.</p>
+    </div>
+
+    <article class="hc-article" id="beleg-senden" data-tags="senden versenden per e-mail senden mail-app versandprotokoll zugestellt geöffnet unzustellbar anhang betreff empfänger">
+      <h3>Beleg per E-Mail senden <span class="hc-tags"><span class="tag">iPhone</span><span class="tag tag-web">Web</span></span><a class="anker" href="#beleg-senden" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Öffne den Beleg und tippe auf <strong>Senden</strong>. Empfänger ist die E-Mail-Adresse des Kunden, Betreff und Anschreiben sind fertig vorbelegt und lassen sich anpassen.</li>
+        <li>Wähle den Anhang: <strong>PDF</strong>, mit Pro zusätzlich <strong>PDF + XRechnung</strong> oder <strong>ZUGFeRD-PDF</strong> (nur bei Rechnungen und Abschlagsrechnungen).</li>
+        <li>Optional: <strong>Beleg-Link beifügen</strong>, damit der Kunde den Beleg auch im Browser öffnen kann, siehe <a href="#beleg-link">Beleg-Link</a>.</li>
+        <li>Tippe auf <strong>Jetzt senden</strong>. Der Versand läuft über USELY im Namen deiner Firma, Antworten des Kunden gehen an deine Firmen-E-Mail aus den Stammdaten. Der Beleg wechselt auf <strong>Gesendet</strong>.</li>
+      </ol>
+      <ul>
+        <li><strong>Versandprotokoll:</strong> Unter dem Beleg siehst du jede Zustellung mit Zeitpunkt und Status (Gesendet, Zugestellt, Geöffnet, Unzustellbar). So weißt du bei Nachfragen, was wann rausging.</li>
+        <li><strong>Über Mail-App senden:</strong> Alternativ öffnet USELY deine Mail-App mit dem PDF als Anhang. Dann steht die Mail in deinem eigenen Postausgang, aber nicht im Versandprotokoll.</li>
+        <li>Hat der Kunde keine E-Mail-Adresse, ergänze sie in den Kundendaten oder nutze die Mail-App.</li>
+      </ul>
+      <div class="hc-tip warn">Zu viele Sendungen in kurzer Zeit blockt USELY für eine Stunde, das schützt deine Absender-Reputation. Bei Serienversand lieber in Ruhe nacheinander.</div>
+    </article>
+
+    <article class="hc-article" id="beleg-link" data-tags="beleg-link link teilen annahme-link angebot online annehmen ablehnen browser link widerrufen auftragsbestätigung automatisch">
+      <h3>Beleg-Link und Annahme per Link <a class="anker" href="#beleg-link" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Jeder Beleg lässt sich als Link teilen. Der Kunde sieht ihn im Browser, ohne App und ohne Konto.</p>
+      <ul>
+        <li><strong>Beleg-Link:</strong> Im Beleg-Detail unter <strong>Teilen</strong> erzeugst du einen Link zur Ansicht und kopierst ihn in Messenger, Mail oder Notizen. Über <strong>Link widerrufen</strong> kann der Kunde den Beleg nicht mehr öffnen, die Ereignisse bleiben erhalten.</li>
+        <li><strong>Annahme per Link:</strong> Bei Angeboten kann der Kunde im Browser <strong>annehmen</strong> oder <strong>ablehnen</strong>. Mit dem Schalter <strong>AB bei Annahme automatisch erstellen</strong> (Profil, Belegkette) entsteht die Auftragsbestätigung dann von selbst. Die Annahme per Link wird schrittweise für Firmen freigeschaltet, bis dahin setzt du den Status im Angebot selbst.</li>
+        <li>USELY meldet dir per Glocke und Push, wenn ein Kunde ein Angebot beantwortet hat.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="qr-code" data-tags="qr-code girocode epc überweisung scannen banking-app iban qr-überweisung">
+      <h3>Zahlen per QR-Code (Girocode) <a class="anker" href="#qr-code" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Trägt deine Firma eine IBAN in den Stammdaten, druckt USELY auf jede Rechnung und Abschlagsrechnung einen QR-Code nach dem EPC-Standard. Dein Kunde scannt ihn mit seiner Banking-App: Empfänger, IBAN, Betrag und Rechnungsnummer als Verwendungszweck sind vorbelegt, Tippfehler ausgeschlossen.</p>
+      <ul>
+        <li>Kostenlos in Free und Pro, keine Einrichtung nötig. Angebote, Lieferscheine und Stornorechnungen tragen keinen QR-Code.</li>
+        <li>Abschalten geht in der Web-App unter Einstellungen, Karte <strong>QR-Überweisung</strong>. Die Einstellung gilt für alle neuen PDFs deiner Firma.</li>
+        <li>Weil die Rechnungsnummer im Verwendungszweck steht, erkennt der <a href="#banking">Banking-Abgleich</a> solche Überweisungen eindeutig.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="bezahllink" data-tags="bezahllink online bezahlen karte paypal apple pay google pay stripe zahlungen empfangen gebühr">
+      <h3>Bezahllink: Kunden zahlen online <span class="hc-tags"><span class="tag tag-pro">Pro</span></span><a class="anker" href="#bezahllink" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Mit dem Bezahllink zahlt dein Kunde die Rechnung direkt aus der Mail per Karte, PayPal, Apple Pay oder Google Pay. Die Zahlung wird der Rechnung automatisch zugeordnet, die Rechnung springt auf Bezahlt.</p>
+      <ol class="hc-steps">
+        <li>Verbinde im Profil unter <strong>Zahlungen empfangen</strong> dein eigenes Stripe-Konto (<strong>Mit Stripe verbinden</strong>). Die Einrichtung übernimmt Stripe, das Geld geht direkt auf dein Konto, USELY nimmt keinen Anteil.</li>
+        <li>Beim Senden einer Rechnung schaltest du <strong>Bezahllink beifügen</strong> ein. Über <strong>Bezahllink standardmäßig anbieten</strong> ist er bei jeder Rechnung vorausgewählt.</li>
+        <li>Zahlt der Kunde, erfasst USELY die Zahlung mit vollem Rechnungsbetrag und legt die Stripe-Gebühr automatisch als Ausgabe unter <strong>Gebühren / Bank</strong> an. Im Beleg siehst du Bezahlt, Gebühr und Auszahlung.</li>
+      </ol>
+      <div class="hc-tip warn">Der Bezahllink wird schrittweise für Firmen freigeschaltet. Solange die Karten <strong>Zahlungen empfangen</strong> und <strong>Bezahllink</strong> in deinem Profil nicht erscheinen, ist die Freischaltung für dein Konto noch nicht aktiv. Schreib uns, wenn du ihn brauchst. Der <a href="#qr-code">QR-Code</a> funktioniert immer.</div>
+    </article>
+
+    <article class="hc-article" id="banking" data-tags="banking geschäftskonto verbinden bank abgleich zahlungseingang automatisch zuordnen umsätze klärfall doppelzahlung interimskonto bankzugriff abgelaufen finapi">
+      <h3>Banking-Abgleich: Zahlungseingänge automatisch zuordnen <span class="hc-tags"><span class="tag">iPhone</span><span class="tag tag-admin">Admin</span></span><a class="anker" href="#banking" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Verbinde dein Geschäftskonto, dann liest USELY deine Umsätze mit und erkennt, welche Überweisung zu welcher Rechnung gehört. Der Bank-Login läuft ausschließlich bei deiner Bank, USELY sieht deine Zugangsdaten nie und kann keine Zahlungen auslösen.</p>
+      <ul>
+        <li><strong>Automatisch verbucht</strong> wird nur bei eindeutigen Treffern: Betrag stimmt centgenau und die Rechnungsnummer steht im Verwendungszweck. Alles andere landet unter <strong>Zahlungseingang zum Klären</strong>, dort ordnest du mit einem Tipp zu oder ignorierst den Umsatz.</li>
+        <li><strong>Doppelzahlung:</strong> Zahlt ein Kunde eine bereits bezahlte Rechnung erneut, markiert USELY den Konflikt. Du erfasst ihn als Doppelzahlung und klärst die Rückzahlung mit dem Kunden.</li>
+        <li><strong>Bankzugriff läuft ab:</strong> Aus Sicherheitsgründen musst du den Zugriff regelmäßig bei deiner Bank bestätigen. USELY erinnert dich rechtzeitig, über <strong>Bankzugriff bestätigen</strong> läuft der Abgleich weiter.</li>
+        <li>Nur Inhaber und Admins sehen Bankdaten und dürfen die Verbindung trennen. Beim Trennen bleiben verbuchte Zahlungen erhalten.</li>
+      </ul>
+      <div class="hc-tip warn">Die Bankanbindung wird schrittweise freigeschaltet. Erscheint die Karte <strong>Banking</strong> in deinem Profil nicht, ist sie für deine Firma noch nicht aktiv.</div>
+    </article>
+
+    <article class="hc-article" id="mahnwesen" data-tags="mahnung mahnwesen zahlungserinnerung mahnstufe mahngebühr überfällig erinnern nach mahnung pdf">
+      <h3>Mahnwesen: Zahlungserinnerung und Mahnungen <span class="hc-tags"><span class="tag tag-pro">Pro</span></span><a class="anker" href="#mahnwesen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Überfällige Rechnungen fallen auf der Übersicht und in der Glocke von selbst auf. Von dort aus mahnst du in drei Stufen, jede mit eigenem PDF.</p>
+      <ol class="hc-steps">
+        <li>Öffne die überfällige Rechnung und tippe auf <strong>Mahnung erstellen</strong>.</li>
+        <li>Wähle die <strong>Mahnstufe</strong>: Zahlungserinnerung, erste Mahnung, letzte Mahnung. Der Text ist vorformuliert und höflich, optional trägst du eine <strong>Mahngebühr</strong> ein.</li>
+        <li>USELY erzeugt das Mahn-PDF mit Rechnungsbezug, ursprünglicher Fälligkeit und neuem Zahlungsziel. Sende es wie einen Beleg per Mail.</li>
+        <li>Unter <strong>Erinnern nach</strong> legst du fest, nach wie vielen Tagen USELY dich an die nächste Stufe erinnert. Die Mahnhistorie steht am Beleg.</li>
+      </ol>
+      <div class="hc-tip">Eine Mahnung verändert die Rechnung nicht. Geht die Zahlung ein, markierst du die Rechnung wie gewohnt als bezahlt, die Mahnungen bleiben als Historie erhalten.</div>
+    </article>
+
+    <article class="hc-article" id="erinnerungen" data-tags="belegkette erinnerung offene abrechnungen unbeantwortete angebote auftragsbestätigung ohne rechnung erinnern">
+      <h3>Erinnerungen an offene Abrechnungen und Angebote <a class="anker" href="#erinnerungen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Im Profil unter <strong>Belegkette</strong> schaltest du zwei Erinnerungen ein: <strong>An offene Abrechnungen erinnern</strong> meldet Auftragsbestätigungen, die noch keine Rechnung haben. <strong>An unbeantwortete Angebote erinnern</strong> meldet Angebote, die seit Tagen ohne Antwort sind. Beides erscheint in der Glocke und als Push auf dem iPhone.</p>
+    </article>
+  </section>
+
+  <!-- ============================================================ E-RECHNUNG -->
+  <section class="hc-section" id="e-rechnung" data-titel="E-Rechnung">
+    <div class="hc-section-head">
+      <span class="eyebrow">04 · E-Rechnung</span>
+      <h2>XRechnung und ZUGFeRD, <em>bevor es Pflicht wird.</em></h2>
+      <p>Seit 2025 müssen Unternehmen E-Rechnungen empfangen können, ab 2027 wird der Versand stufenweise Pflicht. USELY kann beides.</p>
+    </div>
+
+    <article class="hc-article" id="xrechnung-zugferd" data-tags="e-rechnung xrechnung zugferd xml pdf erstellen erzeugen versenden pro pflicht 2027 en 16931 behörde">
+      <h3>E-Rechnung erstellen und versenden <span class="hc-tags"><span class="tag tag-pro">Pro</span></span><a class="anker" href="#xrechnung-zugferd" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Die E-Rechnung entsteht aus der Rechnung, die du ohnehin schreibst. Es gibt zwei Formate: <strong>XRechnung</strong> ist eine reine XML-Datei (Standard bei Behörden), <strong>ZUGFeRD</strong> ist ein normales PDF mit eingebetteter XML, das jeder lesen und jede Software verarbeiten kann.</p>
+      <ol class="hc-steps">
+        <li>Prüfe deine Stammdaten: Firmenname, Adresse, Steuernummer oder USt-IdNr., IBAN. Der Kunde braucht eine vollständige Adresse. Fehlt etwas, sagt USELY dir beim Erzeugen genau, was.</li>
+        <li>Öffne die Rechnung, Bereich <strong>E-Rechnung und Export</strong>. Wähle <strong>XRechnung (XML) erzeugen</strong> oder <strong>ZUGFeRD-PDF erzeugen</strong>, die Datei lässt sich teilen oder speichern.</li>
+        <li>Zum Versenden tippst du im Senden-Sheet auf den Anhang <strong>PDF + XRechnung</strong> (die Mail enthält PDF und XML) oder <strong>ZUGFeRD-PDF</strong> (eine Datei, die beides ist).</li>
+      </ol>
+      <ul>
+        <li>E-Rechnungen gibt es für <strong>Rechnungen und Abschlagsrechnungen</strong>. Schlussrechnungen führen die Anzahlungen und den Restbetrag korrekt nach EN 16931 aus.</li>
+        <li>Die XML ist sprachneutral, das PDF folgt deiner Belegsprache. Beide Formate werden gegen die offiziellen Prüfregeln validiert, ZUGFeRD zusätzlich als PDF/A-3.</li>
+        <li>Kleinunternehmer nach §19 UStG können ebenfalls E-Rechnungen ausstellen, USELY setzt die passende Steuerkategorie.</li>
+      </ul>
+      <div class="hc-tip">Frag deinen Kunden, welches Format er braucht. Im Zweifel ist ZUGFeRD die sichere Wahl: Wer es nicht maschinell liest, sieht einfach ein PDF.</div>
+    </article>
+
+    <article class="hc-article" id="e-rechnung-empfangen" data-tags="e-rechnung empfangen eingangsrechnung lesen auslesen zugferd xrechnung ausgabe erfassen automatisch erkannt restbetrag anzahlung">
+      <h3>E-Rechnungen empfangen und auslesen <a class="anker" href="#e-rechnung-empfangen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Bekommst du selbst eine E-Rechnung, liest USELY sie beim Erfassen der Ausgabe automatisch aus, egal ob ZUGFeRD-PDF oder XRechnung-XML.</p>
+      <ol class="hc-steps">
+        <li>Ausgaben, <strong>+</strong>, <strong>Beleg anhängen</strong> und die Datei aus Mail oder Dateien wählen.</li>
+        <li>USELY zeigt <strong>E-Rechnung erkannt</strong> und belegt Betrag, Datum, Rechnungsnummer und Lieferant vor. Enthält die Rechnung Anzahlungen, übernimmt USELY den offenen <strong>Restbetrag</strong>.</li>
+        <li>Prüfen, Kategorie wählen, <strong>Erfassen</strong>.</li>
+      </ol>
+      <div class="hc-tip">Noch schneller geht es mit dem <a href="#beleg-postfach">Beleg-Postfach</a>: Leite Eingangsrechnungen an deine Beleg-Adresse weiter, USELY liest sie beim Eingang und legt sie in den Posteingang.</div>
+    </article>
+  </section>
+
+  <!-- ============================================================ AUSGABEN -->
+  <section class="hc-section" id="ausgaben" data-titel="Ausgaben und Belege scannen">
+    <div class="hc-section-head">
+      <span class="eyebrow">05 · Ausgaben und Belege scannen</span>
+      <h2>Beleg fotografieren, <em>fertig.</em></h2>
+      <p>Ausgaben erfassen, Belege per Foto oder Mail einsammeln, Fixkosten automatisch buchen. Alles landet in der EÜR und im Belegpaket für die Kanzlei.</p>
+    </div>
+
+    <article class="hc-article" id="ausgabe-erfassen" data-tags="ausgabe erfassen betriebsausgabe kategorie betrag brutto netto mwst datum projekt zuordnen beleg anhängen">
+      <h3>Ausgabe erfassen <span class="hc-tags"><span class="tag">iPhone</span><span class="tag tag-web">Web</span></span><a class="anker" href="#ausgabe-erfassen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Tab <strong>Ausgaben</strong>, dann <strong>+</strong>.</li>
+        <li>Trage <strong>Beschreibung</strong> (z. B. Tankstelle Aral), <strong>Betrag brutto</strong>, <strong>MwSt.</strong> und <strong>Datum</strong> ein. Netto rechnet USELY aus.</li>
+        <li>Wähle eine <strong>Kategorie</strong>: Material, Büro, Fahrzeug / Sprit, Reisekosten, Software / Abos, Telefon / Internet, Miete, Versicherung, Marketing / Werbung, Bewirtung, Fortbildung, Löhne / Personal, Porto / Versand, Steuerberater / Recht, Gebühren / Bank oder Sonstiges. Die Kategorie steuert das Konto im DATEV-Export.</li>
+        <li>Optional: Ordne die Ausgabe einem <strong>Projekt</strong> zu, dann siehst du dort Kosten und Marge des Auftrags.</li>
+        <li><strong>Beleg anhängen:</strong> Foto mit der Kamera, Bild aus der Galerie oder eine Datei (PDF, Bild, E-Rechnung). Das Belegbild wird privat in deiner Firma gespeichert und wandert ins Belegpaket für die Kanzlei.</li>
+      </ol>
+    </article>
+
+    <article class="hc-article" id="beleg-scannen" data-tags="beleg scannen fotografieren ki-belegerkennung texterkennung ocr quittung kassenbon betrag automatisch erkannt kamera-zugriff">
+      <h3>Belege scannen mit Belegerkennung <span class="hc-tags"><span class="tag tag-pro">Pro</span></span><a class="anker" href="#beleg-scannen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Fotografiere Quittung oder Rechnung, USELY liest Betrag, Datum und MwSt. aus und füllt die Ausgabe vor. Du prüfst nur noch.</p>
+      <ol class="hc-steps">
+        <li>Ausgaben, <strong>+</strong>, <strong>Beleg scannen</strong> (Kamera) oder ein Bild aus der Galerie wählen.</li>
+        <li>Warte einen Moment auf <strong>Erkenne Beleg</strong>. Betrag, Datum und Steuersatz erscheinen im Formular, das Foto hängt am Beleg.</li>
+        <li>Prüfe die Werte, wähle Kategorie und Projekt, <strong>Erfassen</strong>.</li>
+      </ol>
+      <ul>
+        <li>Gute Scans: Beleg flach, ganz im Bild, gutes Licht, kein Schatten über den Zahlen. Lange Kassenbons lieber in zwei Fotos.</li>
+        <li>Erkennt USELY nichts, siehst du <strong>Nichts erkannt</strong>. Das Foto bleibt gespeichert, die Werte trägst du dann von Hand ein.</li>
+        <li>Im Free-Tarif kannst du Belegfotos anhängen, die automatische Erkennung ist Teil von Pro.</li>
+      </ul>
+      <div class="hc-tip warn">Meldet die App <strong>Kamera-Zugriff benötigt</strong>, erlaube USELY die Kamera in den iOS-Einstellungen unter Datenschutz und Sicherheit, Kamera.</div>
+    </article>
+
+    <article class="hc-article" id="fixkosten" data-tags="fixkosten wiederkehrende ausgaben automatisch buchen miete versicherung abo monatlich vorlage">
+      <h3>Fixkosten und wiederkehrende Ausgaben <span class="hc-tags"><span class="tag tag-pro">Pro</span></span><a class="anker" href="#fixkosten" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Miete, Versicherung, Software-Abos: einmal anlegen, USELY bucht sie zum Stichtag automatisch als Ausgabe.</p>
+      <ol class="hc-steps">
+        <li>Ausgaben, Umschalter <strong>Fixkosten</strong>, dann <strong>+</strong>.</li>
+        <li>Beschreibung, Betrag, Kategorie, <strong>Intervall</strong> (monatlich oder jährlich) und <strong>Startdatum</strong>, optional ein Enddatum.</li>
+        <li>Am Fälligkeitstag entsteht die Ausgabe automatisch, die Glocke meldet <strong>Fixkosten fällig</strong>. In der Ausgabenliste ist sie als automatisch gebucht markiert.</li>
+      </ol>
+      <div class="hc-tip">Löschst du eine Vorlage, bleiben bereits gebuchte Ausgaben erhalten. Die Fixkosten pro Monat siehst du oben in der Ausgaben-Übersicht.</div>
+    </article>
+
+    <article class="hc-article" id="beleg-postfach" data-tags="beleg-postfach posteingang beleg-adresse e-mail weiterleiten eingangsrechnung belege per mail einreichen übernehmen verwerfen zurückholen neue adresse in.usely">
+      <h3>Beleg-Postfach: Belege per E-Mail einreichen <span class="hc-tags"><span class="tag tag-pro">Pro</span><span class="tag tag-admin">Admin</span></span><a class="anker" href="#beleg-postfach" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Deine Firma bekommt eine eigene, geheime E-Mail-Adresse für Belege. Was du dorthin weiterleitest, landet im Posteingang unter Ausgaben. E-Rechnungen werden dabei automatisch gelesen.</p>
+      <ol class="hc-steps">
+        <li>Öffne als Admin <strong>Ausgaben</strong>, <strong>Posteingang</strong>. Beim ersten Öffnen legt USELY die Adresse an, sie steht oben im Posteingang und im Profil unter <strong>Beleg-Postfach</strong>. Über <strong>Kopieren</strong> oder <strong>Teilen</strong> holst du sie in dein Mailprogramm, am besten als Kontakt.</li>
+        <li>Leite Eingangsrechnungen, Quittungs-Fotos oder Lieferantenmails an die Adresse weiter. Anhänge: PDF, JPG, PNG, HEIC, XML bis 10 MB, bis zu 50 Mails am Tag.</li>
+        <li>USELY meldet <strong>Neuer Beleg im Posteingang</strong> per Glocke und Push. Ein Tipp öffnet den Posteingang.</li>
+        <li><strong>Übernehmen</strong> öffnet die Ausgabe mit allen erkannten Werten (E-Rechnung ausgelesen, sonst Belegerkennung), das Belegbild hängt bereits dran. <strong>Verwerfen</strong> räumt Eingänge weg, die keine Belege sind, bis zu 30 Tage lang kannst du sie <strong>zurückholen</strong>.</li>
+      </ol>
+      <ul>
+        <li>Die Adresse ist geheim: Wer sie kennt, kann Belege einreichen. Ist sie in falsche Hände geraten, erzeugst du im Profil eine <strong>Neue Adresse</strong>, die alte funktioniert danach nicht mehr.</li>
+        <li>Mails ohne Anhang erscheinen gedämpft im Posteingang, damit du siehst, dass etwas angekommen, aber nichts zu übernehmen ist.</li>
+        <li>Jeder Eingang, jede Übernahme und jedes Verwerfen steht im <a href="#aktivitaet">Aktivitätsprotokoll</a>.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="ausgaben-auswerten" data-tags="ausgaben übersicht jahr monat filter kosten betriebsausgaben auswertung">
+      <h3>Ausgaben auswerten <a class="anker" href="#ausgaben-auswerten" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ul>
+        <li>Oben im Ausgaben-Tab filterst du nach Jahr und Monat und siehst die Summe der Betriebsausgaben und die Fixkosten pro Monat.</li>
+        <li>Auf der Übersicht stehen Kosten neben dem Umsatz, die Jahreskurve zeigt beides im Verlauf.</li>
+        <li>Für die Steuer: <a href="#euer-export">EÜR-Export</a> als PDF und CSV, für die Kanzlei der <a href="#datev-export">DATEV-Buchungsstapel</a> mit Belegpaket.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ============================================================ KUNDEN -->
+  <section class="hc-section" id="kunden" data-titel="Kunden und Leads">
+    <div class="hc-section-head">
+      <span class="eyebrow">06 · Kunden und Leads</span>
+      <h2>Jeder Kunde <em>auf einen Blick.</em></h2>
+      <p>Kunden anlegen, in der Akte alles zu einem Kunden sehen, Leads in der Pipeline führen und Bestandsdaten per CSV übernehmen.</p>
+    </div>
+
+    <article class="hc-article" id="kunde-anlegen" data-tags="kunde anlegen erstellen firma privatperson kundennummer adresse e-mail ust-idnr suchen filtern">
+      <h3>Kunde anlegen und finden <a class="anker" href="#kunde-anlegen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Tab <strong>Kunden</strong>, <strong>+</strong> oben rechts.</li>
+        <li>Wähle <strong>Firma</strong> oder <strong>Privatperson</strong>. Firmen brauchen den Firmennamen, Privatkunden Vor- und Nachnamen.</li>
+        <li>Adresse, E-Mail und Telefon, bei Firmen optional die USt-IdNr. Die E-Mail ist die Empfängeradresse beim Versand.</li>
+        <li><strong>Speichern</strong>. USELY vergibt die Kundennummer (z. B. K-0001) automatisch.</li>
+      </ol>
+      <ul>
+        <li>Mit den Chips filterst du nach Firmen oder Privatkunden, das Suchfeld findet jeden Eintrag nach Name, Ort oder Nummer.</li>
+        <li>Kunden lassen sich auch direkt aus dem Kalkulator anlegen, wenn du beim Beleg <strong>Neuen Kunden anlegen</strong> wählst.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="kundenakte" data-tags="kundenakte akte kennzahlen offen umsatz belege des kunden projekte aufgaben dateien notizen bearbeiten">
+      <h3>Die Kundenakte <a class="anker" href="#kundenakte" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Ein Tipp auf einen Kunden öffnet seine Akte: alles zu diesem Kunden an einem Ort.</p>
+      <ul>
+        <li><strong>Kennzahlen:</strong> offener Betrag, Umsatz gesamt (bezahlte Rechnungen) und Anzahl der Belege, live aus den eingefrorenen Belegwerten.</li>
+        <li><strong>Stammdaten</strong> mit Tipp auf E-Mail oder Telefon, um direkt zu schreiben oder anzurufen. Bearbeiten über den Stift oben rechts.</li>
+        <li><strong>Belege</strong> und <strong>Projekte</strong> des Kunden, jeweils mit Sprung ins Detail.</li>
+        <li><strong>Aufgaben:</strong> Aufgaben aus deinen Boards, die diesem Kunden zugeordnet sind (im Aufgaben-Editor über das Feld <strong>Kunde</strong>).</li>
+        <li><strong>Dateien:</strong> Verträge, Pläne, Fotos. Bis zu 50 Dateien je Kunde, je bis 10 MB (PDF, Bilder, Word, Excel, CSV, Text). Tippen zeigt die Vorschau.</li>
+        <li><strong>Notizen:</strong> Freitext, der nur für dich und dein Team sichtbar ist.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="leads" data-tags="lead leads pipeline interessent anfrage als kunde übernehmen konvertieren pipeline-board stages gewonnen verloren kontaktiert">
+      <h3>Leads und Pipeline <a class="anker" href="#leads" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Interessenten führst du als Leads in derselben Liste wie Kunden, ohne Kundennummer, bis aus der Anfrage ein Auftrag wird.</p>
+      <ol class="hc-steps">
+        <li>Kunden, Umschalter <strong>Leads</strong>, <strong>+</strong>. Ein Lead braucht nur einen Namen, alles andere kommt später.</li>
+        <li>Für den Überblick legst du unter Projekte ein Board aus der Vorlage <strong>Pipeline (Leads)</strong> an: Spalten Neu, Kontaktiert, Angebot, Gewonnen, Verloren. Jede Karte hängt am Lead.</li>
+        <li>Wird aus dem Lead ein Kunde, tippst du in seiner Akte auf <strong>Als Kunde übernehmen</strong>. USELY vergibt die Kundennummer, alle Belege und Aufgaben bleiben verknüpft.</li>
+      </ol>
+    </article>
+
+    <article class="hc-article" id="import" data-tags="import csv importieren kunden ausgaben artikel sevdesk lexware office excel bank umzug wechsel daten übernehmen duplikate">
+      <h3>Kunden, Ausgaben und Artikel per CSV importieren <span class="hc-tags"><span class="tag tag-web">Web</span><span class="tag tag-admin">Admin</span></span><a class="anker" href="#import" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Du wechselst von sevdesk, Lexware Office, einer Excel-Liste oder dem Bank-Export? Der Import-Assistent in der Web-App übernimmt Kunden, Ausgaben und Artikel in vier Schritten.</p>
+      <ol class="hc-steps">
+        <li>Web-App, <strong>Einstellungen</strong>, Karte <strong>Daten-Import</strong>, Art wählen: Kunden, Ausgaben oder Artikel.</li>
+        <li><strong>Datei wählen:</strong> eine CSV-Datei. Trennzeichen und Kodierung erkennt USELY selbst, auch alte Windows-Exporte.</li>
+        <li><strong>Spalten zuordnen:</strong> Für sevdesk und Lexware Office sind die Spalten vorbelegt, bei eigenen Listen ordnest du sie per Auswahl zu. Bei Ausgaben übersetzt du fremde Kategorien in USELY-Kategorien.</li>
+        <li><strong>Prüfung:</strong> Die Vorschau zeigt alle Zeilen, markiert Duplikate und fehlerhafte Zeilen. Erst dann importierst du.</li>
+      </ol>
+      <ul>
+        <li>Bestehende Kundennummern werden übernommen. Kollidiert eine mit deinem Nummernkreis, warnt USELY vor dem Import.</li>
+        <li>Ein zweiter Lauf derselben Datei erkennt Duplikate und importiert nichts doppelt.</li>
+        <li><strong>Belege</strong> (Rechnungen, Angebote) lassen sich bewusst nicht importieren: Sie tragen fortlaufende Nummern und eingefrorene Werte aus dem alten System. Bewahre die alten PDFs auf, neue Belege schreibst du in USELY.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ============================================================ PROJEKTE, BOARDS, AUFGABEN -->
+  <section class="hc-section" id="projekte" data-titel="Projekte, Boards, Aufgaben">
+    <div class="hc-section-head">
+      <span class="eyebrow">07 · Projekte, Boards, Aufgaben</span>
+      <h2>Planen, zuweisen, <em>erledigen.</em></h2>
+      <p>Ein Projekt hält Kalkulation, Belege und Ausgaben eines Auftrags zusammen. Boards planen die Arbeit dahinter, als Liste, Kanban oder Timeline.</p>
+    </div>
+
+    <article class="hc-article" id="projekt-anlegen" data-tags="projekt anlegen als projekt speichern auftrag kalkulation belege ausgaben marge abgeschlossen kunde zuweisen">
+      <h3>Projekte: ein Auftrag, ein Ort <a class="anker" href="#projekt-anlegen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Erstelle im Kalkulator die Posten und wähle <strong>Als Projekt speichern</strong>. Oder lege unter <strong>Projekte</strong> direkt ein neues Projekt an.</li>
+        <li>Im Projekt siehst du die Kalkulation, alle daraus erstellten Belege und die zugeordneten Ausgaben. Aus der Kalkulation erzeugst du jederzeit ein Angebot oder eine Rechnung, ohne neu einzutippen.</li>
+        <li>Ordne Ausgaben dem Projekt zu (im Ausgaben-Formular unter <strong>Projekt</strong>), dann zeigt das Projekt Umsatz, Kosten und Marge.</li>
+        <li>Ist der Auftrag durch, wählst du <strong>Als abgeschlossen markieren</strong>. Abgeschlossene Aufträge zählen auf der Übersicht.</li>
+      </ol>
+    </article>
+
+    <article class="hc-article" id="boards" data-tags="board anlegen kanban liste timeline tabelle spalten status person datum zahl text label vorlage drag and drop board löschen umbenennen">
+      <h3>Boards: Liste, Kanban und Timeline <a class="anker" href="#boards" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Unter <strong>Projekte</strong>, Bereich <strong>Boards</strong>, tippst du auf <strong>Neues Board</strong> und wählst eine Vorlage (Standard mit Status, Person und Fälligkeit, oder Pipeline für Leads).</li>
+        <li>Wechsle oben zwischen <strong>Liste</strong>, <strong>Kanban</strong> (Spalten nach Status, Karten per Drag-and-drop) und <strong>Timeline</strong> (Aufgaben nach Fälligkeit: Überfällig, Diese Woche, Nächste Woche, Kalenderwochen, Ohne Termin). USELY merkt sich deine Ansicht.</li>
+        <li><strong>Spalten anpassen:</strong> Über das Spalten-Symbol fügst du eigene Spalten hinzu: Status (mit eigenen Optionen), Person, Datum, Zahl, Text oder Label. Spalten lassen sich umbenennen, umordnen und entfernen.</li>
+      </ol>
+      <ul>
+        <li>Benennst du eine Status-Option um, ordnet USELY die bestehenden Aufgaben automatisch der neuen Bezeichnung zu.</li>
+        <li>Entfernst du eine Spalte, verschwinden ihre Werte aus allen Aufgaben des Boards. Belege bleiben unberührt.</li>
+        <li>Ein Board zu löschen entfernt alle seine Spalten und Aufgaben dauerhaft, die Zeiteinträge daran ebenfalls.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="aufgaben" data-tags="aufgabe anlegen task zuweisen fälligkeit kommentar erwähnung @ person kunde am task aufgabe löschen">
+      <h3>Aufgaben, Zuweisungen und Kommentare <a class="anker" href="#aufgaben" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Im Board auf <strong>Neue Aufgabe</strong>, Titel eingeben, optional Beschreibung.</li>
+        <li>Setze Status, <strong>Person</strong> (ein Teammitglied) und <strong>Fällig</strong>. Die zugewiesene Person bekommt eine Mitteilung.</li>
+        <li>Über das Feld <strong>Kunde</strong> hängst du die Aufgabe an einen Kunden, sie erscheint dann in seiner <a href="#kundenakte">Akte</a>.</li>
+        <li><strong>Kommentare:</strong> Unten in der Aufgabe schreibst du Kommentare. Mit <strong>@</strong> erwähnst du Teammitglieder, sie bekommen Glocke und Push.</li>
+      </ol>
+      <div class="hc-tip warn">Beim Löschen einer Aufgabe gehen ihre Zeiteinträge mit verloren. Rechne offene Zeiten vorher ab.</div>
+    </article>
+
+    <article class="hc-article" id="automationen" data-tags="automation regel wenn status wechselt fälligkeit erreicht task angelegt gelöscht spalte ändert benachrichtige weise zu webhook bedingung und oder nur wenn">
+      <h3>Automationen: Regeln fürs Board <a class="anker" href="#automationen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Regeln erledigen Routine: „Wenn Status auf Erledigt wechselt, benachrichtige Anna“ oder „Drei Tage vor Fälligkeit, weise Max zu“. Ohne KI, immer nachvollziehbar.</p>
+      <ol class="hc-steps">
+        <li>Im Board auf das Blitz-Symbol <strong>Automationen</strong>, dann <strong>Neue Regel</strong>.</li>
+        <li><strong>Regel-Art</strong> wählen: Wenn Status wechselt (auf eine bestimmte Option), Wenn Fälligkeit erreicht (am Tag selbst, bis 365 Tage vorher oder danach), Wenn ein Task angelegt wird, Wenn ein Task gelöscht wird oder Wenn sich eine Spalte ändert.</li>
+        <li><strong>Dann:</strong> benachrichtige Person, weise Person zu oder rufe Webhook auf (URL, zum Beispiel Zapier, Make, n8n oder Slack).</li>
+        <li><strong>Nur wenn (optional):</strong> bis zu fünf Bedingungen, mit UND oder ODER verknüpft. Vergleiche: hat den Wert, hat nicht den Wert, ist leer, ist nicht leer, bei Datums-Spalten liegt vor heute, ist heute, liegt nach heute.</li>
+      </ol>
+      <ul>
+        <li>Bis zu 20 Regeln je Board. Jede Regel zeigt in der Liste ihren Klartext und bei Webhooks den letzten Zustell-Status.</li>
+        <li>Regeln lösen sich nicht gegenseitig aus: Eine Zuweisung durch eine Regel startet keine weitere Regel.</li>
+        <li>Wird eine Spalte gelöscht, auf die eine Regel sich bezieht, bleibt die Regel stehen und wird als verwaist markiert. Sie feuert dann nicht mehr.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ============================================================ ZEITERFASSUNG -->
+  <section class="hc-section" id="zeiten" data-titel="Zeiterfassung">
+    <div class="hc-section-head">
+      <span class="eyebrow">08 · Zeiterfassung</span>
+      <h2>Stunden werden <em>Rechnungen.</em></h2>
+      <p>Timer an der Aufgabe, Zeiten nachtragen, Report je Person oder Aufgabe, und mit einem Tipp abrechnen.</p>
+    </div>
+
+    <article class="hc-article" id="timer" data-tags="timer starten stoppen wechseln live-aktivität sperrbildschirm dynamic island 8 stunden erinnerung läuft bereits ein timer">
+      <h3>Timer starten, stoppen, wechseln <a class="anker" href="#timer" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Öffne eine Aufgabe im Board und tippe auf <strong>Timer starten</strong>. Der Timer läuft auf allen Geräten, auf dem iPhone auch als <strong>Live-Aktivität</strong> auf dem Sperrbildschirm und in der Dynamic Island.</li>
+        <li><strong>Stoppen</strong> öffnet den Zeit-Editor mit der gemessenen Dauer: Notiz ergänzen, abrechenbar setzen, Stundensatz prüfen, <strong>Speichern</strong>.</li>
+        <li>Arbeitest du an etwas Neuem, wähle in der anderen Aufgabe <strong>Timer hierher wechseln</strong>. Die bisherige Zeit landet vorbefüllt im Editor und wird bei der richtigen Aufgabe gebucht, der neue Timer läuft sofort.</li>
+      </ol>
+      <ul>
+        <li>Es läuft immer nur ein Timer je Person. Läuft er länger als 8 Stunden, erinnert USELY dich per Mitteilung. Nach 24 Stunden bittet der Editor, die Dauer zu prüfen.</li>
+        <li>Wurde der Timer auf einem anderen Gerät gestoppt, erfährst du das beim nächsten Öffnen, nichts geht verloren.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="zeit-nachtragen" data-tags="zeit erfassen nachtragen manuell dauer minuten stundensatz abrechenbar notiz zeiteintrag bearbeiten löschen">
+      <h3>Zeiten nachtragen und bearbeiten <a class="anker" href="#zeit-nachtragen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>In der Aufgabe auf <strong>Zeit erfassen</strong>.</li>
+        <li>Datum, <strong>Dauer</strong> (mindestens 1 Minute, höchstens 24 Stunden), <strong>Stundensatz</strong>, <strong>Abrechenbar</strong> ja oder nein, optional eine Notiz.</li>
+        <li>Speichern. Einträge lassen sich jederzeit bearbeiten oder löschen, solange sie nicht abgerechnet sind.</li>
+      </ol>
+      <div class="hc-tip">Den Standard-Stundensatz legst du im Profil unter <strong>Zeiterfassung</strong> fest. Er belegt neue Einträge vor und bleibt je Eintrag änderbar.</div>
+    </article>
+
+    <article class="hc-article" id="zeiten-report" data-tags="zeiten-report report auswertung je aufgabe je person monat jahr filter csv export stunden">
+      <h3>Zeiten-Report und CSV-Export <a class="anker" href="#zeiten-report" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ul>
+        <li>Unter <strong>Projekte</strong>, <strong>Zeiten</strong> (Web: <strong>Zeiten</strong> in der Seitenleiste) wählst du Monat oder Jahr, filterst nach Person, Board und Status (Offen, Abgerechnet, Nicht abrechenbar) und gruppierst <strong>Je Aufgabe</strong> oder <strong>Je Person</strong>.</li>
+        <li>Oben stehen die Summen: erfasste Stunden und der abrechenbare Betrag.</li>
+        <li><strong>Als CSV exportieren</strong> erzeugt eine Datei für Excel oder die Kanzlei, auf iPhone und Web byte-gleich.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="zeiten-abrechnen" data-tags="zeiten abrechnen stunden in rechnung positionen abgerechnet offen abrechenbar">
+      <h3>Zeiten abrechnen: aus Stunden werden Positionen <a class="anker" href="#zeiten-abrechnen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Im Board oder im Zeiten-Report auf <strong>Abrechnen</strong>. USELY sammelt alle offenen, abrechenbaren Zeiten.</li>
+        <li>Wähle den Kunden und prüfe die Positionen: je Aufgabe eine Zeile mit Stunden mal Stundensatz.</li>
+        <li>Erstelle daraus Angebot oder Rechnung. Die Zeiten sind danach als <strong>Abgerechnet</strong> markiert und tauchen nicht noch einmal auf.</li>
+      </ol>
+      <div class="hc-tip warn">Nicht abrechenbare Zeiten (intern, Kulanz) bleiben im Report sichtbar, landen aber nie in einer Rechnung.</div>
+    </article>
+  </section>
+
+  <!-- ============================================================ TEAM UND STEUERBERATER -->
+  <section class="hc-section" id="team" data-titel="Team und Steuerberater">
+    <div class="hc-section-head">
+      <span class="eyebrow">09 · Team und Steuerberater</span>
+      <h2>Rollen, Rechte, <em>Kanzlei-Zugang.</em></h2>
+      <p>Mitarbeiter mit vollem Zugriff, Admins mit Verwaltung, die Kanzlei mit Nur-Lesen auf gewählte Bereiche. Alles im selben Konto.</p>
+    </div>
+
+    <article class="hc-article" id="team-einladen" data-tags="team einladen mitglied admin einladung erstellen einladungscode code teilen link rolle rechte">
+      <h3>Teammitglied einladen <span class="hc-tags"><span class="tag tag-admin">Admin</span></span><a class="anker" href="#team-einladen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Profil, <strong>Team und Steuerberater</strong>, <strong>Zugänge verwalten</strong>, <strong>Team einladen</strong> (Web: Einstellungen, Team).</li>
+        <li>Rolle wählen: <strong>Mitglied</strong> (voller Zugriff: Belege schreiben, Ausgaben erfassen, alles sehen) oder <strong>Admin</strong> (wie Mitglied, plus Team, Banking und Einstellungen). Optional ein Name für deine Übersicht.</li>
+        <li><strong>Einladung erstellen.</strong> Der Einladungscode wird genau einmal angezeigt und kann genau einmal eingelöst werden, mit Ablaufdatum. Über <strong>Code teilen</strong> schickst du eine fertige Nachricht mit Link, der die App öffnet.</li>
+      </ol>
+      <div class="hc-tip warn">Lade als Admin nur Personen ein, denen du das voll anvertraust: Admins können Mitglieder verwalten, Banking verbinden und alle Einstellungen ändern. Zu viele offene Einladungen? Widerrufe zuerst eine bestehende.</div>
+    </article>
+
+    <article class="hc-article" id="einladung-einloesen" data-tags="einladung einlösen code eingeben zugang erstellen eingeladen worden firma beitreten">
+      <h3>Einladung einlösen (für Eingeladene) <a class="anker" href="#einladung-einloesen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ul>
+        <li><strong>Noch kein USELY-Konto:</strong> App laden, <strong>Registrieren</strong>, <strong>Ich habe einen Einladungscode</strong> wählen, Code eingeben, <strong>Zugang erstellen</strong>. Es entsteht kein eigenes Firmenprofil, du siehst direkt die Firma, die dich eingeladen hat.</li>
+        <li><strong>Schon ein Konto:</strong> Profil, <strong>Team und Steuerberater</strong>, <strong>Einladungscode einlösen</strong>. Die Firma erscheint danach im Firmen-Umschalter.</li>
+        <li>Der Link aus der Einladungsnachricht öffnet die App direkt an der richtigen Stelle.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="steuerberater-einladen" data-tags="steuerberater einladen kanzlei nur lesen zugang bereiche datev export belegpaket buchhaltung">
+      <h3>Steuerberater oder Buchhaltung einladen <span class="hc-tags"><span class="tag tag-admin">Admin</span></span><a class="anker" href="#steuerberater-einladen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Deine Kanzlei bekommt einen kostenlosen Nur-Lesen-Zugang und holt sich Belege, Ausgaben und DATEV-Export selbst, ohne dir hinterherzulaufen.</p>
+      <ol class="hc-steps">
+        <li>Profil, <strong>Team und Steuerberater</strong>, <strong>Steuerberater einladen</strong>.</li>
+        <li>Wähle die <strong>Zugriffsbereiche</strong>: Belege, Ausgaben, Export, Kunden, Projekte. Für die Kanzlei reichen meist Belege, Ausgaben und Export.</li>
+        <li>Schicke den Code oder Link an die Kanzlei. Sie erstellt ein kostenloses USELY-Konto (oder nutzt ihr bestehendes) und löst den Code ein, siehe <a href="#einladung-einloesen">Einladung einlösen</a>.</li>
+        <li>Die Kanzlei sieht deine Firma im Nur-Lesen-Modus und kann DATEV-Buchungsstapel, Belegpaket und EÜR selbst erzeugen. Ändern kann sie nichts.</li>
+      </ol>
+      <div class="hc-tip">Berater- und Mandantennummer trägst du unter <a href="#datev-export">DATEV-Einrichtung</a> ein, dann ordnet die Kanzlei die Dateien beim Import automatisch zu.</div>
+    </article>
+
+    <article class="hc-article" id="rollen" data-tags="rollen rechte inhaber admin mitglied nur lesen bereiche zugriff bearbeiten zugang entfernen firma verlassen berechtigung">
+      <h3>Rollen und Rechte im Überblick <a class="anker" href="#rollen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <div class="hc-table-wrap"><table class="hc-table">
+        <thead><tr><th>Rolle</th><th>Darf</th><th>Darf nicht</th></tr></thead>
+        <tbody>
+          <tr><td>Inhaber</td><td>Alles, inklusive Konto und Firma löschen</td><td>Die Firma verlassen (kann nicht entfernt werden)</td></tr>
+          <tr><td>Admin</td><td>Alles wie Mitglied, plus Team verwalten, Banking, Stripe, Beleg-Postfach, Einstellungen, Aktivitätsprotokoll</td><td>Den Inhaber entfernen</td></tr>
+          <tr><td>Mitglied</td><td>Belege schreiben, Ausgaben erfassen, Kunden und Projekte pflegen, alles sehen</td><td>Team, Banking, Stammdaten und Einstellungen ändern</td></tr>
+          <tr><td>Nur Lesen</td><td>Die freigegebenen Bereiche ansehen und exportieren (Belege, Ausgaben, Export, Kunden, Projekte)</td><td>Irgendetwas anlegen oder ändern</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li><strong>Zugriff bearbeiten:</strong> In der Mitgliederliste tippst du auf eine Person und änderst Rolle oder Bereiche. Die Änderung gilt sofort.</li>
+        <li><strong>Zugang entfernen</strong> beendet den Zugriff, die Person behält ihr eigenes USELY-Konto. Mitglieder können eine Firma auch selbst verlassen.</li>
+        <li>Jede Einladung, jeder Beitritt und jede Rechteänderung steht im <a href="#aktivitaet">Aktivitätsprotokoll</a>.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ============================================================ AUSWERTUNG UND EXPORT -->
+  <section class="hc-section" id="export" data-titel="Auswertung und Export">
+    <div class="hc-section-head">
+      <span class="eyebrow">10 · Auswertung und Export</span>
+      <h2>Zahlen, die <em>stimmen.</em></h2>
+      <p>Übersicht, EÜR, DATEV-Buchungsstapel mit Belegpaket, Aktivitätsprotokoll und der Export deiner Daten.</p>
+    </div>
+
+    <article class="hc-article" id="uebersicht" data-tags="übersicht dashboard umsatz kosten offene rechnungen überfällig jahreskurve kennzahlen abgeschlossene aufträge">
+      <h3>Die Übersicht lesen <a class="anker" href="#uebersicht" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ul>
+        <li><strong>Umsatz und Kosten:</strong> Umsatz sind bezahlte Rechnungen, Kosten deine Ausgaben, wahlweise gesamt, je Jahr oder je Monat. Die Kurve zeigt den Verlauf.</li>
+        <li><strong>Offene Rechnungen:</strong> Summe der ausstehenden Beträge, dazu die Zahl der ausstehenden und überfälligen Rechnungen. Ein Tipp führt zur Liste.</li>
+        <li><strong>Abgeschlossene Aufträge:</strong> Projekte, die du als abgeschlossen markiert hast.</li>
+        <li>Entwürfe aus wiederkehrenden Vorlagen zählen in keine Kennzahl, erst nach der Freigabe.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="euer-export" data-tags="eür einnahmen-überschuss-rechnung export pdf csv geschäftsjahr steuererklärung">
+      <h3>EÜR erstellen <a class="anker" href="#euer-export" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Profil, Karte <strong>EÜR-Export</strong>, <strong>EÜR erstellen</strong>.</li>
+        <li>Geschäftsjahr wählen.</li>
+        <li>USELY erzeugt die Einnahmen-Überschuss-Rechnung als <strong>PDF</strong> (lesbar, mit Summen je Kategorie) und als <strong>CSV</strong> (für Excel oder die Kanzlei) und öffnet das Teilen-Menü.</li>
+      </ol>
+      <div class="hc-tip">Die EÜR ist eine Auswertung deiner Belege und Ausgaben, kein Steuer-Rat. Für die Steuererklärung prüft dein Steuerberater die Zahlen, dafür gibt es den DATEV-Export.</div>
+    </article>
+
+    <article class="hc-article" id="datev-export" data-tags="datev export buchungsstapel skr03 skr04 kontenrahmen beraternummer mandantennummer konto-zuordnung erlöskonto belegpaket zip steuerberater kanzlei extf">
+      <h3>DATEV-Export: Buchungsstapel und Belegpaket <a class="anker" href="#datev-export" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Einnahmen und Ausgaben als Buchungsstapel im DATEV-Format, eine Datei je Monat. Deine Kanzlei importiert sie mit ihrer DATEV-Software. Dazu das Belegpaket mit allen PDFs.</p>
+      <ol class="hc-steps">
+        <li><strong>Einrichtung (einmalig):</strong> Profil, <strong>Steuerberater</strong>, <strong>DATEV-Export</strong>, dann <strong>DATEV-Einrichtung</strong>. Wähle den <strong>Kontenrahmen</strong> SKR 03 oder SKR 04 (steht auf früheren Auswertungen deiner Kanzlei), trage <strong>Beraternummer</strong> und <strong>Mandantennummer</strong> ein (teilt dir die Kanzlei mit, sonst ordnet sie die Datei beim Import selbst zu).</li>
+        <li><strong>Konto-Zuordnungen:</strong> Erlöskonten für 19 %, 7 % und ohne USt, Gegenkonten für Einnahmen und Ausgaben, ein Interimskonto für Ungeklärtes und ein Konto je Ausgaben-Kategorie sind als Standard vorgeschlagen. Meldet dir die Kanzlei andere Konten, tippst du die Zeile an und trägst sie ein.</li>
+        <li><strong>Exportieren:</strong> Monat wählen, <strong>Datei erzeugen und teilen</strong>. USELY baut den Buchungsstapel aus Rechnungen, Stornos und Ausgaben des Monats und öffnet das Teilen-Menü (Mail an die Kanzlei, Dateien, AirDrop).</li>
+        <li><strong>Belegpaket:</strong> <strong>Belegpaket erzeugen und teilen</strong> packt die Rechnungs-PDFs und die Belegbilder der Ausgaben desselben Monats in ein ZIP-Archiv mit Inhaltsverzeichnis. Fehlt zu einer Ausgabe ein Beleg, steht das im Verzeichnis.</li>
+      </ol>
+      <ul>
+        <li>Unter <strong>Bisherige Exporte</strong> steht jede erzeugte Datei mit Zeitraum, Zeilen, Summen und Prüfsumme. So ist nachvollziehbar, was die Kanzlei wann bekommen hat.</li>
+        <li>Entwürfe fließen nicht in den Export. Gibt es in einem Monat weder Belege noch Ausgaben, wird keine leere Datei erzeugt.</li>
+        <li>Die Kanzlei mit Nur-Lesen-Zugang auf den Bereich Export kann Buchungsstapel und Belegpaket selbst erzeugen.</li>
+      </ul>
+      <div class="hc-tip warn">Die Konten-Zuordnung ist ein Standard-Vorschlag, kein Steuer-Rat. Dein Steuerberater prüft sie beim ersten Import.</div>
+    </article>
+
+    <article class="hc-article" id="aktivitaet" data-tags="aktivität aktivitätsprotokoll wer hat wann was geändert zeitleiste audit log protokoll">
+      <h3>Aktivitätsprotokoll <span class="hc-tags"><span class="tag tag-admin">Admin</span></span><a class="anker" href="#aktivitaet" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Profil, Karte <strong>Aktivität</strong>: eine Zeitleiste, wer wann was geändert hat. Belege, Kunden, Projekte, Ausgaben, Mitglieder, Mahnungen und der Posteingang werden automatisch protokolliert. Ein Tipp auf einen Beleg-Eintrag springt zum Beleg. Für Inhaber und Admins.</p>
+    </article>
+
+    <article class="hc-article" id="datenexport" data-tags="daten exportieren dsgvo json pdf meine daten datenschutz auskunft mitnehmen">
+      <h3>Alle Daten exportieren (DSGVO) <a class="anker" href="#datenexport" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Profil, Karte <strong>Datenschutz</strong>, <strong>Meine Daten exportieren</strong>: USELY erstellt eine JSON-Datei mit allen deinen Daten und eine lesbare PDF-Übersicht. Belege gibt es außerdem als PDF je Beleg, Auswertungen als CSV, für die Kanzlei als DATEV-Buchungsstapel und Belegpaket. Deine Daten gehören dir.</p>
+    </article>
+  </section>
+
+  <!-- ============================================================ MITTEILUNGEN, AUTOMATIONEN, WEBHOOKS -->
+  <section class="hc-section" id="integrationen" data-titel="Mitteilungen, Automationen, Webhooks">
+    <div class="hc-section-head">
+      <span class="eyebrow">11 · Mitteilungen und Integrationen</span>
+      <h2>Bescheid bekommen, <em>verbinden.</em></h2>
+      <p>Die Glocke in der App, Push auf dem iPhone und Webhooks zu Zapier, Make, n8n oder Slack.</p>
+    </div>
+
+    <article class="hc-article" id="mitteilungen" data-tags="mitteilungen benachrichtigungen push glocke aktivieren erwähnung zuweisung kommentar fällig überfällig alle gelesen deaktivieren">
+      <h3>Glocke und Push-Mitteilungen <a class="anker" href="#mitteilungen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Profil, Karte <strong>Mitteilungen</strong>, <strong>Mitteilungen aktivieren</strong> und die iOS-Abfrage bestätigen.</li>
+        <li>Die <strong>Glocke</strong> oben auf der Übersicht sammelt alles: Erwähnungen, Zuweisungen, Kommentare, ausgelöste Regeln, überfällige Rechnungen, fällige Mahnungen und Fixkosten, beantwortete Angebote, bezahlte Rechnungen, neue Belege im Posteingang und einen Timer, der länger als 8 Stunden läuft. Ein Tipp öffnet den passenden Ort.</li>
+        <li><strong>Alle gelesen</strong> leert den Zähler. Die Web-App hat dieselbe Glocke, Push gibt es auf dem iPhone.</li>
+      </ol>
+      <div class="hc-tip">Push abschalten geht jederzeit in den iOS-Einstellungen unter Mitteilungen, USELY. Die Glocke in der App bleibt davon unberührt.</div>
+    </article>
+
+    <article class="hc-article" id="webhooks" data-tags="webhook integration zapier make n8n slack json https abo ereignis beleg angelegt status geändert zahlung eingegangen kunde angelegt lead konvertiert zustell-historie payload">
+      <h3>Webhooks: USELY mit anderen Tools verbinden <span class="hc-tags"><span class="tag tag-admin">Admin</span></span><a class="anker" href="#webhooks" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Bei jedem gewählten Ereignis schickt USELY eine JSON-Nachricht per HTTPS-POST an eine Adresse deiner Wahl. So landen neue Rechnungen in Slack, Zahlungen in Google Sheets oder Kunden im CRM.</p>
+      <ol class="hc-steps">
+        <li>Erzeuge in Zapier, Make oder n8n einen Webhook-Trigger (Catch Hook) und kopiere die URL. Für Slack nutzt du eine Incoming-Webhook-URL.</li>
+        <li>Profil, <strong>Integrationen</strong>, <strong>Webhooks verwalten</strong>, <strong>Neues Abo</strong>: URL einfügen (nur https), Ereignisse wählen: Beleg angelegt, Beleg-Status geändert, Zahlung eingegangen, Kunde angelegt, Lead konvertiert. Optional ein Label.</li>
+        <li>Löse das Ereignis einmal aus, zum Beispiel mit einer Testrechnung. In der <strong>Zustell-Historie</strong> siehst du Statuscode, Versuche und Dauer, und über <strong>Payload kopieren</strong> das exakte JSON als Vorlage für dein Tool.</li>
+      </ol>
+      <ul>
+        <li>Die Nachricht enthält Belegkopf, Beträge und Kundenname, aber keine Positionen, Adressen oder E-Mail-Adressen.</li>
+        <li>Bis zu 10 aktive Abos je Firma. Antwortet dein Endpunkt nicht mit 2xx, wiederholt USELY einmal, danach steht der Fehler in der Historie. USELY folgt keinen Weiterleitungen.</li>
+        <li>Zusätzlich kann jede <a href="#automationen">Board-Automation</a> einen Webhook aufrufen, etwa wenn eine Aufgabe auf Erledigt wechselt.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ============================================================ ABO, KONTO, SICHERHEIT -->
+  <section class="hc-section" id="abo" data-titel="Abo, Konto, Sicherheit">
+    <div class="hc-section-head">
+      <span class="eyebrow">12 · Abo, Konto, Sicherheit</span>
+      <h2>Free, Pro <em>und dein Konto.</em></h2>
+      <p>Was Free kann, was Pro dazubringt, wie du kündigst, Passwort und E-Mail änderst, die App sperrst oder dein Konto löschst.</p>
+    </div>
+
+    <article class="hc-article" id="free-vs-pro" data-tags="free pro vergleich preis 9,99 89,99 kostenlos testen 30 tage unbegrenzte rechnungen logo e-rechnung belegerkennung mahnwesen wiederkehrend beleg-postfach">
+      <h3>Free und Pro im Vergleich <a class="anker" href="#free-vs-pro" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>USELY Free ist dauerhaft kostenlos. USELY Pro kostet 9,99 € im Monat oder 89,99 € im Jahr, ist 30 Tage kostenlos testbar und jederzeit kündbar. Der Preis ist auf dem iPhone und im Web gleich, Pro gilt für dein ganzes Konto auf allen Geräten.</p>
+      <div class="hc-table-wrap"><table class="hc-table">
+        <thead><tr><th>Funktion</th><th>Free</th><th>Pro</th></tr></thead>
+        <tbody>
+          <tr><td>Kalkulation, Angebote, Auftragsbestätigungen, Lieferscheine</td><td class="ja">unbegrenzt</td><td class="ja">unbegrenzt</td></tr>
+          <tr><td>Rechnungen</td><td>3 im Monat</td><td class="ja">unbegrenzt</td></tr>
+          <tr><td>Kunden, Kundenakte, Leads, Projekte, Ausgaben, Artikel, Lager</td><td class="ja">✓</td><td class="ja">✓</td></tr>
+          <tr><td>Boards, Aufgaben, Automationen, Zeiterfassung, Zeiten-Report</td><td class="ja">✓</td><td class="ja">✓</td></tr>
+          <tr><td>Versand per Mail mit Protokoll, Beleg-Link, QR-Code zum Überweisen</td><td class="ja">✓</td><td class="ja">✓</td></tr>
+          <tr><td>Team-Rollen, Steuerberater-Zugang, DATEV-Export, EÜR, Webhooks</td><td class="ja">✓</td><td class="ja">✓</td></tr>
+          <tr><td>Eigenes Logo, Belege ohne USELY-Hinweis</td><td class="nein">nein</td><td class="ja">✓</td></tr>
+          <tr><td>E-Rechnung: XRechnung und ZUGFeRD erzeugen und mitsenden</td><td class="nein">nein</td><td class="ja">✓</td></tr>
+          <tr><td>Belegerkennung per Foto (Betrag, Datum, MwSt. automatisch)</td><td class="nein">nein, Foto anhängen geht</td><td class="ja">✓</td></tr>
+          <tr><td>Wiederkehrende Rechnungen und Fixkosten</td><td class="nein">nein</td><td class="ja">✓</td></tr>
+          <tr><td>Mahnwesen in drei Stufen</td><td class="nein">nein</td><td class="ja">✓</td></tr>
+          <tr><td>Beleg-Postfach (Belege per E-Mail einreichen)</td><td class="nein">nein</td><td class="ja">✓</td></tr>
+          <tr><td>Bezahllink mitsenden (nach Freischaltung)</td><td class="nein">nein</td><td class="ja">✓</td></tr>
+        </tbody>
+      </table></div>
+    </article>
+
+    <article class="hc-article" id="pro-abschliessen" data-tags="pro abonnieren freischalten kaufen testen apple stripe abo verwalten kündigen käufe wiederherstellen laufzeit verlängert automatisch">
+      <h3>Pro abschließen, verwalten, kündigen <a class="anker" href="#pro-abschliessen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ul>
+        <li><strong>Abschließen auf dem iPhone:</strong> Profil, Karte <strong>USELY Pro</strong>, <strong>Pro freischalten</strong>, Monat oder Jahr wählen. Die Abrechnung läuft über deine Apple-ID, die ersten 30 Tage sind gratis.</li>
+        <li><strong>Abschließen im Web:</strong> Profil, <strong>Pro holen</strong>. Die Zahlung läuft über Stripe per Karte. Pro gilt sofort auch in der iPhone App.</li>
+        <li><strong>Kündigen:</strong> Über Apple in den iOS-Einstellungen unter deinem Namen, <strong>Abonnements</strong>, USELY. Im Web über Profil, <strong>Abo verwalten</strong>. Das Abo verlängert sich automatisch, wenn es nicht spätestens 24 Stunden vor Ablauf gekündigt wird. Nach der Kündigung läuft Pro bis zum Ende des bezahlten Zeitraums weiter.</li>
+        <li><strong>Neues iPhone oder Pro nicht erkannt:</strong> Profil, USELY Pro, <strong>Käufe wiederherstellen</strong>. Voraussetzung ist dieselbe Apple-ID.</li>
+        <li>Nach dem Ende von Pro bleibt alles erhalten und sichtbar: Belege, Logo-Einstellung, Vorlagen. Neue Rechnungen sind dann wieder auf 3 im Monat begrenzt, neue Vorlagen und E-Rechnungen brauchen Pro.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="passwort" data-tags="passwort ändern vergessen zurücksetzen e-mail ändern login-daten anmeldung code bestätigen">
+      <h3>Passwort oder E-Mail ändern, Passwort vergessen <a class="anker" href="#passwort" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ul>
+        <li><strong>Passwort ändern:</strong> Profil, <strong>Login-Daten</strong>, <strong>Passwort ändern</strong>, neues Passwort mit mindestens 8 Zeichen zweimal eingeben.</li>
+        <li><strong>Passwort vergessen:</strong> Auf dem Login-Bildschirm <strong>Passwort vergessen?</strong> tippen, E-Mail eingeben, den Code aus der Mail eintragen und ein neues Passwort festlegen.</li>
+        <li><strong>E-Mail ändern:</strong> Profil, <strong>Login-Daten</strong>, <strong>E-Mail ändern</strong>. USELY schickt einen Bestätigungscode an die neue Adresse. Erst nach Eingabe des Codes wird die Änderung aktiv, bis dahin bleibt die alte Adresse gültig.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="app-sperre" data-tags="app-sperre face id touch id sperren entsperren sicherheit code">
+      <h3>App-Sperre mit Face ID <span class="hc-tags"><span class="tag">iPhone</span></span><a class="anker" href="#app-sperre" aria-label="Link zu diesem Artikel">#</a></h3>
+      <p>Profil, Karte <strong>Sicherheit</strong>, <strong>App-Sperre</strong> einschalten. USELY wird gesperrt, wenn die App länger im Hintergrund war, und öffnet sich erst nach Face ID, Touch ID oder deinem Gerätecode. Voraussetzung: In den iOS-Einstellungen ist ein Code oder Face ID eingerichtet.</p>
+    </article>
+
+    <article class="hc-article" id="sprache" data-tags="sprache englisch deutsch app-sprache ändern ios-einstellungen belegsprache">
+      <h3>Sprache der App ändern <a class="anker" href="#sprache" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ul>
+        <li><strong>App-Sprache (iPhone):</strong> Profil, Karte <strong>Sprache</strong>, <strong>In den iOS-Einstellungen ändern</strong>. Dort wählst du Deutsch oder Englisch, USELY übernimmt es beim Zurückkehren, im Zweifel nach einem Neustart der App.</li>
+        <li><strong>Web-App:</strong> folgt der Sprache deines Browsers.</li>
+        <li><strong>Belegsprache</strong> ist davon getrennt: Sie gilt für PDFs, E-Rechnungen und Versand-Mails und wird je Firma in den Stammdaten eingestellt.</li>
+      </ul>
+    </article>
+
+    <article class="hc-article" id="konto-loeschen" data-tags="konto löschen account löschen daten löschen aufbewahrungsfrist anonymisiert firma löschen abmelden">
+      <h3>Konto löschen <a class="anker" href="#konto-loeschen" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ol class="hc-steps">
+        <li>Exportiere vorher deine Daten (<a href="#datenexport">Datenexport</a>) und die Belege, die du aufbewahren musst.</li>
+        <li>Profil, ganz unten <strong>Konto löschen</strong>, Warnung lesen, <strong>Weiter zum Löschen</strong> und endgültig bestätigen.</li>
+      </ol>
+      <p>Dein Zugang und deine persönlichen Daten werden unwiderruflich gelöscht, ebenso Kunden, Projekte und Ausgaben. Hast du Rechnungen über USELY versendet oder Online-Zahlungen erhalten, werden diese Beleg- und Zahlungsdaten nicht gelöscht, sondern anonymisiert gesperrt: Sie unterliegen gesetzlichen Aufbewahrungsfristen (§147 AO, bis zu 10 Jahre) und werden nach Fristablauf endgültig entfernt.</p>
+      <div class="hc-tip warn">Du willst nur raus aus einer Firma, nicht dein Konto löschen? Als Mitglied wählst du <strong>Diese Firma verlassen</strong> unter Team und Steuerberater. Inhaber können ihre Firma nicht verlassen, nur das Konto löschen.</div>
+    </article>
+
+    <article class="hc-article" id="datenschutz" data-tags="datenschutz sicherheit dsgvo server eu verschlüsselt gobd belegbilder privat bank-login zugangsdaten">
+      <h3>Datenschutz und Sicherheit <a class="anker" href="#datenschutz" aria-label="Link zu diesem Artikel">#</a></h3>
+      <ul>
+        <li>Deine Daten liegen in deinem USELY-Konto auf Servern in der EU, verschlüsselt übertragen und DSGVO-konform verarbeitet. Details in der <a href="https://yg-media.de/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</li>
+        <li>Belegbilder und Dateien sind privat je Firma gespeichert, nur Mitglieder mit dem passenden Bereich sehen sie.</li>
+        <li>Die Belegablage ist GoBD-konform: Belege tragen eingefrorene Werte, Änderungen laufen über Stornos, das Aktivitätsprotokoll hält jede Änderung fest.</li>
+        <li>Beim Banking-Abgleich läuft der Login ausschließlich bei deiner Bank, USELY sieht keine Zugangsdaten und kann keine Zahlungen auslösen. Beim Bezahllink läuft die Zahlung über dein eigenes Stripe-Konto.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ============================================================ FEHLER UND LOESUNGEN -->
+  <section class="hc-section" id="fehler" data-titel="Fehler und Lösungen">
+    <div class="hc-section-head">
+      <span class="eyebrow">13 · Fehler und Lösungen</span>
+      <h2>Wenn etwas <em>hakt.</em></h2>
+      <p>Die häufigsten Meldungen der App, was dahintersteckt und was du tun kannst. Tipp: Gib die Meldung oben in die Suche ein.</p>
+    </div>
+
+    <article class="hc-article" id="fehler-anmeldung" data-tags="fehler login anmeldung passwort stimmt nicht code abgelaufen zu viele versuche e-mail bestätigen konto existiert">
+      <h3>Anmeldung und Konto <a class="anker" href="#fehler-anmeldung" aria-label="Link zu diesem Artikel">#</a></h3>
+      <div class="hc-error"><div class="hc-error-msg">E-Mail oder Passwort stimmen nicht. Bitte prüfe deine Eingaben.</div><p>Achte auf Groß- und Kleinschreibung und auf Leerzeichen am Ende, die die Tastatur beim Einfügen anhängt. Hilft das nicht: <strong>Passwort vergessen?</strong> auf dem Login-Bildschirm.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Bitte bestätige zuerst deine E-Mail-Adresse. Den Code findest du in deinem Postfach.</div><p>Nach der Registrierung muss der Bestätigungscode eingegeben werden. Prüfe den Spam-Ordner, über <strong>Code erneut senden</strong> kommt ein neuer.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Der Code ist abgelaufen oder falsch. Fordere einen neuen Code an.</div><p>Codes gelten nur kurz. Neuen Code anfordern und den neuesten aus dem Postfach verwenden, alte Codes sind ungültig.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Für diese E-Mail gibt es schon ein Konto. Melde dich einfach an.</div><p>Du hast dich früher schon registriert. Wechsle auf <strong>Anmelden</strong>, bei Bedarf mit <strong>Passwort vergessen?</strong>.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Zu viele Versuche. Bitte warte kurz und versuche es dann erneut.</div><p>Ein Schutz gegen Fremdzugriff. Nach einigen Minuten geht es weiter.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Bitte melde dich erneut an.</div><p>Deine Sitzung ist abgelaufen oder das Passwort wurde auf einem anderen Gerät geändert. Einmal abmelden und neu anmelden.</p></div>
+    </article>
+
+    <article class="hc-article" id="fehler-belege" data-tags="fehler rechnung monatslimit free-limit kunde wählen posten umwandeln bereits umgewandelt storniert entwurf freigeben pdf internet">
+      <h3>Belege und Rechnungen <a class="anker" href="#fehler-belege" aria-label="Link zu diesem Artikel">#</a></h3>
+      <div class="hc-error"><div class="hc-error-msg">Das Monatslimit für Rechnungen ist erreicht. Mit USELY Pro erstellst du unbegrenzt Belege.</div><p>Im Free-Tarif sind 3 Rechnungen pro Monat möglich, nächsten Monat gibt es neue. Angebote, Auftragsbestätigungen und Lieferscheine sind unbegrenzt. Mit <a href="#free-vs-pro">Pro</a> entfällt die Grenze sofort.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Bitte wähle einen Kunden. / Für einen Beleg zuerst einen Kunden auswählen</div><p>Ein Beleg braucht einen Empfänger. Wähle einen bestehenden Kunden oder lege im Kalkulator einen neuen an. Ohne Kunde kannst du die Kalkulation nur als Projekt speichern.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Füge zuerst Posten hinzu / Jede Position braucht eine Bezeichnung.</div><p>Mindestens ein Posten mit Bezeichnung, Menge und Preis ist nötig. Leere Zeilen löschst du mit Wischen nach links.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Nur angenommene Angebote können umgewandelt werden.</div><p>Setze den Status des Angebots zuerst auf <strong>Angenommen</strong> (im Angebot über die Aktionen), dann erscheint <strong>Auftragsbestätigung erstellen</strong>.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Dieser Beleg wurde bereits umgewandelt.</div><p>Jeder Beleg lässt sich genau einmal umwandeln. Der Nachfolger ist im Beleg verlinkt (<strong>Wurde zu … umgewandelt</strong>). Brauchst du eine zweite Rechnung zum selben Auftrag, nutze Abschlagsrechnungen oder eine neue Kalkulation.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Ein stornierter Beleg kann nicht mehr umgewandelt werden. / Dieser Beleg kann nicht storniert werden.</div><p>Stornierte Belege sind abgeschlossen. Angebote und Entwürfe werden nicht storniert, sondern bearbeitet oder gelöscht.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Entwürfe haben noch keine Belegnummer. Gib die Rechnung zuerst frei.</div><p>Der Beleg stammt aus einer wiederkehrenden Vorlage. Öffne ihn und tippe auf <strong>Rechnung freigeben</strong>, dann gibt es Nummer, PDF und Versand.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Zu dieser Rechnung liegt bereits eine Zahlung vor. Sie ist aufbewahrungspflichtig und kann nicht gelöscht werden.</div><p>Bezahlte Rechnungen bleiben erhalten. Ist die Rechnung falsch, erstelle eine <a href="#beleg-stornieren">Stornorechnung</a> und erstatte den Betrag.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Für das PDF wird eine Internetverbindung benötigt.</div><p>PDFs und E-Rechnungen entstehen auf dem Server. Verbindung prüfen, dann erneut öffnen. Bereits geladene Daten bleiben offline sichtbar.</p></div>
+    </article>
+
+    <article class="hc-article" id="fehler-versand" data-tags="fehler versand mail-konto keine e-mail-adresse zu viele versendungen pdf zu groß annahme-link bezahllink konnte nicht erstellt werden">
+      <h3>Versand und Links <a class="anker" href="#fehler-versand" aria-label="Link zu diesem Artikel">#</a></h3>
+      <div class="hc-error"><div class="hc-error-msg">Auf diesem Gerät ist kein Mail-Konto eingerichtet.</div><p>Betrifft nur den Weg <strong>Über Mail-App senden</strong>. Richte in den iOS-Einstellungen ein Mail-Konto ein oder nutze <strong>Per E-Mail senden</strong>, dann verschickt USELY die Mail für dich.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Der Kunde hat keine E-Mail-Adresse. Ergänze sie in den Kundendaten oder nutze die Mail-App.</div><p>Öffne den Kunden, tippe auf den Stift und trage die E-Mail ein. Danach ist sie beim Senden vorbelegt.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Zu viele Versendungen in kurzer Zeit. Bitte versuche es in einer Stunde erneut.</div><p>Ein Schutz für die Zustellbarkeit deiner Mails. Nach einer Stunde geht es weiter, dringende Belege gehen solange über die Mail-App raus.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Das PDF ist zu groß für den Serverversand. Nutze die Mail-App.</div><p>Sehr große Logos oder viele Positionen sprengen die Grenze. Verkleinere das Logo (unter 1 MB) oder sende über die Mail-App.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Der Annahme-Link konnte nicht erstellt werden. / Die Beleg-Freigabe ist für diese Firma noch nicht freigeschaltet.</div><p>Die Annahme per Link wird schrittweise freigeschaltet. Schalte <strong>Annahme-Link beifügen</strong> aus und sende ohne Link, der Kunde antwortet dann per Mail. Ein reiner <strong>Beleg-Link</strong> zur Ansicht funktioniert immer.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Der Bezahllink konnte nicht erstellt werden. Sende ohne Bezahllink oder prüfe den Status der Rechnung.</div><p>Bezahllinks gibt es nur für offene Rechnungen mit verbundenem Stripe-Konto. Prüfe unter Profil, <strong>Zahlungen empfangen</strong>, ob die Verbindung aktiv ist, sonst sende ohne Bezahllink.</p></div>
+    </article>
+
+    <article class="hc-article" id="fehler-erechnung" data-tags="fehler e-rechnung pro-feature zugferd nur für rechnungen keine e-rechnung erkannt firmendaten fehlen">
+      <h3>E-Rechnung <a class="anker" href="#fehler-erechnung" aria-label="Link zu diesem Artikel">#</a></h3>
+      <div class="hc-error"><div class="hc-error-msg">E-Rechnungs-Anhänge (ZUGFeRD, XRechnung) sind ein Pro-Feature. Der Versand als PDF ist frei.</div><p>E-Rechnungen brauchen USELY Pro. Der Versand als normales PDF bleibt in Free frei.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">E-Rechnungs-Anhänge gibt es nur für Rechnungen und Abschlagsrechnungen.</div><p>Angebote, Auftragsbestätigungen und Lieferscheine sind keine Rechnungen im Sinne der E-Rechnung. Erstelle die Rechnung aus dem Beleg, dann steht das Format bereit.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Firmendaten fehlen</div><p>Für eine gültige E-Rechnung braucht USELY Firmenname, Adresse und Steuernummer oder USt-IdNr. sowie die Adresse des Kunden. Ergänze die Angaben in den Stammdaten bzw. beim Kunden und erzeuge die Datei erneut.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Keine E-Rechnung erkannt</div><p>Die Datei enthält keine eingebettete XML (normales PDF) oder ein Format außerhalb von XRechnung und ZUGFeRD. Die Werte trägst du dann von Hand ein, das Belegbild bleibt gespeichert.</p></div>
+    </article>
+
+    <article class="hc-article" id="fehler-ausgaben" data-tags="fehler ausgaben kamera-zugriff nichts erkannt bild konnte nicht verarbeitet werden datei größer 10 mb beleg-postfach pro noch nicht freigeschaltet dateityp">
+      <h3>Ausgaben, Scan und Beleg-Postfach <a class="anker" href="#fehler-ausgaben" aria-label="Link zu diesem Artikel">#</a></h3>
+      <div class="hc-error"><div class="hc-error-msg">Kamera-Zugriff benötigt</div><p>iOS-Einstellungen, Datenschutz und Sicherheit, Kamera, USELY einschalten. Alternativ ein Foto aus der Galerie wählen.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Nichts erkannt / Bild konnte nicht verarbeitet werden</div><p>Der Beleg war unscharf, schräg oder zu dunkel. Neu fotografieren: flach, ganz im Bild, gutes Licht. Die Werte lassen sich immer auch von Hand eintragen.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Mit Pro werden Betrag &amp; Datum automatisch erkannt</div><p>Die Belegerkennung ist Teil von Pro. In Free hängst du das Foto an und trägst die Werte ein.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Die Datei ist größer als 10 MB. / Dieser Dateityp wird nicht unterstützt</div><p>Erlaubt sind PDF, Bilder, Word, Excel, CSV und Text bis 10 MB. Große Scans vorher als PDF verkleinern oder als Foto statt als Scan-Datei anhängen.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Das Beleg-Postfach ist Teil von USELY Pro. / Die Beleg-Adresse legt ein Admin beim ersten Öffnen des Posteingangs an.</div><p>Das Postfach braucht Pro, und die Adresse entsteht, wenn ein <strong>Admin</strong> den Posteingang öffnet. Mitglieder sehen den Posteingang danach ebenfalls.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Limit erreicht: höchstens 50 Dateien je Kunde.</div><p>Die Kundenakte fasst 50 Dateien. Lösche, was du nicht mehr brauchst, oder lege Dateien am Projekt ab.</p></div>
+    </article>
+
+    <article class="hc-article" id="fehler-team" data-tags="fehler team einladung abgelaufen code ungültig bereits eingelöst keine berechtigung nur inhaber und admins zu viele offene einladungen">
+      <h3>Team, Rollen und Einladungen <a class="anker" href="#fehler-team" aria-label="Link zu diesem Artikel">#</a></h3>
+      <div class="hc-error"><div class="hc-error-msg">Dafür fehlt dir die Berechtigung. / Nur Inhaber und Admins dürfen das.</div><p>Deine Rolle erlaubt die Aktion nicht (zum Beispiel Stammdaten, Team oder Banking als Mitglied). Bitte einen Admin, es zu erledigen oder deine Rolle anzupassen. Siehe <a href="#rollen">Rollen und Rechte</a>.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Diese Einladung ist abgelaufen. Bitte um einen neuen Code. / Dieser Code wurde bereits eingelöst.</div><p>Einladungscodes gelten begrenzt und genau einmal. Der Admin erstellt eine neue Einladung.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Dieser Code ist ungültig. Bitte prüfe die Eingabe.</div><p>Code ohne Leerzeichen eingeben, Groß- und Kleinschreibung beachten. Am einfachsten ist der Link aus der Einladungsnachricht, er trägt den Code automatisch ein.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Zu viele offene Einladungen. Widerrufe zuerst eine bestehende.</div><p>Unter Zugänge verwalten die nicht mehr benötigten Einladungen widerrufen, dann eine neue erstellen.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Du bist bereits Mitglied dieser Firma.</div><p>Der Code gehört zu einer Firma, in der du schon bist. Wechsle einfach über den Firmen-Umschalter dorthin.</p></div>
+    </article>
+
+    <article class="hc-article" id="fehler-zeiten" data-tags="fehler timer läuft bereits ein timer 24 stunden anderes gerät gestoppt dauer prüfen zeiten abgerechnet">
+      <h3>Zeiterfassung und Boards <a class="anker" href="#fehler-zeiten" aria-label="Link zu diesem Artikel">#</a></h3>
+      <div class="hc-error"><div class="hc-error-msg">Es läuft bereits ein Timer. / Der neue Timer konnte nicht starten</div><p>Je Person läuft nur ein Timer. Stoppe ihn in der laufenden Aufgabe oder wähle in der neuen Aufgabe <strong>Timer hierher wechseln</strong>.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Der Timer lief länger als 24 Stunden. Dauer bitte prüfen.</div><p>Vermutlich vergessen zu stoppen. Korrigiere die Dauer im Editor vor dem Speichern, die Erinnerung nach 8 Stunden hilft beim nächsten Mal.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Der Timer wurde bereits auf einem anderen Gerät gestoppt.</div><p>Kein Datenverlust: Der Zeiteintrag wurde auf dem anderen Gerät gespeichert. Die Ansicht aktualisiert sich beim nächsten Öffnen.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Der Beleg wurde erstellt, aber die Zeiten konnten nicht als abgerechnet markiert werden. Sie bleiben offen.</div><p>Der Beleg ist da, nur die Markierung fehlte (meist Verbindungsabbruch). Markiere die Einträge im Report von Hand als abgerechnet, damit sie nicht doppelt auftauchen.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Zu viele Regeln für dieses Board (max. 20). / Zu viele Bedingungen für eine Regel (max. 5).</div><p>Fasse Regeln zusammen (mehrere Bedingungen mit ODER) oder lösche Regeln, die du nicht mehr brauchst.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Spalte oder Option existiert nicht mehr</div><p>Eine Regel verweist auf eine gelöschte Spalte. Lege die Regel neu an oder lösche sie.</p></div>
+    </article>
+
+    <article class="hc-article" id="fehler-abo" data-tags="fehler abo kauf konnte nicht verifiziert werden keine aktiven käufe gefunden pro nicht erkannt wiederherstellen">
+      <h3>Abo und Zahlung <a class="anker" href="#fehler-abo" aria-label="Link zu diesem Artikel">#</a></h3>
+      <div class="hc-error"><div class="hc-error-msg">Kauf konnte nicht verifiziert werden.</div><p>Apple hat den Kauf noch nicht bestätigt. Internetverbindung prüfen, App kurz schließen, dann Profil, USELY Pro, <strong>Käufe wiederherstellen</strong>. Wird dir der Betrag berechnet, aber Pro erscheint nicht, schreib uns mit deiner Apple-Bestellnummer.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Keine aktiven Käufe gefunden.</div><p>Auf diesem iPhone ist eine andere Apple-ID angemeldet als beim Kauf, oder das Abo ist abgelaufen. Apple-ID prüfen (iOS-Einstellungen, oben dein Name) und erneut wiederherstellen.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Pro im Web abgeschlossen, in der App nicht sichtbar</div><p>Einmal abmelden und neu anmelden, dann liest die App den Pro-Status frisch. Beide Apps müssen dasselbe Konto (dieselbe E-Mail) nutzen.</p></div>
+    </article>
+
+    <article class="hc-article" id="fehler-verbindung" data-tags="fehler verbindung offline serververbindung fehlgeschlagen unerwartete antwort neustart erforderlich sprache app hängt neu installieren">
+      <h3>Verbindung, Anzeige, Sonstiges <a class="anker" href="#fehler-verbindung" aria-label="Link zu diesem Artikel">#</a></h3>
+      <div class="hc-error"><div class="hc-error-msg">Keine Verbindung. Bitte prüfe dein Netz und versuche es erneut. / Offline, du siehst gespeicherte Daten</div><p>Die App zeigt den letzten Stand. Sobald das Netz zurück ist, lädt sie automatisch nach, zum Erzwingen die Liste nach unten ziehen.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Serververbindung fehlgeschlagen. / Unerwartete Antwort vom Server.</div><p>Meist ein kurzer Aussetzer. Nach einer Minute erneut versuchen. Bleibt es, prüfe, ob eine neuere App-Version im App Store liegt, und schreib uns mit Uhrzeit und Meldung.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Neustart erforderlich</div><p>Nach einem Sprachwechsel muss USELY einmal komplett geschlossen werden (App-Umschalter, nach oben wischen) und neu geöffnet.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Die Daten wurden nicht gefunden. Bitte lade die Ansicht neu.</div><p>Ein Teammitglied hat den Eintrag gerade gelöscht oder verschoben. Liste nach unten ziehen, dann ist der Stand aktuell.</p></div>
+      <div class="hc-error"><div class="hc-error-msg">Die App zeigt alte Daten oder reagiert nicht</div><p>App komplett schließen und neu öffnen. Hilft das nicht: abmelden und anmelden. Deine Daten liegen im Konto, eine Neuinstallation löscht nichts.</p></div>
+    </article>
+  </section>
+
+  <!-- ============================================================ FAQ -->
+  <section class="hc-section" id="faq" data-titel="Häufige Fragen">
+    <div class="hc-section-head">
+      <span class="eyebrow">14 · Häufige Fragen</span>
+      <h2>Kurz <em>beantwortet.</em></h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item"><button class="faq-q">Was kostet USELY und was ist in Pro enthalten?</button><div class="faq-a"><p>USELY Free ist dauerhaft kostenlos: Kalkulation, Angebote, Auftragsbestätigungen, Lieferscheine, bis zu 3 Rechnungen im Monat, Kunden, Projekte, Boards, Zeiten und Ausgaben. USELY Pro kostet 9,99 Euro im Monat oder 89,99 Euro im Jahr und bringt unbegrenzte Rechnungen, das eigene Logo ohne USELY-Hinweis, E-Rechnung als XRechnung und ZUGFeRD, Belegerkennung per Foto, wiederkehrende Rechnungen und Ausgaben, Mahnwesen und das Beleg-Postfach. Pro lässt sich 30 Tage kostenlos testen. Details: <a href="#free-vs-pro">Free und Pro im Vergleich</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Wie viele Rechnungen kann ich kostenlos schreiben?</button><div class="faq-a"><p>Im Free-Tarif sind 3 Rechnungen pro Monat möglich, Angebote, Auftragsbestätigungen und Lieferscheine sind unbegrenzt. Jeden Monat gibt es 3 neue Rechnungen. Mit USELY Pro entfällt die Grenze.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Kann ich USELY auf dem Desktop oder mit Android nutzen?</button><div class="faq-a"><p>Ja. Die Web-App läuft in jedem aktuellen Browser auf Windows, Mac, Linux und Android und nutzt dasselbe Konto wie die iPhone App. Alle Daten sind in Echtzeit synchron. Die Web-App lässt sich über das Browser-Menü wie eine App installieren. Mehr unter <a href="#iphone-und-web">iPhone App und Web-App</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Ist USELY für Kleinunternehmer nach §19 UStG geeignet?</button><div class="faq-a"><p>Ja. Schalte in den Stammdaten unter Steuer die Kleinunternehmerregelung ein. Belege werden dann ohne Umsatzsteuer erstellt und tragen den Hinweis nach §19 UStG automatisch. Anleitung: <a href="#kleinunternehmer">Kleinunternehmer</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Kann ich mit USELY E-Rechnungen erstellen und empfangen?</button><div class="faq-a"><p>Ja. Aus jeder Rechnung und Abschlagsrechnung erzeugt USELY Pro eine XRechnung als XML oder ein ZUGFeRD-PDF und verschickt sie direkt per Mail. Eingehende E-Rechnungen liest USELY beim Erfassen einer Ausgabe oder im Beleg-Postfach automatisch aus. Mehr unter <a href="#e-rechnung">E-Rechnung</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Wie bekommt mein Steuerberater Zugang?</button><div class="faq-a"><p>Im Profil unter Team und Steuerberater lädst du die Kanzlei mit Nur-Lesen-Zugriff ein. Du wählst die Bereiche, die sie sehen darf, zum Beispiel Belege, Ausgaben und Export. Die Kanzlei erstellt ein kostenloses USELY-Konto, löst den Einladungscode ein und sieht deine Firma. DATEV-Export und EÜR stehen dort bereit. Anleitung: <a href="#steuerberater-einladen">Steuerberater einladen</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Wo liegen meine Daten und wie bekomme ich sie wieder heraus?</button><div class="faq-a"><p>Deine Daten liegen in deinem USELY-Konto auf Servern in der EU, DSGVO-konform. Im Profil unter Datenschutz exportierst du alles als JSON und lesbares PDF. Belege gibt es als PDF, Auswertungen als CSV, für die Kanzlei als DATEV-Buchungsstapel und Belegpaket.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Kann ich einen Beleg nachträglich ändern oder löschen?</button><div class="faq-a"><p>Angebote und Entwürfe lassen sich bearbeiten. Eine erstellte Rechnung trägt eine fortlaufende Nummer und wird nach GoBD nicht verändert, sondern storniert: USELY erstellt eine Stornorechnung mit eigener Nummer, die Originalrechnung bleibt als storniert erhalten. Danach schreibst du die Rechnung neu. Anleitung: <a href="#beleg-stornieren">Rechnung stornieren</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Wie kündige ich USELY Pro?</button><div class="faq-a"><p>Hast du Pro auf dem iPhone abgeschlossen, kündigst du in den iOS-Einstellungen unter deinem Namen, Abonnements. Im Web über Profil, Abo verwalten. Das Abo läuft bis zum Ende des bezahlten Zeitraums weiter, deine Daten bleiben erhalten und exportierbar.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Was passiert, wenn ich mein Konto lösche?</button><div class="faq-a"><p>Dein Zugang und deine persönlichen Daten werden unwiderruflich gelöscht, ebenso Kunden, Projekte und Ausgaben. Hast du Rechnungen über USELY versendet oder Online-Zahlungen erhalten, werden diese Beleg- und Zahlungsdaten anonymisiert gesperrt, weil sie gesetzlichen Aufbewahrungsfristen unterliegen, und nach Fristablauf endgültig entfernt. Exportiere deine Daten vorher. Anleitung: <a href="#konto-loeschen">Konto löschen</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Warum sehe ich bei mir keine Karte für Bezahllink oder Banking?</button><div class="faq-a"><p>Bezahllink und Banking-Abgleich werden schrittweise für Konten freigeschaltet. Solange die Freischaltung für deine Firma noch nicht aktiv ist, erscheinen die Karten im Profil nicht. Schreib uns, wenn du sie brauchst. Der QR-Code zum Überweisen funktioniert für alle.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Wie erreiche ich den Support?</button><div class="faq-a"><p>In der App über Profil, Hilfe und Feedback: Das öffnet eine Mail an info@yg-media.de mit Version, iOS-Version und Gerät. Oder direkt per Mail an <a href="mailto:info@yg-media.de">info@yg-media.de</a>. Wir lesen jede Nachricht.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ KONTAKT -->
+  <section class="hc-section" id="kontakt" data-titel="Kontakt">
+    <div class="hc-contact">
+      <div>
+        <span class="eyebrow">15 · Kontakt</span>
+        <h2>Nicht fündig geworden?</h2>
+        <p>Schreib uns. Am schnellsten aus der App: Profil, <strong>Hilfe und Feedback</strong>. Die Mail trägt dann schon App-Version, iOS-Version und Gerät. Ein Screenshot der Meldung hilft zusätzlich. Wir antworten persönlich, kein Ticket-Roboter.</p>
+        <p class="hc-meta">Stand: September 2026 · USELY 1.4 für iPhone (iOS 26) und Web-App · Diese Seite wird mit jeder Version aktualisiert.</p>
+      </div>
+      <div><a href="mailto:info@yg-media.de?subject=USELY%3A%20Frage" class="btn btn-primary">info@yg-media.de</a></div>
+    </div>
+  </section>
+
+  </main>
+</div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <img src="/assets/usely-icon-96.webp" alt="" width="96" height="96">
+          <span class="footer-logo-text">USELY</span>
+        </div>
+        <p class="footer-tagline">Die Rechnungs App für Selbstständige.<br>Kalkulieren. Abrechnen. Fertig.</p>
+      </div>
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <div class="footer-col-title">Produkt</div>
+          <a href="/#funktionen">Funktionen</a>
+          <a href="/#apps">iPhone und Web</a>
+          <a href="/#preise">Preise</a>
+          <a href="/hilfe/">Hilfe-Center</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Loslegen</div>
+          <a href="https://apps.apple.com/de/app/usely/id6783429050" target="_blank" rel="noopener" data-track="appstore-footer">Im App Store laden</a>
+          <a href="https://usely-4lt.pages.dev" target="_blank" rel="noopener" data-track="webapp-footer">Web-App öffnen</a>
+          <a href="mailto:info@yg-media.de">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Rechtliches</div>
+          <a href="https://yg-media.de/impressum" target="_blank" rel="noopener">Impressum</a>
+          <a href="https://yg-media.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+          <a href="https://yg-media.de/nutzungsbedingungen" target="_blank" rel="noopener">Nutzungsbedingungen</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 USELY · Ein Produkt von <a href="https://yg-media.de/" target="_blank" rel="noopener">YG MEDIA</a></p>
+      <p class="footer-copy">info@yg-media.de</p>
+    </div>
+  </div>
+</footer>
+
+<button type="button" class="hc-top" id="hcTop" aria-label="Nach oben">↑</button>
+
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-title">Diese Website verwendet Cookies</div>
+  <div class="cookie-text">Diese Website nutzt Cookies, um die Nutzung zu analysieren und das Angebot zu verbessern. Du entscheidest selbst, was du zulässt. Mehr dazu in der <a href="https://yg-media.de/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</div>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-decline" id="cookieDecline">Nur notwendige</button>
+    <button class="cookie-btn cookie-accept" id="cookieAccept">Alle akzeptieren</button>
+  </div>
+</div>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); burger.setAttribute('aria-expanded', String(open)); });
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }));
+
+// Sanfte Anker (auch aus der Suche heraus: Ziel vorher sichtbar machen)
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const t = document.getElementById(id);
+    if (!t) return;
+    e.preventDefault();
+    if (suche.value) { suche.value = ''; filtern(''); }
+    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', '#' + id);
+  });
+});
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    item.classList.toggle('open');
+    if (item.classList.contains('open') && window.gtag) window.gtag('event', 'faq_open', { frage: q.textContent.trim() });
+  });
+});
+
+document.querySelectorAll('[data-track]').forEach(el => {
+  el.addEventListener('click', () => {
+    if (!window.gtag) return;
+    const ziel = el.getAttribute('data-track');
+    window.gtag('event', ziel.startsWith('appstore') ? 'app_store_klick' : 'web_app_klick', { position: ziel });
+  });
+});
+
+// SUCHE: filtert Artikel, Fehler-Einträge und FAQ nach Titel, Text und Schlagworten
+const suche = document.getElementById('hcQuery');
+const sucheWrap = document.getElementById('hcSearch');
+const suchStatus = document.getElementById('hcStatus');
+const leer = document.getElementById('hcEmpty');
+const eintraege = Array.from(document.querySelectorAll('.hc-article, .faq-item'));
+eintraege.forEach(el => { el.dataset.such = (el.textContent + ' ' + (el.dataset.tags || '')).toLowerCase().replace(/\s+/g, ' '); });
+const sektionen = Array.from(document.querySelectorAll('.hc-section'));
+let suchTimer;
+function normalisieren(s) { return s.toLowerCase().trim().replace(/\s+/g, ' '); }
+function filtern(roh) {
+  const q = normalisieren(roh);
+  const woerter = q.split(' ').filter(w => w.length > 1);
+  sucheWrap.classList.toggle('hat-text', q.length > 0);
+  if (woerter.length === 0) {
+    eintraege.forEach(el => { el.style.display = ''; el.classList.remove('such-treffer'); });
+    sektionen.forEach(s => { s.style.display = ''; });
+    document.querySelectorAll('.faq-item.such-offen').forEach(f => { f.classList.remove('open', 'such-offen'); });
+    leer.classList.remove('show');
+    suchStatus.textContent = '';
+    return;
+  }
+  let treffer = 0;
+  eintraege.forEach(el => {
+    const hit = woerter.every(w => el.dataset.such.includes(w));
+    el.style.display = hit ? '' : 'none';
+    if (hit) { treffer++; el.classList.add('visible'); if (el.classList.contains('faq-item')) { el.classList.add('open', 'such-offen'); } }
+  });
+  sektionen.forEach(s => {
+    const sichtbar = Array.from(s.querySelectorAll('.hc-article, .faq-item')).some(el => el.style.display !== 'none');
+    s.style.display = sichtbar || s.id === 'kontakt' ? '' : 'none';
+  });
+  leer.classList.toggle('show', treffer === 0);
+  suchStatus.innerHTML = treffer === 0 ? 'Keine Treffer für <strong>' + roh.replace(/</g, '&lt;') + '</strong>' : '<strong>' + treffer + '</strong> ' + (treffer === 1 ? 'Treffer' : 'Treffer') + ' für „' + roh.replace(/</g, '&lt;') + '“';
+  if (window.gtag && q.length > 2) window.gtag('event', 'hilfe_suche', { begriff: q, treffer: treffer });
+}
+suche.addEventListener('input', () => { clearTimeout(suchTimer); suchTimer = setTimeout(() => filtern(suche.value), 120); });
+document.getElementById('hcClear').addEventListener('click', () => { suche.value = ''; filtern(''); suche.focus(); });
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && document.activeElement !== suche && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); suche.focus(); }
+  if (e.key === 'Escape' && document.activeElement === suche) { suche.value = ''; filtern(''); suche.blur(); }
+});
+const param = new URLSearchParams(location.search).get('q');
+if (param) { suche.value = param; filtern(param); }
+
+// SCROLLSPY: aktives Thema in der Seitenleiste
+const navEintraege = Array.from(document.querySelectorAll('#hcNav a'));
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    navEintraege.forEach(a => a.classList.toggle('aktiv', a.getAttribute('href') === '#' + e.target.id));
+    const aktiv = document.querySelector('#hcNav a.aktiv');
+    if (aktiv && window.innerWidth <= 1000) aktiv.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+  });
+}, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+sektionen.forEach(s => spy.observe(s));
+
+// NACH OBEN (nie "top" nennen: window.top ist eine unveraenderliche globale Eigenschaft)
+const nachOben = document.getElementById('hcTop');
+window.addEventListener('scroll', () => { nachOben.classList.toggle('show', window.scrollY > 900); }, { passive: true });
+nachOben.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+// Hintergrund-Partikel (wie Startseite, ruhiger)
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles, mouse = { x: -9999, y: -9999 };
+const ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+function Particle() {
+  this.reset = () => { this.x = Math.random()*W; this.y = Math.random()*H; this.vx = (Math.random()-0.5)*0.25; this.vy = (Math.random()-0.5)*0.25; this.r = Math.random()*1.4+0.3; this.alpha = Math.random()*0.28+0.05; this.life = 0; this.maxLife = Math.random()*300+200; }; this.reset();
+}
+function initParticles() { particles = Array.from({length: 70}, () => new Particle()); }
+function animate() {
+  ctx.clearRect(0,0,W,H);
+  for (let i=0;i<particles.length;i++) {
+    for (let j=i+1;j<particles.length;j++) { const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy); if(d<130){ctx.beginPath();ctx.strokeStyle=`rgba(29,222,180,${(1-d/130)*0.07})`;ctx.lineWidth=0.5;ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();} }
+    const dx=particles[i].x-mouse.x,dy=particles[i].y-mouse.y,d=Math.sqrt(dx*dx+dy*dy); if(d<180){ctx.beginPath();ctx.strokeStyle=`rgba(29,222,180,${(1-d/180)*0.18})`;ctx.lineWidth=0.7;ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}
+  }
+  particles.forEach(p => {
+    p.life++; if(p.life>p.maxLife) p.reset();
+    const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy); if(d<100){const f=(100-d)/100*0.7;p.vx+=(dx/d)*f;p.vy+=(dy/d)*f;}
+    p.vx*=0.99;p.vy*=0.99;p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+    const fa=p.life<60?p.life/60:p.life>p.maxLife-60?(p.maxLife-p.life)/60:1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(29,222,180,${p.alpha*fa})`;ctx.fill();
+  });
+  if (!ruhig) requestAnimationFrame(animate);
+}
+window.addEventListener('mousemove', e => { mouse.x=e.clientX; mouse.y=e.clientY; }, {passive:true});
+window.addEventListener('mouseleave', () => { mouse.x=-9999; mouse.y=-9999; });
+window.addEventListener('resize', () => { resize(); initParticles(); }, {passive:true});
+resize(); initParticles(); animate();
+</script>
+
+<script>
+// COOKIE-CONSENT + ANALYTICS (GA4 laedt erst nach Zustimmung, identisch zur Startseite)
+(function() {
+  const GA_ID = 'G-KV2MZ6J0CG';  // GA4-Webstream "USELY" (Property usely-e8e2f, Stream 11451748991)
+  const banner = document.getElementById('cookieBanner');
+  const KEY = 'usely_cookie_consent';
+  function loadAnalytics() {
+    if (!GA_ID) return;
+    const s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  }
+  const consent = localStorage.getItem(KEY);
+  if (consent === 'accepted') { loadAnalytics(); }
+  else if (consent !== 'declined') { setTimeout(() => banner.classList.add('show'), 1200); }
+  document.getElementById('cookieAccept').addEventListener('click', () => { localStorage.setItem(KEY, 'accepted'); banner.classList.remove('show'); loadAnalytics(); });
+  document.getElementById('cookieDecline').addEventListener('click', () => { localStorage.setItem(KEY, 'declined'); banner.classList.remove('show'); });
+})();
+</script>
+
+</body>
+</html>
